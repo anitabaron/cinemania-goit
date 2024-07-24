@@ -1,0 +1,11 @@
+import './js/header';
+import './js/hero';
+import './js/movie-list';
+import './js/upcoming';
+import './js/footer';
+import './js/catalog';
+import './js/my-library';
+import './js/modal';
+import './js/oops';
+import './js/buttons-icons';
+import './js/fetch-api';

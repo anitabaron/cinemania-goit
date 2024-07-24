@@ -1,2 +1,116 @@
-@import './common';
-@import './example';
+@import './reset.scss';
+@import './header.scss';
+@import './hero.scss';
+@import './movie-list.scss';
+@import './upcoming.scss';
+@import './footer.scss';
+@import './catalog.scss';
+@import './my-library.scss';
+@import './modal.scss';
+@import './oops.scss';
+@import './buttons-icons.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* MAIN STYLES */
+
+:root {
+  --orange: #f87719;
+  --grey: #b7b7b7;
+  --white: #ffffff;
+  --black: #000000;
+  --background: #111111;
+  --secondary-text-grey: #f8f8f8;
+  --secondary-black-grey: #282828;
+  --grey-white-theme: #595959;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--white);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--background);
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.rbt-regular {
+  font-weight: 400;
+}
+
+.rbt-medium {
+  font-weight: 500;
+}
+
+.rbt-bold {
+  font-weight: 700;
+}
+
+/* ------------------------------MOBILE */
+
+.container {
+  max-width: 320px;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  .rbt-bold {
+    font-size: 40px;
+  }
+
+  // font-size: 10px;
+  // font-size: 12px;
+  // font-size: 14px;
+  // font-size: 20px;
+  // font-size: 40px;
+}
+
+/* ------------------------------TABLET */
+
+@media (width >= 768px) and (width < 1280px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  .rbt-bold {
+    font-size: 52px;
+  }
+
+  // font-size: 12px;
+  // font-size: 14px;
+  // font-size: 16px;
+  // font-size: 24px;
+  // font-size: 52px;
+}
+
+/* ------------------------------DESKTOP */
+
+@media (width >= 1280px) {
+  .container {
+    max-width: 1280px;
+    padding: 0 32px;
+  }
+
+  .rbt-bold {
+    font-size: 64px;
+  }
+  // font-size: 14px;
+  // font-size: 16px;
+  // font-size: 20px;
+  // font-size: 28px;
+  // font-size: 64px;
+}
