@@ -1,0 +1,2 @@
+const o={page:1,language:"en-US"};fetch("https://api.themoviedb.org/3/movie/upcoming?"+o,{method:"GET",headers:{accept:"application/json",Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ODIxMjdlZDk3MmU1NmY2YmI3MGFlNzQzZDIzYzFkNyIsIm5iZiI6MTcyMTkyNDE3MS44NDc0OTQsInN1YiI6IjY2YTI3NDZiN2E4ZDcyYzUwNmU3ZmNhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K1Qus-92Q3-9KvUxKtanYETfnKoQwXPTlFSSlwqsfFo"}}).then((o=>o.json())).then((o=>console.log(o))).then((o=>console.log(o))).catch((o=>console.error(o)));
+//# sourceMappingURL=index.5709c017.js.map
