@@ -14,7 +14,7 @@ import './js/fetch-api';
 
 
 
-// const createImage = ({ Props })=>{
+// const createDocumentFragment = ({ Props })=>{
 //     const li= document.createElement("li")
 //     li.classList.add("movie-trend-itemt")
 //     li.innerHTML=
