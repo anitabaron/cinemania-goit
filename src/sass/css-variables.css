@@ -1,0 +1,23 @@
+:root {
+  --orange: #f87719;
+  --grey: #b7b7b7;
+  --white: #ffffff;
+  --black: #000000;
+  --background: #111111;
+  --secondary-text-grey: #f8f8f8;
+  --secondary-black-grey: #282828;
+  --grey-white-theme: #595959;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--white);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
