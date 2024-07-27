@@ -1,140 +1,164 @@
 @import './normalization.scss';
 @import './css-variables.scss';
 
+/* ------------------------------MOBILE */
+@media (width < 768px) {
+  .container {
+    max-width: 320px;
+    padding: 0 20px;
+  }
+}
+/* ------------------------------TABLET */
+@media (width >= 768px) and (width < 1280px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+/* ------------------------------DESKTOP */
 
-/* ========================HEDER====================== */
-.header{
+@media (width >= 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* ========================HEADER====================== */
+.header {
   width: 1280px;
   height: 60px;
-  margin: 0 auto ;
-  padding: 0 32px 0 32px ;
+  margin: 0 auto;
+  padding: 0 32px 0 32px;
   background-color: var(--background);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.logo-box{
+.header--logo-box {
   display: flex;
-  gap:8px;
+  gap: 8px;
   align-items: center;
 }
-.nav-list{
+.header--nav-list {
   display: flex;
-  gap:50px;
+  gap: 50px;
 }
-.nav-item-link{
+.header--nav-item-link {
   color: var(--white);
 }
-.contrast-btn-box{
+.header--contrast-btn-box {
   width: 60px;
   height: 24px;
   background-color: var(--orange);
   border-radius: 194px;
 }
+
 /* ========================HERO====================== */
-.hero{
+.hero {
   width: 1280px;
   min-width: 500px;
   padding-left: 135px;
-  margin: 0 auto ;
+  margin: 0 auto;
   display: flex;
   background-color: var(--background);
 }
-.hero-movie-desc{
-  margin:auto 0 auto 0;
+.hero--movie-desc {
+  margin: auto 0 auto 0;
 }
-.hero-rating{
+.hero--rating {
   display: flex;
 }
 
-/* ========================TRENDS====================== */
-.trends{
+/* ========================MOVIE-LIST====================== */
+.movielist {
   width: 1280px;
   min-width: 500px;
-  margin: 0 auto ;
+  margin: 0 auto;
   padding: 0 32px 0 32px;
   background-color: var(--background);
 }
-.nav-tends-box{
+.movielist--nav-tends-box {
   width: 100%;
   padding: 0 32px 0 32px;
   display: flex;
   justify-content: space-between;
 }
-.movie-trend-list{
+.movielist--movie-card-list {
   display: flex;
   justify-content: space-between;
 }
-
-
-.movie-trend-itemt{
-  height:574px;
+.movielist--movie-itemt {
+  height: 574px;
   width: 395px;
   position: relative;
   border: solid 1px white;
 }
-.movie-trend-image{
-  height:100%;
+.movielist--movie-image {
+  height: 100%;
   width: 100%;
 }
-.trends-movi-description{
+.movielist--movie-description {
   position: absolute;
   left: 20px;
   bottom: 20px;
 }
-.trends-movi-details{
+.movielist--movie-details {
   display: flex;
-  gap: 10px
+  gap: 10px;
 }
-
-.trends-rateing-list{
+.movielist--rating-list {
   display: flex;
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
 
-
 /* ========================UPCOMING====================== */
-.upcoming{
+.upcoming {
   width: 1280px;
   min-width: 500px;
-  margin: 0 auto ;
+  margin: 0 auto;
   padding: 0 32px 0 32px;
   background-color: var(--background);
 }
-.upcoming-film-box{
+.upcoming--film-box {
   display: flex;
 }
-.upcoming-film-details-box{
-  margin:auto 0;
+.upcoming--film-details-box {
+  margin: auto 0;
 }
-.upcoming-film-details{
+.upcoming--film-details {
   display: flex;
   gap: 58px;
 }
-.upcoming-film-rateing{
+.upcoming--film-rateing {
   display: flex;
   gap: 5px;
 }
 
 /* ========================FOOTER====================== */
-.footer{
+.footer {
   width: 1280px;
-  margin: 0 auto ;
-  padding: 0 32px 0 32px ;
+  margin: 0 auto;
+  padding: 0 32px 0 32px;
   background-color: var(--background);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.footer-box{
+.footer--box {
   display: flex;
   gap: 10px;
   align-items: center;
   padding: 100px 0 80px 0;
 }
-.footer-paragraf{
+.footer--paragraf {
   display: flex;
   gap: 5px;
 }
+
+/* ========================MODAL====================== */
+
+/* ========================OOPS====================== */
+
+/* ========================BUTTONS-ICONS====================== */
