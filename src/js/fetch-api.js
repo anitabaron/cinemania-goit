@@ -86,6 +86,8 @@ homePageContent(trendMoviesDay)
 
 const draftMovieList = document.querySelector('#movieDraft');
 
+//////////////poniżej poglądowo stara wersja
+
 // import axios from 'axios';
 
 // const API_CODE =

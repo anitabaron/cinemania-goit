@@ -1,0 +1,29 @@
+/* ========================HEADER====================== */
+.header {
+  width: 1280px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 0 32px 0 32px;
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo-box {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.header__nav-list {
+  display: flex;
+  gap: 50px;
+}
+.header__nav-item-link {
+  color: var(--white);
+}
+.header__contrast-btn-box {
+  width: 60px;
+  height: 24px;
+  background-color: var(--orange);
+  border-radius: 194px;
+}

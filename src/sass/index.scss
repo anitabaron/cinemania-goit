@@ -1,200 +1,27 @@
 @import './normalization.scss';
 @import './css-variables.scss';
 
-/* ========================HEADER====================== */
-.header {
-  width: 1280px;
-  height: 60px;
-  margin: 0 auto;
-  padding: 0 32px 0 32px;
-  background-color: var(--background);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.header__logo-box {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-.header__nav-list {
-  display: flex;
-  gap: 50px;
-}
-.header__nav-item-link {
-  color: var(--white);
-}
-.header__contrast-btn-box {
-  width: 60px;
-  height: 24px;
-  background-color: var(--orange);
-  border-radius: 194px;
-}
+@import './buttons-icons.scss';
+@import './catalog.scss';
+@import './footer.scss';
+@import './header.scss';
+@import './hero.scss';
+@import './modal.scss';
+@import './oops.scss';
+@import './movie-list.scss';
+@import './upcoming.scss';
+@import './fetch-api.scss';
 
-/* ========================HERO====================== */
-.hero {
-  width: 1280px;
-  min-width: 500px;
-  padding-left: 135px;
-  margin: 0 auto;
-  display: flex;
+@import './catalog.scss';
+@import './my-library.scss';
+
+body {
   background-color: var(--background);
 }
-.hero__movie-desc {
-  margin: auto 0 auto 0;
-}
-.hero__rating {
-  display: flex;
-}
 
-/* ========================MOVIE-LIST====================== */
-.movielist {
-  width: 1280px;
-  min-width: 500px;
-  margin: 0 auto;
-  padding: 0 32px 0 32px;
-  background-color: var(--background);
-}
-.movielist__nav-tends-box {
-  width: 100%;
-  padding: 0 32px 0 32px;
-  display: flex;
-  justify-content: space-between;
-}
-.movielist__movie-card-list {
-  display: flex;
-  justify-content: space-between;
-}
-.movielist__movie-itemt {
-  height: 574px;
-  width: 395px;
-  position: relative;
-  border: solid 1px white;
-}
-.movielist__movie-image {
-  height: 100%;
-  width: 100%;
-}
-.movielist__movie-description {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-}
-.movielist__movie-details {
-  display: flex;
-  gap: 10px;
-}
-.movielist__rating-list {
-  display: flex;
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-}
-
-/* ========================FETCH-API DRAFT====================== */
-.fetch-api__movie-draft {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.fetch-api__movie-draft-item {
-  max-width: 200px;
-  height: 100%;
-}
-
-/* ========================UPCOMING====================== */
-.upcoming {
-  width: 1280px;
-  min-width: 500px;
-  margin: 0 auto;
-  padding: 0 32px 0 32px;
-  background-color: var(--background);
-}
-.upcoming__film-box {
-  display: flex;
-}
-.upcoming__film-details-box {
-  margin: auto 0;
-}
-.upcoming__film-details {
-  display: flex;
-  gap: 58px;
-}
-.upcoming__film-rateing {
-  display: flex;
-  gap: 5px;
-}
-
-/* ========================FOOTER====================== */
-.footer {
-  width: 1280px;
-  margin: 0 auto;
-  padding: 0 32px 0 32px;
-  background-color: var(--background);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.footer__box {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  padding: 100px 0 80px 0;
-}
-.footer__paragraf {
-  display: flex;
-  gap: 5px;
-}
-
-/* ========================MODAL====================== */
-
-/* ========================OOPS====================== */
-
-/* ========================BUTTONS-ICONS====================== */
-
-.btn {
-  font-family: inherit;
-  font-weight: 500;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
-  border: none;
-  border-radius: 74px;
-  padding: 12px 24px 12px 24px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn__orange-gradient {
-  background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
-  color: var(--background);
-}
-
-.btn__black {
-  background-color: var(--background);
-  color: var(--white);
-  border: 1px var(--orange) solid;
-  // border powinno być gradient
-}
-
-.btn.btn__orange-gradient:hover,
-.btn.btn__orange-gradient:active {
-  background-color: var(--white);
-  background: none;
-  color: var(--orange);
-  border: 1px red solid;
-}
-
-.btn.btn__black:hover,
-.btn.btn__black:active {
-  background-color: var(--white);
-  color: var(--orange);
-  border: none;
-}
-
-.btn__small {
-  font-size: 12px;
-  line-height: 1.33333;
-}
+// .disabled {
+//   display: none;
+// }
 
 /* ----------------------------- responsive -------------------------- */
 
@@ -214,12 +41,6 @@
     padding: 0 32px;
     margin: 0 auto;
   }
-
-  /* ========================BUTTONS-ICONS======================TABLET */
-
-  .btn__big {
-    font-size: 14px;
-  }
 }
 /* ----------------------------------------------------------------------------------------------------DESKTOP */
 
@@ -227,19 +48,5 @@
   .container {
     max-width: 1280px;
     margin: 0 auto;
-  }
-  /* ========================BUTTONS-ICONS======================DESKTOP */
-
-  .btn__big {
-    font-size: 18px;
-    line-height: 1.55556;
-  }
-  .btn__semi-medium {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  .btn__medium {
-    font-size: 14px;
-    line-height: 1.14286;
   }
 }

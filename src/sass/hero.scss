@@ -1,0 +1,15 @@
+/* ========================HERO====================== */
+.hero {
+  width: 1280px;
+  min-width: 500px;
+  padding-left: 135px;
+  margin: 0 auto;
+  display: flex;
+  background-color: var(--background);
+}
+.hero__movie-desc {
+  margin: auto 0 auto 0;
+}
+.hero__rating {
+  display: flex;
+}

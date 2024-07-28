@@ -1,0 +1,20 @@
+/* ========================FOOTER====================== */
+.footer {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px 0 32px;
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer__box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 100px 0 80px 0;
+}
+.footer__paragraf {
+  display: flex;
+  gap: 5px;
+}

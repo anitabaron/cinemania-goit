@@ -1,0 +1,22 @@
+/* ========================UPCOMING====================== */
+.upcoming {
+  width: 1280px;
+  min-width: 500px;
+  margin: 0 auto;
+  padding: 0 32px 0 32px;
+  background-color: var(--background);
+}
+.upcoming__film-box {
+  display: flex;
+}
+.upcoming__film-details-box {
+  margin: auto 0;
+}
+.upcoming__film-details {
+  display: flex;
+  gap: 58px;
+}
+.upcoming__film-rateing {
+  display: flex;
+  gap: 5px;
+}
