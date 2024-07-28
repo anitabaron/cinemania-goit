@@ -8,6 +8,89 @@
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
-    <include src="./partials/header.html"></include>
+    <header class="header">
+      <div class="header--logo-box" id="logo">
+        <img
+          src="./images/logo.png"
+          height="36px"
+          width="45px"
+          alt="Logo of this page"
+        />
+        <p>Cinema</p>
+      </div>
+      <div class="header--nav-box" id="navigation">
+        <ul class="header--nav-list">
+          <li class="header--nav-item">
+            <a class="header--nav-item-link" href="./index.html">HOME</a>
+          </li>
+          <li>
+            <a class="header--nav-item-link" href="./catalog.html">CATALOG</a>
+          </li>
+          <li>
+            <a class="header--nav-item-link" href="my-library.html"
+              >MY LIBRARY</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="header--contrast-btn-box" id="contrast"></div>
+    </header>
+    <main>
+      <section class="hero" id="hero">
+        <!--       <div class="hero--movie-desc" id="heroBox">
+        <h1 id="theMostPopularMovie">Dungeons & Dragons: Honor Among Thieves</h1>
+        <div id="stars">
+          <ul class="hero--rating">
+            <li>*</li>
+            <li>*</li>
+            <li>*</li>
+            <li>*</li>
+            <li>*</li>
+          </ul>
+        </div>
+        <p>A charming thief and a band of unlikely adventurers undertake an epic heist to retrieve a lost relic, but things go dangerously awry when they run afoul of the wrong people.</p>
+            <div>
+          <button>Watch trailer</button>
+          <button>More details</button>
+        </div>
+          </div>
+        <img
+        src="./images/logo.png"
+        height="720px"
+        width="802px"
+        alt="Logo of this page"
+        /> -->
+      </section>
+      <section class="movielist" id="mylibrary">
+        <div class="mylibrary--filter">
+          <!-- -->
+          <!-- 
+          <form class="my-library--form" id="mylibraryForm">
+            <input class="mylibrary--form-input" id="mylibraryFormInput"/>
+          </form> -->
+          <!-- -->
+        </div>
+        <ul class="movielist--movie-list" id="mylibraryMovielist">
+          <!-- ------------------ -->
+          <!--                 
+          <li> 
+				  </li> -->
+          <!-- ------------------ -->
+        </ul>
+        <button id="mylibraryLoadMore"></button>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer--box">
+        <p>© 2023 | All Rights Reserved | Developed with</p>
+        <img
+          src="./images/hart.png"
+          height="12.88px"
+          width="14px"
+          alt="smal orange hart"
+        />
+        <p class="footer--paragraf">by <span>GoIT Students</span></p>
+      </div>
+    </footer>
   </body>
 </html>

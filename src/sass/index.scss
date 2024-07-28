@@ -1,33 +1,6 @@
 @import './normalization.scss';
 @import './css-variables.scss';
 
-body {
-  background-color: var(--background);
-}
-
-/* ------------------------------MOBILE */
-@media (width < 768px) {
-  .container {
-    max-width: 320px;
-    padding: 0 20px;
-  }
-}
-/* ------------------------------TABLET */
-@media (width >= 768px) and (width < 1280px) {
-  .container {
-    max-width: 768px;
-    padding: 0 32px;
-  }
-}
-/* ------------------------------DESKTOP */
-
-@media (width >= 1280px) {
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-}
-
 /* ========================HEADER====================== */
 .header {
   width: 1280px;
@@ -39,19 +12,19 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.header--logo-box {
+.header__logo-box {
   display: flex;
   gap: 8px;
   align-items: center;
 }
-.header--nav-list {
+.header__nav-list {
   display: flex;
   gap: 50px;
 }
-.header--nav-item-link {
+.header__nav-item-link {
   color: var(--white);
 }
-.header--contrast-btn-box {
+.header__contrast-btn-box {
   width: 60px;
   height: 24px;
   background-color: var(--orange);
@@ -67,10 +40,10 @@ body {
   display: flex;
   background-color: var(--background);
 }
-.hero--movie-desc {
+.hero__movie-desc {
   margin: auto 0 auto 0;
 }
-.hero--rating {
+.hero__rating {
   display: flex;
 }
 
@@ -82,36 +55,36 @@ body {
   padding: 0 32px 0 32px;
   background-color: var(--background);
 }
-.movielist--nav-tends-box {
+.movielist__nav-tends-box {
   width: 100%;
   padding: 0 32px 0 32px;
   display: flex;
   justify-content: space-between;
 }
-.movielist--movie-card-list {
+.movielist__movie-card-list {
   display: flex;
   justify-content: space-between;
 }
-.movielist--movie-itemt {
+.movielist__movie-itemt {
   height: 574px;
   width: 395px;
   position: relative;
   border: solid 1px white;
 }
-.movielist--movie-image {
+.movielist__movie-image {
   height: 100%;
   width: 100%;
 }
-.movielist--movie-description {
+.movielist__movie-description {
   position: absolute;
   left: 20px;
   bottom: 20px;
 }
-.movielist--movie-details {
+.movielist__movie-details {
   display: flex;
   gap: 10px;
 }
-.movielist--rating-list {
+.movielist__rating-list {
   display: flex;
   position: absolute;
   right: 20px;
@@ -119,12 +92,12 @@ body {
 }
 
 /* ========================FETCH-API DRAFT====================== */
-.fetch-api--movie-draft {
+.fetch-api__movie-draft {
   display: flex;
   flex-wrap: wrap;
 }
 
-.fetch-api--movie-draft-item {
+.fetch-api__movie-draft-item {
   max-width: 200px;
   height: 100%;
 }
@@ -137,17 +110,17 @@ body {
   padding: 0 32px 0 32px;
   background-color: var(--background);
 }
-.upcoming--film-box {
+.upcoming__film-box {
   display: flex;
 }
-.upcoming--film-details-box {
+.upcoming__film-details-box {
   margin: auto 0;
 }
-.upcoming--film-details {
+.upcoming__film-details {
   display: flex;
   gap: 58px;
 }
-.upcoming--film-rateing {
+.upcoming__film-rateing {
   display: flex;
   gap: 5px;
 }
@@ -162,13 +135,13 @@ body {
   align-items: center;
   justify-content: center;
 }
-.footer--box {
+.footer__box {
   display: flex;
   gap: 10px;
   align-items: center;
   padding: 100px 0 80px 0;
 }
-.footer--paragraf {
+.footer__paragraf {
   display: flex;
   gap: 5px;
 }
@@ -178,3 +151,95 @@ body {
 /* ========================OOPS====================== */
 
 /* ========================BUTTONS-ICONS====================== */
+
+.btn {
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  border-radius: 74px;
+  padding: 12px 24px 12px 24px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn__orange-gradient {
+  background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
+  color: var(--background);
+}
+
+.btn__black {
+  background-color: var(--background);
+  color: var(--white);
+  border: 1px var(--orange) solid;
+  // border powinno być gradient
+}
+
+.btn.btn__orange-gradient:hover,
+.btn.btn__orange-gradient:active {
+  background-color: var(--white);
+  background: none;
+  color: var(--orange);
+  border: 1px red solid;
+}
+
+.btn.btn__black:hover,
+.btn.btn__black:active {
+  background-color: var(--white);
+  color: var(--orange);
+  border: none;
+}
+
+.btn__small {
+  font-size: 12px;
+  line-height: 1.33333;
+}
+
+/* ----------------------------- responsive -------------------------- */
+
+/* ----------------------------------------------------------------------------------------------------MOBILE */
+// Właściwie przy mobile first to <768px powinno być domyślne na początku, więc może to wywalić?
+@media (width < 768px) {
+  .container {
+    max-width: 320px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+}
+/* ----------------------------------------------------------------------------------------------------TABLET */
+@media (width >= 768px) and (width < 1280px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+    margin: 0 auto;
+  }
+
+  /* ========================BUTTONS-ICONS======================TABLET */
+
+  .btn__big {
+    font-size: 14px;
+  }
+}
+/* ----------------------------------------------------------------------------------------------------DESKTOP */
+
+@media (width >= 1280px) {
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  /* ========================BUTTONS-ICONS======================DESKTOP */
+
+  .btn__big {
+    font-size: 18px;
+    line-height: 1.55556;
+  }
+  .btn__semi-medium {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .btn__medium {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}

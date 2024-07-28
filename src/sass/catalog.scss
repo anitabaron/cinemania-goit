@@ -1,2 +1,25 @@
-@import './normalization.css';
-@import './css-variables.css';
+.catalog__text {
+  display: flex;
+  justify-content: center;
+}
+
+/* ------------------------------MOBILE */
+@media (width < 768px) {
+  .catalog__text {
+    font-size: 32px;
+  }
+}
+/* ------------------------------TABLET */
+@media (width >= 768px) and (width < 1280px) {
+  .catalog__text {
+    font-size: 24px;
+  }
+}
+/* ------------------------------DESKTOP */
+
+@media (width >= 1280px) {
+  .catalog__text {
+    font-size: 20px;
+    padding-top: 160px;
+  }
+}

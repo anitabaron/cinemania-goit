@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catalog</title>
     <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="./sass/catalog.scss" />
   </head>
   <body>
     <header class="header">
-      <div class="header--logo-box" id="logo">
+      <div class="header__logo-box" id="logo">
         <img
           src="./images/logo.png"
           height="36px"
@@ -18,29 +19,29 @@
         />
         <p>Cinema</p>
       </div>
-      <div class="header--nav-box" id="navigation">
-        <ul class="header--nav-list">
-          <li class="header--nav-item">
-            <a class="header--nav-item-link" href="./index.html">HOME</a>
+      <div class="header__nav-box" id="navigation">
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a class="header__nav-item-link" href="./index.html">HOME</a>
           </li>
           <li>
-            <a class="header--nav-item-link" href="./catalog.html">CATALOG</a>
+            <a class="header__nav-item-link" href="./catalog.html">CATALOG</a>
           </li>
           <li>
-            <a class="header--nav-item-link" href="my-library.html"
+            <a class="header__nav-item-link" href="my-library.html"
               >MY LIBRARY</a
             >
           </li>
         </ul>
       </div>
-      <div class="header--contrast-btn-box" id="contrast"></div>
+      <div class="header__contrast-btn-box" id="contrast"></div>
     </header>
     <main>
       <section class="hero" id="hero">
-        <!--       <div class="hero--movie-desc" id="heroBox">
+        <!--       <div class="hero__movie-desc" id="heroBox">
         <h1 id="theMostPopularMovie">Dungeons & Dragons: Honor Among Thieves</h1>
         <div id="stars">
-          <ul class="hero--rating">
+          <ul class="hero__rating">
             <li>*</li>
             <li>*</li>
             <li>*</li>
@@ -62,30 +63,49 @@
         /> -->
       </section>
       <section class="movielist" id="catalog">
-        <div class="catalog--search">
+        <div class="catalog__search">
           <!-- -->
-          <!-- <form class="catalog--form" id="catalogForm">
-            <input class="catalog--form-input" id="catalogFormInput"/>
-            <button type="submit" id="catalogBtn">Search</button>
+          <!-- 
+          <form class="catalog__form" id="catalogForm">
+            <input class="catalog__form-input" id="catalogFormInput" type="search" placeholder="Film…"/>
+            <select name="catalogGenre" id="catalogGenre">
+              <option value="comedy">Comedy</option>
+              ....
+              <option value="drama">Drama</option>
+            </select>
+            <button id="catalogBtn">Search</button>
           </form> -->
           <!-- -->
         </div>
-        <ul class="movielist--movie-list" id="catalog--movielist">
+      </section>
+      <section class="catalog__text disabled"> 
+        <!-- Czy zawartość tej sekcji też powinna być wstawiona przez JS po negatywnym wyniku wyszukania? Czy od razu może być a jedynie toogler disable/enable w JS? -->
+          <p class="catalog__text-sorry">OOPS...</p>
+          <br></br>
+          <p class="catalog__text-sorry">
+            We are very sorry! We dont have any results matching your search.
+          </p>
+          <button type="button" class="catalog__search-link btn btn__big btn__orange-gradient">
+          <a class="catalog__search-link" href="./catalog.html">Search movie</a>
+          </button>
+      </section>
+      <section>
+        <ul class="movielist__movie-list" id="catalogMovielist">
           <!-- ------------------ -->
-          <!--                 <li class="movie--catalog-item">
-				    <img class="movielist--movie-image"
+          <!--                 <li class="movie__catalog-item">
+				    <img class="movielist__movie-image"
 				        src="./images/logo.png"
 
 				        alt="Logo of this page"
 				    />
-                    <div class="movielist--movie-description">
+                    <div class="movielist__movie-description">
 						<h3>THE LOST CITY</h3>
-                        <div class="movielist---movie-details">
+                        <div class="movielist__-movie-details">
 						    <p>Drama, Action</p>
 						    <p>2023</p>
 					    </div>
 					</div>
-					<ul class="movielist--rating-list">
+					<ul class="movielist__rating-list">
 						<li>*</li>
 						<li>*</li>
 						<li>*</li>
@@ -95,10 +115,13 @@
 				</li> -->
           <!-- ------------------ -->
         </ul>
+        <div id="catalogPages">
+          <!-- ------------------ -->
+        </div>
       </section>
     </main>
     <footer class="footer">
-      <div class="footer--box">
+      <div class="footer__box">
         <p>© 2023 | All Rights Reserved | Developed with</p>
         <img
           src="./images/hart.png"
@@ -106,7 +129,7 @@
           width="14px"
           alt="smal orange hart"
         />
-        <p class="footer--paragraf">by <span>GoIT Students</span></p>
+        <p class="footer__paragraf">by <span>GoIT Students</span></p>
       </div>
     </footer>
   </body>
