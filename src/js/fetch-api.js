@@ -86,7 +86,7 @@ homePageContent(trendMoviesDay)
 
 const draftMovieList = document.querySelector('#movieDraft');
 
-//////////////poniżej poglądowo stara wersja
+/////////////////////////////////////////////////////////////poniżej poglądowo stara wersja
 
 // import axios from 'axios';
 
@@ -159,20 +159,16 @@ const draftMovieList = document.querySelector('#movieDraft');
 //   video,
 //   popularity,
 // }) {
-//   return `<li class="fetch-api--movie-draft-item">
+//   return `<li class="fetch-api__movie-draft-item">
 //     <a class="fetch-api__movie-draft-item-img" href="${BASE_URL}${poster_path}">
 //       <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}" />
 //     </a>
 //     <h2>Title: ${original_title}</h2>
-//     <p>Movie id: ${id}</p>
+
 //     <p>Descr: ${overview}</p>
-//     <p>Genre id: ${genre_ids}</p>
-//     <p>Genres: ${genres}</p>
-//     <p>Vote avarage: ${vote_average}</p>
-//     <p>Vote count: ${vote_count}</p>
-//     <p>Country: ${origin_country}</p>
-//     <p>Release date: ${release_date}</p>
-//     <p>Trailer: ${video}</p>
-//     <p>Popular: ${popularity}</p>
+
 //   </li>`;
 // }
+
+// // Example usage
+// fetchMovies(newMovies, options);
