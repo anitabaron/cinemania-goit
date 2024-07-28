@@ -25,7 +25,7 @@ const trailerMovie = `${BASE_URL}/movie/{movie_id}/videos`; // movie_id trzeba w
 const genreMovie = `${BASE_URL}/genre/movie/list`;
 const gcountryMovie = `${BASE_URL}/configuration/countries`;
 
-const draftMovieList = document.querySelector('.fetch-api__movie-draft');
+const draftMovieList = document.querySelector('#movieDraft');
 
 const options = {
   method: 'GET',
@@ -40,6 +40,7 @@ async function fetchMovies(url, options) {
     const response = await axios.get(url, { params, ...options });
     if (response.data.results) {
       const movies = response.data.results;
+      console.log(movies);
       displayMovies(movies);
       return movies;
     }
@@ -61,7 +62,7 @@ function makeMovieItem({
   genre_ids,
   vote_average,
 }) {
-  return `<li class="fetch-api__movie-draft-item">
+  return `<li class="fetch-api--movie-draft-item">
     <a class="fetch-api__movie-draft-item-img" href="${BASE_URL}${poster_path}">
       <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}" />
     </a>

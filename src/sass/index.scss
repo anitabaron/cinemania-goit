@@ -1,6 +1,10 @@
 @import './normalization.scss';
 @import './css-variables.scss';
 
+body {
+  background-color: var(--background);
+}
+
 /* ------------------------------MOBILE */
 @media (width < 768px) {
   .container {
@@ -20,6 +24,7 @@
 @media (width >= 1280px) {
   .container {
     max-width: 1280px;
+    margin: 0 auto;
   }
 }
 
@@ -111,6 +116,17 @@
   position: absolute;
   right: 20px;
   bottom: 20px;
+}
+
+/* ========================FETCH-API DRAFT====================== */
+.fetch-api--movie-draft {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fetch-api--movie-draft-item {
+  max-width: 200px;
+  height: 100%;
 }
 
 /* ========================UPCOMING====================== */

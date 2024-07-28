@@ -10,13 +10,24 @@ import './oops';
 import './buttons-icons';
 import './fetch-api';
 
-
-
-
+// const Props = {
+//   id,
+//   poster_path,
+//   original_title,
+//   overview,
+//   genre_ids, //?
+//   genres,
+//   origin_country,
+//   vote_average,
+//   vote_count,
+//   release_date,
+//   video,
+//   popularity,
+// };
 
 // const createDocumentFragment = ({ Props })=>{
 //     const li= document.createElement("li")
-//     li.classList.add("movie-trend-itemt")
+//     li.classList.add("movie-trend-item")
 //     li.innerHTML=
 //                    `<img class="movie-trend-image"
 // 				        src="${ Props }"
