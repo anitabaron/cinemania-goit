@@ -1,5 +1,5 @@
 const mobileMenuButton = document.getElementById('menu');
-const menuNav = document.querySelector('nav');
+const menuNav = document.getElementById('navi');
 const overlay = document.getElementById('overlay');
 
 mobileMenuButton.addEventListener('click', () => {
@@ -13,7 +13,7 @@ overlay.addEventListener('click', () => {
 });
 
 //
-const LightSwitcher = document.querySelector('.switcher');
+const LightSwitcher = document.getElementById('switch');
 let isLight = localStorage.getItem('isLight') === 'true';
 
 document.body.classList.toggle('light', isLight);
