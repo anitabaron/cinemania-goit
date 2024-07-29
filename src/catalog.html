@@ -9,33 +9,7 @@
     <script type="module" src="./js/index.js"></script>
   </head>
   <body>
-    <header class="header">
-      <div class="header__logo-box" id="logo">
-        <img
-          src="./images/logo.png"
-          height="36px"
-          width="45px"
-          alt="Logo of this page"
-        />
-        <p>Cinema</p>
-      </div>
-      <div class="header__nav-box" id="navigation">
-        <ul class="header__nav-list">
-          <li class="header__nav-item">
-            <a class="header__nav-item-link" href="./index.html">HOME</a>
-          </li>
-          <li>
-            <a class="header__nav-item-link" href="./catalog.html">CATALOG</a>
-          </li>
-          <li>
-            <a class="header__nav-item-link" href="my-library.html"
-              >MY LIBRARY</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="header__contrast-btn-box" id="contrast"></div>
-    </header>
+    <include src="./partials/header.html"></include>
     <main>
       <section class="hero" id="hero">
         <!--       <div class="hero__movie-desc" id="heroBox">
