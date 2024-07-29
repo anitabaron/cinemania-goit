@@ -13,11 +13,20 @@ fetch(apiUrl)
     }
   })
   .catch(err => {
-    console.error(err);
+    console.error('Błąd pobierania danych:', err);
     createDefaultHeroSection();
   });
 
+function clearHeroSection() {
+  const heroElement = document.getElementById('hero');
+  if (heroElement) {
+    heroElement.innerHTML = '';
+  }
+}
+
 function createHeroSection(movie) {
+  clearHeroSection(); 
+
   const heroBackGround = document.createElement('div');
   heroBackGround.className = 'hero_background container';
   heroBackGround.style.backgroundImage = `linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`;
@@ -32,19 +41,19 @@ function createHeroSection(movie) {
   heroText2.id = 'hero_text';
 
   const heroButtonDetails = document.createElement('button');
-  heroButtonDetails.className = "hero_button";
+  heroButtonDetails.className = "btn btn__orange-gradient";
   heroButtonDetails.textContent = 'More details';
   heroButtonDetails.onclick = () => showModal(movie);
 
   const heroButtonTrailer = document.createElement('button');
-  heroButtonTrailer.className = "hero_button_2";
+  heroButtonTrailer.className = "btn btn__black";
   heroButtonTrailer.textContent = 'Watch trailer';
   heroButtonTrailer.onclick = () => showTrailer(movie.id);
 
   const buttonsContainer = document.createElement('div');
   buttonsContainer.className = 'buttons';
-  buttonsContainer.appendChild(heroButtonDetails);
   buttonsContainer.appendChild(heroButtonTrailer);
+  buttonsContainer.appendChild(heroButtonDetails);
 
   heroBackGround.appendChild(heroText1);
   heroBackGround.appendChild(heroText2);
@@ -52,11 +61,13 @@ function createHeroSection(movie) {
 
   document.getElementById('hero').appendChild(heroBackGround);
 
-  updateTextHero();
-  window.addEventListener('resize', updateTextHero);
+  updateTextHero(movie.overview);
+  window.addEventListener('resize', () => updateTextHero(movie.overview));
 }
 
 function createDefaultHeroSection() {
+  clearHeroSection();
+
   const heroBackGround = document.createElement('div');
   heroBackGround.className = 'hero_background container';
 
@@ -84,17 +95,17 @@ function createDefaultHeroSection() {
 
   document.getElementById('hero').appendChild(heroBackGround);
 
-  updateTextHero();
+  updateTextHero(); 
   window.addEventListener('resize', updateTextHero);
 }
 
-function updateTextHero() {
+function updateTextHero(description) {
   const heroText = document.getElementById('hero_text');
 
   if (window.innerWidth >= 768) {
-    heroText.textContent = "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.";
+    heroText.textContent = description || "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.";
   } else {
-    heroText.textContent = "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.";
+    heroText.textContent = description || "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.";
     heroText.classList.add('hero_text_2');
   }
 }
