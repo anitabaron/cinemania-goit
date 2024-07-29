@@ -1,4 +1,4 @@
-/* ========================FOOTER====================== */
+/* ========================FOOTER====================== 
 .footer {
   width: 1280px;
   margin: 0 auto;
@@ -17,4 +17,88 @@
 .footer__paragraf {
   display: flex;
   gap: 5px;
+}
+*/
+@mixin tel {
+  @media screen and (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer {
+  @include tel {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  @include tablet {
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+
+  @include desktop {
+    margin-top: 100px;
+    margin-bottom: 80px;
+  }
+}
+
+.footer__container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+
+    .footer__desc {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer__desc {
+      margin-top: 10px;
+    }
+
+    .footer__text {
+      margin-right: 5px;
+    }
+  }
+
+  .footer__copyright {
+    color: #b7b7b7;
+    margin-right: 5px;
+  }
+
+  .footer__desc {
+    color: #b7b7b7;
+  }
+  .footer__text {
+    color: #b7b7b7;
+  }
+}
+@media (min-width: 768px) {
+  .footer__desc {
+    display: flex;
+  }
 }
