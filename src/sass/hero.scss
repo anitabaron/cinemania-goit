@@ -21,9 +21,10 @@
     position: absolute;
    
      
-        left:20px;
-        // top:262px;
-        bottom: 80px;
+        // left:20px;
+        top:262px;
+        // bottom: 80px;
+        
         padding: 10px 20px;
         background-color: #fff;
         color: #111;
@@ -145,4 +146,9 @@ position: absolute;
 top: 320px;
 
                                  }
+}
+.buttons {
+    display: flex;
+    gap: 10px;
+    flex-direction: wrap;
 }
