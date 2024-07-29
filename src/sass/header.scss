@@ -134,7 +134,7 @@
 }
 
 .header__nav-link {
-  color: var(--white);
+  color: #b7b7b7;
   display: block;
   text-align: center;
 
@@ -155,7 +155,7 @@
     top: 0;
     left: -64%;
     width: 64%;
-    height: 100vh;
+    height: 100%;
     z-index: 10;
     transition: left 0.3s ease-in-out;
     background-color: #171717;
@@ -201,7 +201,7 @@
 .mobile-menu__link {
   padding: 10px;
   text-align: left;
-  color: #ffffff;
+  color: #b7b7b7;
   text-decoration: none;
 
   &:hover,
@@ -209,10 +209,6 @@
     transition: color 0.75s;
     color: #f87719;
   }
-}
-
-.current__nav-link {
-  color: #f87719;
 }
 
 #menu {
@@ -240,10 +236,6 @@
   @media (max-width: 767px) {
     background-color: black;
   }
-}
-
-.mobile-menu__link.current__nav-link {
-  color: #f87719;
 }
 
 .mobile-menu__link {
