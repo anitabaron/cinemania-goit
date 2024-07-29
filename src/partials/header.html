@@ -13,4 +13,112 @@
       <a href="./my-library.html" class="header__nav-link">My library</a>
     </li>
   </ul>
-</nav> -->
+</nav> 
+-->
+
+<header class="header">
+  <div class="container header__container">
+    <a href="./index.html" class="header__logo">
+      <div class="container__logo">
+        <picture>
+          <source
+            srcset="
+              /src/images/logo-3x.png 3x,
+              /src/images/logo-2x.png 2x,
+              /src/images/logo-1x.png 1x
+            "
+            media="(min-width:1200px)"
+          />
+          <source
+            srcset="/src/images/logo-2x.png 2x, /src/images/logo-1x.png 1x"
+            media="(min-width:768px)"
+          />
+          <source
+            srcset="
+              /src/images/logo-mobile-3x.png 3x,
+              /src/images/logo-mobile-2x.png 2x,
+              /src/images/logo-mobile-1x.png 1x
+            "
+            media="(min-width:320px)"
+          />
+          <img
+            class="logo-img"
+            srcset="
+              /src/images/logo-mobile-2x.png 2x,
+              /src/images/logo-mobile-1x.png 1x
+            "
+            src="/src/images/logo-mobile-1x.png"
+            alt="logo"
+          />
+        </picture>
+        <div class="logo-text">Cinemania</div>
+      </div>
+    </a>
+
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a href="./index.html" class="header__nav-link">HOME</a>
+        </li>
+        <li class="header__nav-item">
+          <a href="./catalog.html" class="header__nav-link">CATALOG</a>
+        </li>
+        <li class="header__nav-item">
+          <a href="./my-library.html" class="header__nav-link">MY LIBRARY</a>
+        </li>
+      </ul>
+
+      <!-- MOBILE MENU -->
+
+      <div class="mobile-menu">
+        <a href="./index.html" class="link header__logo">
+          <picture>
+            <source
+              srcset="
+                /src/images/logo-3x.png 3x,
+                /src/images/logo-2x.png 2x,
+                /src/images/logo-1x.png 1x
+              "
+              media="(min-width:1200px)"
+            />
+            <source
+              srcset="/src/images/logo-2x.png 2x, /src/images/logo-1x.png 1x"
+              media="(min-width:768px)"
+            />
+            <source
+              srcset="
+                /src/images/logo-mobile-3x.png 3x,
+                /src/images/logo-mobile-2x.png 2x,
+                /src/images/logo-mobile-1x.png 1x
+              "
+              media="(min-width:320px)"
+            />
+            <img
+              class="logo-img"
+              srcset="
+                /src/images/logo-mobile-2x.png 2x,
+                /src/images/logo-mobile-1x.png 1x
+              "
+              src="/src/images/logo-mobile-1x.png"
+              alt="logo"
+            />
+          </picture>
+        </a>
+
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a href="./index.html" class="mobile-menu__link">HOME</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="./catalog.html" class="mobile-menu__link">CATALOG</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="./my-library.html" class="mobile-menu__link">MY LIBRARY</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <button id="menu">MENU</button>
+  </div>
+  <div id="overlay"></div>
+</header>
