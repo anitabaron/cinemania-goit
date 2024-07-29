@@ -41,12 +41,12 @@ function createHeroSection(movie) {
   heroText2.id = 'hero_text';
 
   const heroButtonDetails = document.createElement('button');
-  heroButtonDetails.className = "btn btn__orange-gradient";
+  heroButtonDetails.className = "btn btn btn__black";
   heroButtonDetails.textContent = 'More details';
   heroButtonDetails.onclick = () => showModal(movie);
 
   const heroButtonTrailer = document.createElement('button');
-  heroButtonTrailer.className = "btn btn__black";
+  heroButtonTrailer.className = "btn btn__orange-gradient";
   heroButtonTrailer.textContent = 'Watch trailer';
   heroButtonTrailer.onclick = () => showTrailer(movie.id);
 
