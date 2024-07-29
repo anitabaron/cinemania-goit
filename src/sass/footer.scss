@@ -36,7 +36,12 @@
     @content;
   }
 }
-
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .footer {
   @include tel {
     margin-top: 40px;
@@ -79,13 +84,18 @@
       margin-right: 5px;
     }
   }
-}
 
-.footer__copyright {
-  color: #b7b7b7;
-  margin-right: 5px;
-}
+  .footer__copyright {
+    color: #b7b7b7;
+    margin-right: 5px;
+  }
 
-.footer__desc {
-  color: #b7b7b7;
+  .footer__desc {
+    color: #b7b7b7;
+  }
+}
+@media (min-width: 768px) {
+  .footer__desc {
+    display: flex;
+  }
 }
