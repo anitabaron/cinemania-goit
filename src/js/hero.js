@@ -41,7 +41,7 @@ function createHeroSection(movie) {
   heroText2.id = 'hero_text';
 
   const heroButtonDetails = document.createElement('button');
-  heroButtonDetails.className = "btn btn btn__black";
+  heroButtonDetails.className = "btn btn__black";
   heroButtonDetails.textContent = 'More details';
   heroButtonDetails.onclick = () => showModal(movie);
 
