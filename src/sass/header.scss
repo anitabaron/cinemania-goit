@@ -373,43 +373,17 @@
   }
 }
 
-// Light theme
-
-//^ BODY
+// Light
 body.light {
   background-color: #ffffff;
   color: #000000;
   transition: background-color 0.25s ease-out;
-
-  a.library-btn {
-    color: #111;
-    border: 1px solid var(--brend-color);
-  }
-
-  p.info__title {
-    color: #fff;
-  }
-
-  h3.upcoming-content__title {
-    color: #111;
-  }
 }
 
-//* HEADER
+//
 body.light {
   .header__container {
     background-color: #ffffff;
-  }
-
-  .catalog__input {
-    border: 1px solid #595959;
-    border-radius: 8px;
-    background-color: transparent;
-  }
-  .black-span {
-    @include tablet {
-      background-image: url(../images/hero_desktop.png);
-    }
   }
 
   a {
