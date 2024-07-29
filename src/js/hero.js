@@ -1,3 +1,14 @@
+function updateTextHero(description) {
+  const heroText = document.getElementById('hero_text');
+
+  if (window.innerWidth >= 768) {
+    heroText.textContent = description || "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.";
+  } else {
+    heroText.textContent = description || "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.";
+    heroText.classList.add('hero_text_2');
+  }
+}
+
 // const apiKey = 'bf204b214cbfbbf1225f0513f78ae506';
 // const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
 
@@ -41,12 +52,12 @@
 //   heroText2.id = 'hero_text';
 
 //   const heroButtonDetails = document.createElement('button');
-//   heroButtonDetails.className = "btn btn__orange-gradient";
+//   heroButtonDetails.className = "btn btn__black";
 //   heroButtonDetails.textContent = 'More details';
 //   heroButtonDetails.onclick = () => showModal(movie);
 
 //   const heroButtonTrailer = document.createElement('button');
-//   heroButtonTrailer.className = "btn btn__black";
+//   heroButtonTrailer.className = "btn btn__orange-gradient";
 //   heroButtonTrailer.textContent = 'Watch trailer';
 //   heroButtonTrailer.onclick = () => showTrailer(movie.id);
 
@@ -99,13 +110,5 @@
 //   window.addEventListener('resize', updateTextHero);
 // }
 
-function updateTextHero(description) {
-  const heroText = document.getElementById('hero_text');
 
-  if (window.innerWidth >= 768) {
-    heroText.textContent = description || "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.";
-  } else {
-    heroText.textContent = description || "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.";
-    heroText.classList.add('hero_text_2');
-  }
-}
+
