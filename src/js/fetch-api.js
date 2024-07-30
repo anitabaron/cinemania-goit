@@ -27,7 +27,7 @@ const createHeroMovie = results => {
   const topDayMovie = results.data.results[randomMovie];
   heroSection.innerHTML = `<div class="hero__background container" 
         style="background-image: linear-gradient(86.77deg, rgb(17, 17, 17) 30.38%, rgba(17, 17, 17, 0) 65.61%), 
-        url(https://image.tmdb.org/t/p/w500${topDayMovie.backdrop_path})">
+        url(https://image.tmdb.org/t/p/original${topDayMovie.backdrop_path})">
   <h2 class="hero__text-1">${topDayMovie.title}</h2>
   <ul class="movielist__rating-hero">
 						<li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

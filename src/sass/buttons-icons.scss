@@ -4,8 +4,8 @@
   font-family: inherit;
   font-weight: 500;
   cursor: pointer;
-  display: block;
-  margin: 0 auto;
+  display: inline-block; // Daniel// zmieniłem display block na display inline-block
+  margin: 0;
   border: none;
   border-radius: 74px;
   padding: 12px 24px 12px 24px;
