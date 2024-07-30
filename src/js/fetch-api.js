@@ -87,26 +87,50 @@ const createHeroMovie = results => {
 
 const TopWeekMovieBox = (index, results) => {
   const TopWeekMovie = results.data.results[index];
-  return `<li class="movielist__movie-itemt">
-    <img class="movielist__movie-image"
-        src="https://image.tmdb.org/t/p/w500${TopWeekMovie.backdrop_path}"
-        alt="Poster of ${TopWeekMovie.title}"
-    />
-            <div class="movielist__movie-description">
-    <h3>${TopWeekMovie.title}</h3>
-                <div class="movielist__-movie-details">
-        <p>Drama, Action</p>
-        <p>${TopWeekMovie.release_date}</p>
-      </div>
-  </div>
-  <ul class="movielist__rating-list">
-    <li>*</li>
-    <li>*</li>
-    <li>*</li>
-    <li>*</li>
-    <li>*</li>
-  </ul>
-</li>`;
+  const releaseYear = TopWeekMovie.release_date.slice(0, 4);
+  return `<li>
+  <div class="movielist-item"
+                   style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${TopWeekMovie.backdrop_path});
+                    background-repeat: no-repeat;
+                    background-size: cover; 
+                    background-position: center">
+                    <div class="movielist__information-box">
+                    <div class="movielist__title-box">
+						<p class ="movielist__movie-title">${ TopWeekMovie.title }</p>
+						<p class ="movielist__movie-genre"> genre | ${releaseYear}</p>
+					    </div>
+                        <ul class="movielist__movie-rating">
+						<li>*</li>
+						<li>*</li>
+						<li>*</li>
+						<li>*</li>
+						<li>*</li>
+					</ul>
+					</div>
+                    </div>
+                    </li>
+					`
+
+//   `<li class="movielist__movie-itemt">
+//     <img class="movielist__movie-image"
+//         src="https://image.tmdb.org/t/p/w500${TopWeekMovie.backdrop_path}"
+//         alt="Poster of ${TopWeekMovie.title}"
+//     />
+//             <div class="movielist__movie-description">
+//     <h3>${TopWeekMovie.title}</h3>
+//                 <div class="movielist__-movie-details">
+//         <p>Drama, Action</p>
+//         <p>${TopWeekMovie.release_date}</p>
+//       </div>
+//   </div>
+//   <ul class="movielist__rating-list">
+//     <li>*</li>
+//     <li>*</li>
+//     <li>*</li>
+//     <li>*</li>
+//     <li>*</li>
+//   </ul>
+// </li>`;
 };
 
 const createWeekMovies = results => {
