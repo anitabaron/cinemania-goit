@@ -1,18 +1,27 @@
+
+
+
+.movielist__rating-hero {
+    position: relative;
+    display: flex;
+    top: 16;
+    list-style-type: none;
+    
+    padding: 0;
+    
+    margin: 0;
+    
+}
+
+
 @media (width < 768px) {
 
-    .movielist__rating-hero {
-
-        display: flex;
-        position: absolute;
-        right: 20px;
-        bottom: 20px;
-    }
 
     .hero {
         padding-bottom: 80px;
     }
 
-    .hero__background {
+    .hero__butoon {
         position: relative;
         width: 320px;
         height: 380px;
@@ -40,7 +49,7 @@
         font-weight: 100;
     }
 
-    .hero_span_button {
+    .hero__span-button {
         font-size: 12px;
     }
 }
@@ -54,14 +63,12 @@
     width: 320px;
     height: 380px;
 
-    background: linear-gradient(86.77deg,
-            #111111 30.38%,
-            rgba(17, 17, 17, 0) 65.61%),
+    background: linear-gradient(69deg, #111 19.23%, rgba(17, 17, 17, 0) 100%),
         url('../images/hero_mobile.png') no-repeat center center;
     background-size: cover, cover;
 }
 
-.hero_button {
+.hero__butoon {
 
     padding: 10px 20px;
     background-color: #fff;
@@ -90,7 +97,7 @@
     color: var(--secondary-text);
 }
 
-.hero_span_button {
+.hero__span-button {
     font-size: 12px;
 }
 
@@ -114,7 +121,7 @@
         width: 768px;
         height: 432px;
 
-        background: linear-gradient(76deg, #111 6.82%, rgba(17, 17, 17, 0) 100%),
+        background: linear-gradient(75deg, #111 9.77%, rgba(17, 17, 17, 0) 100%),
             url('../images/hero_tablet.png') no-repeat left center;
         background-size: cover, cover;
     }
@@ -139,7 +146,7 @@
         font-weight: 100;
     }
 
-    .hero_button {
+    .hero__butoon {
         top: 260px;
         left: 30px;
     }
@@ -160,7 +167,7 @@
         width: 1280px;
         height: 720px;
 
-        background: linear-gradient(69deg, #111 19.23%, rgba(17, 17, 17, 0) 100%),
+        background: linear-gradient(82deg, #111 28.55%, rgba(17, 17, 17, 0) 100%),
             url('../images/hero_desktop.png') no-repeat left center;
         background-size: cover, cover;
     }
@@ -199,12 +206,12 @@
     margin-top: 20px;
 }
 
-.hero_button {
+.hero__butoon {
     background-color: #007bff;
     color: #fff;
 }
 
-.hero_button_2 {
+.hero__butoon_2 {
     background-color: #6c757d;
     color: #fff;
 }
