@@ -15,19 +15,17 @@ const options = {
   },
 };
 
-urls = {
+const urls = {
   trendMoviesDay: `https://api.themoviedb.org/3/trending/movie/day`,
   trendMoviesWeek: `https://api.themoviedb.org/3/trending/movie/week`,
   upcomingMovies: `https://api.themoviedb.org/3/movie/upcoming`,
 };
 
-
-const createHeroMovie = (results) =>{
-  const heroSection =document.querySelector('#hero')
+const createHeroMovie = results => {
+  const heroSection = document.querySelector('#hero');
   const randomMovie = Math.floor(Math.random() * results.data.results.length);
-  const topDayMovie =results.data.results[randomMovie]
-  heroSection.innerHTML=
-  `<div class="hero__background container" 
+  const topDayMovie = results.data.results[randomMovie];
+  heroSection.innerHTML = `<div class="hero__background container" 
        
         url(https://image.tmdb.org/t/p/w1280${topDayMovie.backdrop_path});">
   <h2 class="hero__text-1">${topDayMovie.title}</h2>
@@ -84,13 +82,12 @@ const createHeroMovie = (results) =>{
     <button class="btn btn__orange-gradient">Watch trailer</button>
     <button class="btn btn__black">More details</button>
   </div>
-</div>`
-}
+</div>`;
+};
 
-
-const TopWeekMovieBox =(index, results)=>{
-  const TopWeekMovie =results.data.results[index]
-  return`<li class="movielist__movie-itemt">
+const TopWeekMovieBox = (index, results) => {
+  const TopWeekMovie = results.data.results[index];
+  return `<li class="movielist__movie-itemt">
     <img class="movielist__movie-image"
         src="https://image.tmdb.org/t/p/w500${TopWeekMovie.backdrop_path}"
         alt="Poster of ${TopWeekMovie.title}"
@@ -109,21 +106,22 @@ const TopWeekMovieBox =(index, results)=>{
     <li>*</li>
     <li>*</li>
   </ul>
-</li>`}
+</li>`;
+};
 
-const createWeekMovies = (results) =>{
-  const weekMoviesSection =document.querySelector('#catalogMovielist')
-   const weekMoviesSectionFragment = TopWeekMovieBox(0, results)
-                                    +TopWeekMovieBox(1, results)
-                                    +TopWeekMovieBox(2, results)
-   weekMoviesSection.innerHTML=weekMoviesSectionFragment
-}
+const createWeekMovies = results => {
+  const weekMoviesSection = document.querySelector('#catalogMovielist');
+  const weekMoviesSectionFragment =
+    TopWeekMovieBox(0, results) +
+    TopWeekMovieBox(1, results) +
+    TopWeekMovieBox(2, results);
+  weekMoviesSection.innerHTML = weekMoviesSectionFragment;
+};
 
-const createUpcomingMovie = (results) =>{
-  const upcomingSection =document.querySelector('#upcoming')
-  const upcomingMovie =results.data.results[0]
-  upcomingSection.innerHTML=
-  `<h2>UPCOMING THIS MONTH</h2>
+const createUpcomingMovie = results => {
+  const upcomingSection = document.querySelector('#upcoming');
+  const upcomingMovie = results.data.results[0];
+  upcomingSection.innerHTML = `<h2>UPCOMING THIS MONTH</h2>
         <div class="upcoming__film-box">
         <img
         src="https://image.tmdb.org/t/p/w500${upcomingMovie.backdrop_path}"
@@ -149,34 +147,25 @@ const createUpcomingMovie = (results) =>{
 				</div>
 				<h4>ABOUT</h4>
 				<p>${upcomingMovie.overview}</p>
-			    <button>Add to my library</button>`
-
-  
-}
-
+			    <button>Add to my library</button>`;
+};
 
 const homePageApiData = url =>
   axios
     .get(url, { params, ...options })
     .then(results => {
-      if (url.includes("day"))
-        
-        createHeroMovie(results)
-      if (url.includes("week"))
-          
-          createWeekMovies(results)
-      if (url.includes("upcoming"))
-        console.log(results)
-        createUpcomingMovie(results)
-      })
+      if (url.includes('day')) createHeroMovie(results);
+      if (url.includes('week')) createWeekMovies(results);
+      if (url.includes('upcoming')) console.log(results);
+      createUpcomingMovie(results);
+    })
     .catch(error => console.log(error));
 
+const homePageContent = async () =>
+  await Promise.all([
+    homePageApiData(urls.trendMoviesDay),
+    homePageApiData(urls.trendMoviesWeek),
+    homePageApiData(urls.upcomingMovies),
+  ]);
 
-const homePageContent = async () => (await Promise.all([
-      homePageApiData(urls.trendMoviesDay),
-      homePageApiData(urls.trendMoviesWeek),
-      homePageApiData(urls.upcomingMovies),
-    ]));
-
-
-homePageContent()
+homePageContent();
