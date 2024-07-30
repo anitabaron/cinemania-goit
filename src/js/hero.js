@@ -14,7 +14,7 @@ function createDefaultHeroSection() {
     <div class="hero_background container">
       <h2 class="hero__text-1">Let’s Make Your Own Cinema</h2>
       <h3 class="hero__text-2" id="hero_text">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.</h3>
-      <button class="hero__butoon" onclick="window.location.href='catalog.html';">
+      <button class="hero__button" onclick="window.location.href='catalog.html';">
         <span class="hero__span-button">Get Started</span>
       </button>
     </div>
