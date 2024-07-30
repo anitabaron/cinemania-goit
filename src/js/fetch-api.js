@@ -27,14 +27,22 @@ const createHeroMovie = (results) =>{
   const randomMovie = Math.floor(Math.random() * results.data.results.length);
   const topDayMovie =results.data.results[randomMovie]
   heroSection.innerHTML=
-  `<div class="hero_background container" 
+  `<div class="hero__background container" 
         style="background-image: linear-gradient(86.77deg, rgb(17, 17, 17) 30.38%, rgba(17, 17, 17, 0) 65.61%), 
         url(https://image.tmdb.org/t/p/w500${topDayMovie.backdrop_path});">
-  <h2 class="hero_text_1">${topDayMovie.title}</h2>
-  <p class="hero_text_2" id="hero_text">${topDayMovie.overview}</p>
+  <h2 class="hero__text-1">${topDayMovie.title}</h2>
+  <ul class="movielist__rating-list">
+						<li>*</li>
+						<li>*</li>
+						<li>*</li>
+						<li>*</li>
+						<li>*</li>
+					</ul>
+  <p class="hero__text-2" id="hero_text">${topDayMovie.overview}</p>
+  		
   <div class="buttons">
-    <button class="btn btn__black">Watch trailer</button>
-    <button class="btn btn__orange-gradient">More details</button>
+    <button class="btn btn__orange-gradient">Watch trailer</button>
+    <button class="btn btn__black">More details</button>
   </div>
 </div>`
 }
