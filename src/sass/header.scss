@@ -1,4 +1,4 @@
-/* ========================HEADER====================== */
+/* ========================HEADER====================== 
 .header {
   width: 1280px;
   height: 60px;
@@ -18,6 +18,7 @@
   display: flex;
   gap: 50px;
 }
+
 .header__nav-item-link {
   color: var(--white);
 }
@@ -26,4 +27,401 @@
   height: 24px;
   background-color: var(--orange);
   border-radius: 194px;
+}
+*/
+
+@mixin tel {
+  @media screen and (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+// .container {
+//   padding-left: 20px;
+//   padding-right: 20px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+.header {
+  position: relative;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+
+  @include tel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include tablet {
+    min-height: 60px;
+    display: flex;
+  }
+
+  @include desktop {
+    min-height: 60px;
+    display: flex;
+  }
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+
+  @include tablet {
+    width: 170px;
+    height: 48px;
+  }
+
+  @include desktop {
+    width: 200px;
+    height: 56px;
+  }
+}
+
+.container__logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  max-width: 32px;
+  height: 32px;
+
+  @include tablet {
+    height: 48px;
+    max-width: 48px;
+    margin-right: 8px;
+  }
+}
+
+.logo-text {
+  display: none;
+
+  @include tablet {
+    display: block;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: white;
+  }
+}
+
+.header__nav-list {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    gap: 32px;
+  }
+
+  @include desktop {
+    gap: 40px;
+  }
+}
+
+.header__nav-link {
+  color: #b7b7b7;
+  display: block;
+  text-align: center;
+
+  @include tablet {
+    padding: 22px 0;
+  }
+}
+.current__nav-link {
+  color: #f87719;
+}
+//MOBILE MENU
+
+.header__nav {
+  @media (min-width: 768px) {
+    margin-right: 120px;
+    margin-left: 59px;
+  }
+  @media (max-width: 767px) {
+    position: absolute;
+    top: 0;
+    left: -64%;
+    width: 64%;
+    height: 100vh;
+    z-index: 10;
+    transition: left 0.3s ease-in-out;
+    background-color: #171717;
+    border-radius: 0px 8px 8px 0px;
+  }
+}
+
+.mobile-menu {
+  padding: 8px 20px;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  .mobile-menu {
+    min-height: 60px;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.mobile-menu__item {
+  padding: 10px;
+  text-align: left;
+  color: #ffffff;
+
+  &:hover,
+  &:focus {
+    transition: color 0.6s;
+    color: #f87719;
+  }
+}
+
+.mobile-menu__link {
+  padding: 10px;
+  text-align: left;
+  color: #b7b7b7;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    transition: color 0.75s;
+    color: #f87719;
+  }
+}
+
+.current__nav-link {
+  color: #f87719;
+}
+
+#menu {
+  padding: 17px 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #b7b7b7;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    transition: color 0.6s;
+    color: #f87719;
+  }
+  @include tablet {
+    display: none;
+  }
+}
+
+// mobile-menu
+.header__nav {
+  @media (max-width: 767px) {
+    background-color: black;
+  }
+}
+
+.mobile-menu__link.current__nav-link {
+  color: #f87719;
+}
+
+.mobile-menu__link {
+  color: white;
+
+  &:hover,
+  &:focus {
+    color: #f87719;
+  }
+}
+
+#menu-button {
+  color: #595959;
+
+  &:hover,
+  &:focus {
+    color: #f87719;
+  }
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(97, 89, 89, 0.2);
+  z-index: 5;
+  display: none;
+}
+
+.switcher {
+  width: 38px;
+  height: 16px;
+  padding: 4px;
+  background: linear-gradient(141.22deg, #f8bb20 9.4%, #f53f16 92.9%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50px;
+  cursor: pointer;
+
+  @include tablet {
+    height: 20px;
+    width: 54px;
+    padding: 5px;
+  }
+
+  @include desktop {
+    padding: 3px;
+    width: 60px;
+    height: 24px;
+  }
+}
+
+.switch-icon {
+  align-items: center;
+  display: flex;
+}
+
+.header__icon-moon {
+  width: 8px;
+  height: 8px;
+
+  @include tablet {
+    width: 10px;
+    height: 10px;
+  }
+
+  @include desktop {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.header__icon-sun {
+  width: 8px;
+  height: 8px;
+
+  @include tablet {
+    width: 11px;
+    height: 11px;
+  }
+
+  @include desktop {
+    width: 14px;
+    height: 14px;
+  }
+}
+////////////////////////////////////
+.switcher__ball {
+  transition-duration: 500ms;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 25px;
+  top: 2px;
+  right: 2px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  fill: #595959;
+  background-image: url('/src/images/Group\ 770831.svg');
+  background-size: contain;
+
+  @include tablet {
+    left: 35px;
+    width: 16px;
+    height: 16px;
+  }
+
+  @include desktop {
+    left: 40px;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.light .switcher__ball {
+  transform: translateX(-23px) rotate(-180deg);
+
+  @include tablet {
+    transform: translateX(-33px) rotate(-180deg);
+  }
+
+  @include desktop {
+    transform: translateX(-38px) rotate(-180deg);
+  }
+}
+
+// Light
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.25s ease-out;
+}
+
+//
+body.light {
+  .header__container {
+    background-color: #ffffff;
+  }
+
+  a {
+    color: #f87719;
+  }
+
+  p {
+    color: #000000;
+  }
+
+  h2 {
+    color: #000000;
+  }
+
+  .logo-text {
+    color: #000000;
+  }
+
+  .header__nav-link {
+    color: #595959;
+
+    &:hover,
+    &:focus {
+      color: #f87719;
+    }
+  }
+
+  .current__nav-link {
+    color: #f87719;
+  }
 }

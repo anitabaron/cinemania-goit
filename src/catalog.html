@@ -6,36 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catalog</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./js/index.js"></script>
   </head>
   <body>
-    <header class="header">
-      <div class="header__logo-box" id="logo">
-        <img
-          src="./images/logo.png"
-          height="36px"
-          width="45px"
-          alt="Logo of this page"
-        />
-        <p>Cinema</p>
-      </div>
-      <div class="header__nav-box" id="navigation">
-        <ul class="header__nav-list">
-          <li class="header__nav-item">
-            <a class="header__nav-item-link" href="./index.html">HOME</a>
-          </li>
-          <li>
-            <a class="header__nav-item-link" href="./catalog.html">CATALOG</a>
-          </li>
-          <li>
-            <a class="header__nav-item-link" href="my-library.html"
-              >MY LIBRARY</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="header__contrast-btn-box" id="contrast"></div>
-    </header>
+    <include src="./partials/header.html"></include>
     <main>
       <section class="hero" id="hero">
         <!--       <div class="hero__movie-desc" id="heroBox">
@@ -120,17 +93,6 @@
         </div>
       </section>
     </main>
-    <footer class="footer">
-      <div class="footer__box">
-        <p>© 2023 | All Rights Reserved | Developed with</p>
-        <img
-          src="./images/hart.png"
-          height="12.88px"
-          width="14px"
-          alt="smal orange hart"
-        />
-        <p class="footer__paragraf">by <span>GoIT Students</span></p>
-      </div>
-    </footer>
+    <include src="./partials/footer.html"></include>
   </body>
 </html>
