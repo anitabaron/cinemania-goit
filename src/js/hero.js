@@ -123,7 +123,7 @@ const createHeroMovie = (results) => {
   //   heroText2.id = 'hero_text';
 
   //   const heroButton = document.createElement('button');
-  //   heroButton.className = "hero__butoon";
+  //   heroButton.className = "hero__button";
   //   heroButton.setAttribute('onclick', "window.location.href='catalog.html';");
 
   //   const heroSpanButton = document.createElement('span');
