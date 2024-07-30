@@ -148,7 +148,9 @@
     padding: 22px 0;
   }
 }
-
+.current__nav-link {
+  color: #f87719;
+}
 //MOBILE MENU
 
 .header__nav {
@@ -217,6 +219,10 @@
   }
 }
 
+.current__nav-link {
+  color: #f87719;
+}
+
 #menu {
   padding: 17px 0;
   font-weight: 500;
@@ -242,6 +248,10 @@
   @media (max-width: 767px) {
     background-color: black;
   }
+}
+
+.mobile-menu__link.current__nav-link {
+  color: #f87719;
 }
 
 .mobile-menu__link {
