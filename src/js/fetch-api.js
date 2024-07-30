@@ -26,8 +26,8 @@ const createHeroMovie = results => {
   const randomMovie = Math.floor(Math.random() * results.data.results.length);
   const topDayMovie = results.data.results[randomMovie];
   heroSection.innerHTML = `<div class="hero__background container" 
-       
-        url(https://image.tmdb.org/t/p/w1280${topDayMovie.backdrop_path});">
+        style="background-image: linear-gradient(86.77deg, rgb(17, 17, 17) 30.38%, rgba(17, 17, 17, 0) 65.61%), 
+        url(https://image.tmdb.org/t/p/w500${topDayMovie.backdrop_path})">
   <h2 class="hero__text-1">${topDayMovie.title}</h2>
   <ul class="movielist__rating-hero">
 						<li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,10 +118,12 @@ const createWeekMovies = results => {
   weekMoviesSection.innerHTML = weekMoviesSectionFragment;
 };
 
-const createUpcomingMovie = results => {
-  const upcomingSection = document.querySelector('#upcoming');
-  const upcomingMovie = results.data.results[0];
-  upcomingSection.innerHTML = `<h2>UPCOMING THIS MONTH</h2>
+const createUpcomingMovie = (results) =>{
+  const upcomingSection =document.querySelector('#upcoming')
+  const randomMovie = Math.floor(Math.random() * results.data.results.length);
+  const upcomingMovie =results.data.results[randomMovie]
+  upcomingSection.innerHTML=
+  `<h2>UPCOMING THIS MONTH</h2>
         <div class="upcoming__film-box">
         <img
         src="https://image.tmdb.org/t/p/w500${upcomingMovie.backdrop_path}"
@@ -130,7 +132,7 @@ const createUpcomingMovie = results => {
         alt="Logo of this page"
         />
             <div class="upcoming__film-details-box">
-                <h3>${upcomingMovie.original_title}</h3>
+                <h3>${upcomingMovie.title}</h3>
                 <div class="upcoming__film-details">
                     <div>
 						<p>Release date</p>
@@ -154,11 +156,19 @@ const homePageApiData = url =>
   axios
     .get(url, { params, ...options })
     .then(results => {
-      if (url.includes('day')) createHeroMovie(results);
-      if (url.includes('week')) createWeekMovies(results);
-      if (url.includes('upcoming')) console.log(results);
-      createUpcomingMovie(results);
-    })
+      if (url.includes("day")){
+        //console.log("day:", results)
+        createHeroMovie(results)
+        return}
+      if (url.includes("week")){
+        //console.log("week:", results)
+        createWeekMovies(results)
+        return}
+      if (url.includes("upcoming")){
+        //console.log("upcoming:", results)
+        createUpcomingMovie(results)
+        return}
+      })
     .catch(error => console.log(error));
 
 const homePageContent = async () =>
