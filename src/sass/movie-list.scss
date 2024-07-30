@@ -14,6 +14,7 @@
 }
 .movielist__movie-card-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .movielist__movie-itemt {
@@ -40,4 +41,87 @@
   position: absolute;
   right: 20px;
   bottom: 20px;
+}
+
+// -------style do pliku move-list.js--------
+.movielist__movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .movielist__movie-list{
+    row-gap: 28px;
+  }
+}
+@media (min-width: 1280px) {
+  .movielist__movie-list {
+    row-gap: 32px;
+  }
+}
+
+
+.movielist-item {
+width: 280px;
+height: 406px;
+display: flex;
+flex-direction: column;
+position: relative;
+border-radius: 5px;
+}
+@media (min-width: 768px) {
+  .movielist-item {
+      width: 224px;
+      height: 324px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .movielist-item {
+      width: 394px;
+      height: 574px;
+  }
+}
+
+.movielist__movie-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.movielist__information-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  padding: 12px;
+}
+
+.movielist__title-box {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+}
+@media (min-width: 1280px) {
+  .movielist__title-box {
+font-size: 20px;
+  }
+}
+
+.movielist__movie-title {
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.movielist__movie-genre {
+  color: var(--grey);
+}
+.movielist__movie-rating {
+  display: flex;
 }
