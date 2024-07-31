@@ -96,7 +96,7 @@ const TopWeekMovieBox = (index, results) => {
                     <div class="movielist__information-box">
                     <div class="movielist__title-box">
 						<p class ="movielist__movie-title">${ TopWeekMovie.title }</p>
-						<p class ="movielist__movie-genre"> genre | ${releaseYear}</p>
+						<p class ="movielist__movie-genre"> genre | ${TopWeekMovie.release_date}</p>
 					    </div>
                         <ul class="movielist__movie-rating">
 						<li>*</li>
