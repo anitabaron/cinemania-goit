@@ -22,20 +22,33 @@
   background-color: var(--white);
   background: none;
   color: var(--orange);
-  border: 1px solid linear-gradient(145deg, #ffc226 0%, #f84119 100%);
-  // border to powinien być gradient
+  border: 1px solid;
+  border-color: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
 }
 
 .btn__black {
-  background-color: var(--background);
+  background: var(--background);
   color: var(--white);
-  border: 1px solid linear-gradient(145deg, #ffc226 0%, #f84119 100%);
-  // border powinno być gradient
+  border: 1px solid;
+  border-color: #f84119;
 }
 
 .btn.btn__black:hover,
 .btn.btn__black:active {
   background-color: var(--white);
+  color: var(--orange);
+  border: var(--background);
+}
+.btn__white {
+  background: var(--white);
+  color: var(--black);
+  border: 1px solid;
+  border-color: #f84119;
+}
+
+.btn.btn__white:hover,
+.btn.btn__white:active {
+  background-color: var(--black);
   color: var(--orange);
   border: var(--background);
 }
