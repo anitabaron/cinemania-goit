@@ -79,7 +79,7 @@
 .btn__search_black {
   background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
   color: var(--background);
-  color: black;
+  color: var(--black);
 }
 
 .search.btn__search_black:hover,
@@ -105,7 +105,7 @@
 }
 .icon {
   fill: none;
-  stroke: white;
+  stroke: var(--white);
 }
 
 .search.btn__search_white:hover .icon path {
