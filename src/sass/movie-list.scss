@@ -1,4 +1,5 @@
 /* ========================MOVIE-LIST====================== */
+<<<<<<< HEAD
 // .movielist {
 //   width: 1280px;
 //   min-width: 500px;
@@ -37,6 +38,40 @@
 //   right: 20px;
 //   bottom: 20px;
 // }
+=======
+.movielist {
+  width: 1280px;
+}
+.movielist__nav-tends-box {
+  display: flex;
+  justify-content: space-between;
+}
+.movielist__movie-itemt {
+  height: 574px;
+  width: 395px;
+  position: relative;
+  border: solid 1px white;
+}
+.movielist__movie-image {
+  height: 100%;
+  width: 100%;
+}
+.movielist__movie-description {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+.movielist__movie-details {
+  display: flex;
+  gap: 10px;
+}
+.movielist__rating-list {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+>>>>>>> main
 
 // -------style do pliku move-list.js--------
 .movielist__movie-card-list {
@@ -48,18 +83,18 @@
 }
 
 .movielist-item {
-width: 280px;
-height: 406px;
-display: flex;
-flex-direction: column;
-position: relative;
-border-radius: 5px;
-background-size: cover;
+  width: 280px;
+  height: 406px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 5px;
+  background-size: cover;
 }
 @media (min-width: 768px) {
   .movielist-item {
-      width: 224px;
-      height: 324px;
+    width: 224px;
+    height: 324px;
   }
     .movielist__movie-card-list {
       justify-content: space-evenly;
@@ -68,8 +103,8 @@ background-size: cover;
 
 @media (min-width: 1280px) {
   .movielist-item {
-      width: 394px;
-      height: 574px;
+    width: 394px;
+    height: 574px;
   }
 }
 
@@ -98,7 +133,7 @@ background-size: cover;
 }
 @media (min-width: 1280px) {
   .movielist__title-box {
-font-size: 20px;
+    font-size: 20px;
   }
 }
 

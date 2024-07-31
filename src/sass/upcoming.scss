@@ -1,13 +1,11 @@
 /* ========================UPCOMING====================== */
 .upcoming {
-  width: 1280px;
   min-width: 500px;
-  margin: 0 auto;
-  padding: 0 32px 0 32px;
-  background-color: var(--background);
+  margin-top: 44px;
 }
 .upcoming__film-box {
   display: flex;
+  flex-wrap: wrap;
 }
 .upcoming__film-details-box {
   margin: auto 0;
