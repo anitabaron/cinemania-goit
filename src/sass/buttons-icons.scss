@@ -4,8 +4,8 @@
   font-family: inherit;
   font-weight: 500;
   cursor: pointer;
-  display: block;
-  margin: 0 auto;
+  display: inline-block; // Daniel// zmieniłem display block na display inline-block
+  margin: 0;
   border: none;
   border-radius: 74px;
   padding: 12px 24px 12px 24px;
@@ -22,15 +22,18 @@
   background-color: var(--white);
   background: none;
   color: var(--orange);
-  border: 1px solid;
-  border-color: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
+  border: 1px solid var(--orange);
+  // border: 1px solid linear-gradient(145deg, #ffc226 0%, #f84119 100%);
+  // border-color: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
+  // border to powinien być gradient ale coś nie działa
 }
 
 .btn__black {
   background: var(--background);
   color: var(--white);
-  border: 1px solid;
-  border-color: #f84119;
+  border: 1px solid var(--orange;
+  // border: 1px solid linear-gradient(145deg, #ffc226 0%, #f84119 100%);
+  // border powinno być gradient ale coś nie działa
 }
 
 .btn.btn__black:hover,
