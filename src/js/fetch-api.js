@@ -147,31 +147,31 @@ const createUpcomingMovie = results => {
   const upcomingSection = document.querySelector('#upcoming');
   const randomMovie = Math.floor(Math.random() * results.data.results.length);
   const upcomingMovie = results.data.results[randomMovie];
-  upcomingSection.innerHTML = `<h2>UPCOMING THIS MONTH</h2>
+  upcomingSection.innerHTML = `<h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
         <div class="upcoming__film-box">
-        <img
+        <img class="upcoming-image"
         src="https://image.tmdb.org/t/p/w500${upcomingMovie.backdrop_path}"
        
         alt="Logo of this page"
         />
             <div class="upcoming__film-details-box">
-                <h3>${upcomingMovie.title}</h3>
+                <h3 class="upcoming-header-two">${upcomingMovie.title}</h3>
                 <div class="upcoming__film-details">
                     <div>
-						<p>Release date</p>
-						<p>Vote / Votes</p>
-						<p>Popularit</p>
-						<p>Genre</p>
+						<p class="upcoming-p">Release date</p>
+						<p class="upcoming-p">Vote / Votes</p>
+						<p class="upcoming-p">Popularit</p>
+						<p class="upcoming-p">Genre</p>
 					</div>
                     <div>
-						<p>03.03.2023</p>
-						<p class="upcoming__film-rating"><span>7.3</span>/<span>1260</span></p>
-						<p>99.9</p>
+						<p class="upcoming-p-two upcoming-p-style">03.03.2023</p>
+						<p class="upcoming__film-rating upcoming-p-style"><span class="upcoming-box">7.3</span>  /  <span class="upcoming-box">1260</span></p>
+						<p class="upcoming-p-style">99.9</p>
 						<p>Comedy, action</p>
 					</div>
 				</div>
-				<h4>ABOUT</h4>
-				<p>${upcomingMovie.overview}</p>
+				<h4 class="upcoming-header-three">ABOUT</h4>
+				<p class="upcoming-p-three">${upcomingMovie.overview}</p>
 			    <button class="btn btn__big btn__orange-gradient">Add to my library</button>`;
 };
 
