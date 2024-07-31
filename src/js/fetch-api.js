@@ -87,7 +87,6 @@ const createHeroMovie = results => {
 
 const TopWeekMovieBox = (index, results) => {
   const TopWeekMovie = results.data.results[index];
-  const releaseYear = TopWeekMovie.release_date.slice(0, 4);
   return `<li>
   <div class="movielist-item"
                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${TopWeekMovie.backdrop_path});

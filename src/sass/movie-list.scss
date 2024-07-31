@@ -1,49 +1,49 @@
 /* ========================MOVIE-LIST====================== */
-.movielist {
-  width: 1280px;
-  min-width: 500px;
-  margin: 0 auto;
-  padding: 0 32px 0 32px;
-  background-color: var(--background);
-}
-.movielist__nav-tends-box {
-  width: 100%;
-  padding: 0 32px 0 32px;
-  display: flex;
-  justify-content: space-between;
-}
-.movielist__movie-itemt {
-  height: 574px;
-  width: 395px;
-  position: relative;
-  border: solid 1px white;
-}
-.movielist__movie-image {
-  height: 100%;
-  width: 100%;
-}
-.movielist__movie-description {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-}
-.movielist__movie-details {
-  display: flex;
-  gap: 10px;
-}
-.movielist__rating-list {
-  display: flex;
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-}
+// .movielist {
+//   width: 1280px;
+//   min-width: 500px;
+//   margin: 0 auto;
+//   padding: 0 32px 0 32px;
+//   background-color: var(--background);
+// }
+// .movielist__nav-tends-box {
+//   width: 100%;
+//   padding: 0 32px 0 32px;
+//   display: flex;
+//   justify-content: space-between;
+// }
+// .movielist__movie-itemt {
+//   height: 574px;
+//   width: 395px;
+//   position: relative;
+//   border: solid 1px white;
+// }
+// .movielist__movie-image {
+//   height: 100%;
+//   width: 100%;
+// }
+// .movielist__movie-description {
+//   position: absolute;
+//   left: 20px;
+//   bottom: 20px;
+// }
+// .movielist__movie-details {
+//   display: flex;
+//   gap: 10px;
+// }
+// .movielist__rating-list {
+//   display: flex;
+//   position: absolute;
+//   right: 20px;
+//   bottom: 20px;
+// }
 
 // -------style do pliku move-list.js--------
 .movielist__movie-card-list {
   display: flex;
   gap: 16px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -61,6 +61,9 @@ background-size: cover;
       width: 224px;
       height: 324px;
   }
+    .movielist__movie-card-list {
+      justify-content: space-evenly;
+    }
 }
 
 @media (min-width: 1280px) {
