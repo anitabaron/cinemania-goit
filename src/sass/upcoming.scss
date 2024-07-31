@@ -1,15 +1,8 @@
 /* ========================UPCOMING====================== */
 .upcoming {
-  min-width: 500px;
-  margin-top: 44px;
+  padding-top: 32px;
 }
-.upcoming__film-box {
-  display: flex;
-  flex-wrap: wrap;
-}
-.upcoming__film-details-box {
-  margin: auto 0;
-}
+
 .upcoming__film-details {
   display: flex;
   gap: 58px;
@@ -17,4 +10,106 @@
 .upcoming__film-rateing {
   display: flex;
   gap: 5px;
+}
+.upcoming-header-one {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+.upcoming-header-two {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 24px;
+  margin-bottom: 7px;
+}
+.upcoming-p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #b7b7b7;
+  padding-top: 12px;
+}
+.upcoming-header-three {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #b7b7b7;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+.upcoming-p-three {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #f8f8f8;
+}
+.upcoming-p-two {
+  color: #f87719;
+}
+.upcoming-box {
+  border-radius: 5px;
+  padding: 1px 4px;
+  width: 40px;
+  height: 18px;
+  background: #fff;
+  color: #111;
+}
+.upcoming-image {
+  border-radius: 5px;
+  width: 280px;
+  height: 402px;
+}
+.upcoming__film-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.upcoming-p-style {
+  padding-top: 12px;
+}
+
+@media (min-width: 768px) {
+  .upcoming {
+    padding-top: 44px;
+  }
+  .upcoming-image {
+    width: 704px;
+    height: 400px;
+  }
+}
+@media (min-width: 1280px) {
+  .upcoming {
+    padding-top: 60px;
+  }
+  .upcoming-header-one {
+    margin-bottom: 28px;
+    font-size: 28px;
+  }
+  .upcoming__film-box {
+    flex-wrap: nowrap;
+  }
+  .upcoming-image {
+    height: 458px;
+    width: 805px;
+  }
+  .upcoming-image {
+    margin-right: 16px;
+  }
+  .upcoming-header-two {
+    font-size: 32px;
+    margin-bottom: 28px;
+  }
+  .upcoming-header-three {
+    margin-top: 20px;
+  }
+
+  .upcoming-film-box {
+    flex-wrap: nowrap;
+  }
 }
