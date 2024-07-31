@@ -102,3 +102,19 @@
     display: flex;
   }
 }
+
+.heart {
+  @include tel {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  @include tablet {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  @include desktop {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
