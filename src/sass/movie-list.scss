@@ -1,14 +1,8 @@
 /* ========================MOVIE-LIST====================== */
 .movielist {
   width: 1280px;
-  min-width: 500px;
-  margin: 0 auto;
-  padding: 0 32px 0 32px;
-  background-color: var(--background);
 }
 .movielist__nav-tends-box {
-  width: 100%;
-  padding: 0 32px 0 32px;
   display: flex;
   justify-content: space-between;
 }
@@ -48,25 +42,25 @@
 }
 
 .movielist-item {
-width: 280px;
-height: 406px;
-display: flex;
-flex-direction: column;
-position: relative;
-border-radius: 5px;
-background-size: cover;
+  width: 280px;
+  height: 406px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 5px;
+  background-size: cover;
 }
 @media (min-width: 768px) {
   .movielist-item {
-      width: 224px;
-      height: 324px;
+    width: 224px;
+    height: 324px;
   }
 }
 
 @media (min-width: 1280px) {
   .movielist-item {
-      width: 394px;
-      height: 574px;
+    width: 394px;
+    height: 574px;
   }
 }
 
@@ -95,7 +89,7 @@ background-size: cover;
 }
 @media (min-width: 1280px) {
   .movielist__title-box {
-font-size: 20px;
+    font-size: 20px;
   }
 }
 
