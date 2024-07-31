@@ -1,10 +1,12 @@
 /* ========================MOVIE-LIST====================== */
-.movielist {
-  width: 1280px;
-}
+
 .movielist__nav-tends-box {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 28px;
+}
+.movielist__nav-tends-box a {
+  color: var(--orange);
 }
 .movielist__movie-itemt {
   height: 574px;

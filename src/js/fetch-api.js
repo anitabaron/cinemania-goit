@@ -75,6 +75,7 @@ const createHeroMovie = results => {
     </linearGradient>
   </defs>
 </svg></li>
+
 					</ul>
   <p class="hero__text-2" id="hero_text">${topDayMovie.overview}</p>
   		
@@ -96,7 +97,7 @@ const TopWeekMovieBox = (index, results) => {
                     background-position: center">
                     <div class="movielist__information-box">
                     <div class="movielist__title-box">
-						<p class ="movielist__movie-title">${ TopWeekMovie.title }</p>
+						<p class ="movielist__movie-title">${TopWeekMovie.title}</p>
 						<p class ="movielist__movie-genre"> genre | ${releaseYear}</p>
 					    </div>
                         <ul class="movielist__movie-rating">
@@ -109,28 +110,28 @@ const TopWeekMovieBox = (index, results) => {
 					</div>
                     </div>
                     </li>
-					`
+					`;
 
-//   `<li class="movielist__movie-itemt">
-//     <img class="movielist__movie-image"
-//         src="https://image.tmdb.org/t/p/w500${TopWeekMovie.backdrop_path}"
-//         alt="Poster of ${TopWeekMovie.title}"
-//     />
-//             <div class="movielist__movie-description">
-//     <h3>${TopWeekMovie.title}</h3>
-//                 <div class="movielist__-movie-details">
-//         <p>Drama, Action</p>
-//         <p>${TopWeekMovie.release_date}</p>
-//       </div>
-//   </div>
-//   <ul class="movielist__rating-list">
-//     <li>*</li>
-//     <li>*</li>
-//     <li>*</li>
-//     <li>*</li>
-//     <li>*</li>
-//   </ul>
-// </li>`;
+  //   `<li class="movielist__movie-itemt">
+  //     <img class="movielist__movie-image"
+  //         src="https://image.tmdb.org/t/p/w500${TopWeekMovie.backdrop_path}"
+  //         alt="Poster of ${TopWeekMovie.title}"
+  //     />
+  //             <div class="movielist__movie-description">
+  //     <h3>${TopWeekMovie.title}</h3>
+  //                 <div class="movielist__-movie-details">
+  //         <p>Drama, Action</p>
+  //         <p>${TopWeekMovie.release_date}</p>
+  //       </div>
+  //   </div>
+  //   <ul class="movielist__rating-list">
+  //     <li>*</li>
+  //     <li>*</li>
+  //     <li>*</li>
+  //     <li>*</li>
+  //     <li>*</li>
+  //   </ul>
+  // </li>`;
 };
 
 const createWeekMovies = results => {
@@ -142,17 +143,15 @@ const createWeekMovies = results => {
   weekMoviesSection.innerHTML = weekMoviesSectionFragment;
 };
 
-const createUpcomingMovie = (results) =>{
-  const upcomingSection =document.querySelector('#upcoming')
+const createUpcomingMovie = results => {
+  const upcomingSection = document.querySelector('#upcoming');
   const randomMovie = Math.floor(Math.random() * results.data.results.length);
-  const upcomingMovie =results.data.results[randomMovie]
-  upcomingSection.innerHTML=
-  `<h2>UPCOMING THIS MONTH</h2>
+  const upcomingMovie = results.data.results[randomMovie];
+  upcomingSection.innerHTML = `<h2>UPCOMING THIS MONTH</h2>
         <div class="upcoming__film-box">
         <img
         src="https://image.tmdb.org/t/p/w500${upcomingMovie.backdrop_path}"
-        height="458px"
-        width="805px"
+       
         alt="Logo of this page"
         />
             <div class="upcoming__film-details-box">
@@ -173,26 +172,29 @@ const createUpcomingMovie = (results) =>{
 				</div>
 				<h4>ABOUT</h4>
 				<p>${upcomingMovie.overview}</p>
-			    <button>Add to my library</button>`;
+			    <button class="btn btn__big btn__orange-gradient">Add to my library</button>`;
 };
 
 const homePageApiData = url =>
   axios
     .get(url, { params, ...options })
     .then(results => {
-      if (url.includes("day")){
+      if (url.includes('day')) {
         //console.log("day:", results)
-        createHeroMovie(results)
-        return}
-      if (url.includes("week")){
+        createHeroMovie(results);
+        return;
+      }
+      if (url.includes('week')) {
         //console.log("week:", results)
-        createWeekMovies(results)
-        return}
-      if (url.includes("upcoming")){
+        createWeekMovies(results);
+        return;
+      }
+      if (url.includes('upcoming')) {
         //console.log("upcoming:", results)
-        createUpcomingMovie(results)
-        return}
-      })
+        createUpcomingMovie(results);
+        return;
+      }
+    })
     .catch(error => console.log(error));
 
 const homePageContent = async () =>
