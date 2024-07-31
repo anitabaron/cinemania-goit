@@ -3,23 +3,34 @@
   justify-content: center;
 }
 
-/* ------------------------------MOBILE */
+.catalog__form-input {
+  background-color: var(--background);
+  color: var(--white);
+  border: 1px solid var(--white);
+  border-radius: 8px;
+  padding: 12px 260px 12px 24px;
+  width: 334px;
+  height: 48px;
+}
+
+.catalog__search {
+  display: flex;
+  justify-content: center;
+}
+
 @media (width < 768px) {
   .catalog__text {
-    font-size: 32px;
+    font-size: 20px;
   }
 }
-/* ------------------------------TABLET */
 @media (width >= 768px) and (width < 1280px) {
   .catalog__text {
     font-size: 24px;
   }
 }
-/* ------------------------------DESKTOP */
-
 @media (width >= 1280px) {
   .catalog__text {
-    font-size: 20px;
+    font-size: 32px;
     padding-top: 160px;
   }
 }
