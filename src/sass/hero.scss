@@ -10,6 +10,13 @@
     //   url('../images/hero_mobile.png') no-repeat center center;
     background-size: cover, cover;
   }
+  .hero__background-2 {
+    width: 320px;
+    height: 380px;
+    background: linear-gradient(82deg, #111 28.7%, rgba(17, 17, 17, 0) 100%),
+      url('../images/hero_mobile.png') no-repeat center center;
+    background-size: cover, cover;
+  }
 
   .hero__text-1 {
     padding-left: 20px;
@@ -52,6 +59,13 @@
     //   url('../images/hero_tablet.png') no-repeat left center;
     background-size: cover, cover;
   }
+  .hero__background-2 {
+    width: 320px;
+    height: 380px;
+    background: linear-gradient(82deg, #111 28.7%, rgba(17, 17, 17, 0) 100%),
+      url('../images/hero_mobile.png') no-repeat center center;
+    background-size: cover, cover;
+  }
   .hero__text-1 {
     padding-left: 32px;
     padding-top: 36px;
@@ -92,6 +106,13 @@
 
     // background: linear-gradient(82deg, #111 28.55%, rgba(17, 17, 17, 0) 100%),
     //   url('../images/hero_desktop.png') no-repeat left center;
+    background-size: cover, cover;
+  }
+  .hero__background-2 {
+    width: 320px;
+    height: 380px;
+    background: linear-gradient(82deg, #111 28.7%, rgba(17, 17, 17, 0) 100%),
+      url('../images/hero_mobile.png') no-repeat center center;
     background-size: cover, cover;
   }
   .hero__text-1 {

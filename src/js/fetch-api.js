@@ -121,38 +121,38 @@ const createHeroMovie = results => {
 };
 
 const genres = [
-	{ "id": 28, "name": "Action" },
-	{ "id": 12, "name": "Adventure" },
-	{ "id": 16, "name": "Animation" },
-	{ "id": 35, "name": "Comedy" },
-	{ "id": 80, "name": "Crime" },
-	{ "id": 99, "name": "Documentary" },
-	{ "id": 18, "name": "Drama" },
-	{ "id": 10751, "name": "Family" },
-	{ "id": 14, "name": "Fantasy" },
-	{ "id": 36, "name": "History" },
-	{ "id": 27, "name": "Horror" },
-	{ "id": 10402, "name": "Music" },
-	{ "id": 9648, "name": "Mystery" },
-	{ "id": 10749, "name": "Romance" },
-	{ "id": 878, "name": "Science Fiction" },
-	{ "id": 10770, "name": "TV Movie" },
-	{ "id": 53, "name": "Thriller" },
-	{ "id": 10752, "name": "War" },
-	{ "id": 37, "name": "Western" },
-]
+  { id: 28, name: 'Action' },
+  { id: 12, name: 'Adventure' },
+  { id: 16, name: 'Animation' },
+  { id: 35, name: 'Comedy' },
+  { id: 80, name: 'Crime' },
+  { id: 99, name: 'Documentary' },
+  { id: 18, name: 'Drama' },
+  { id: 10751, name: 'Family' },
+  { id: 14, name: 'Fantasy' },
+  { id: 36, name: 'History' },
+  { id: 27, name: 'Horror' },
+  { id: 10402, name: 'Music' },
+  { id: 9648, name: 'Mystery' },
+  { id: 10749, name: 'Romance' },
+  { id: 878, name: 'Science Fiction' },
+  { id: 10770, name: 'TV Movie' },
+  { id: 53, name: 'Thriller' },
+  { id: 10752, name: 'War' },
+  { id: 37, name: 'Western' },
+];
 
 const movieGenresCompare = (arr1, arr2) => {
-	const finalArr = [];
-	for (i = 0; i < arr1.length; i += 1) {
-				if (arr2.includes(arr1[i].id)) {
-					finalArr.push(arr1[i].name)
-				}
-			}
+  const finalArr = [];
+  for (i = 0; i < arr1.length; i += 1) {
+    if (arr2.includes(arr1[i].id)) {
+      finalArr.push(arr1[i].name);
+    }
+  }
 
-	return finalArr.slice(0,2).join(", ");
-}
-  
+  return finalArr.slice(0, 2).join(', ');
+};
+
 const TopWeekMovieBox = (index, results) => {
   const TopWeekMovie = results.data.results[index];
   const releaseYear = TopWeekMovie.release_date.slice(0, 4);
@@ -166,8 +166,8 @@ const TopWeekMovieBox = (index, results) => {
                     background-position: center">
                     <div class="movielist__information-box">
                     <div class="movielist__title-box">
-						<p class ="movielist__movie-title">${ TopWeekMovie.title }</p>
-						<p class ="movielist__movie-genre"> ${ movieGenres } | ${ releaseYear }</p>
+						<p class ="movielist__movie-title">${TopWeekMovie.title}</p>
+						<p class ="movielist__movie-genre"> ${movieGenres} | ${releaseYear}</p>
 					    </div>
                         <ul class="movielist__movie-rating">
 						<li>
@@ -247,6 +247,36 @@ const createUpcomingMovie = results => {
 				<p class="upcoming-p-three">${upcomingMovie.overview}</p>
 			    <button class="btn btn__big btn__orange-gradient">Add to my library</button>`;
 };
+const updateTextHero = () => {
+  const heroText = document.getElementById('hero_text');
+
+  if (window.innerWidth >= 768) {
+    heroText.textContent =
+      "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.";
+  } else {
+    heroText.textContent =
+      "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.";
+    heroText.classList.add('hero_text_2');
+  }
+};
+function createDefaultHeroSection() {
+  const heroSection = document.querySelector('#hero'); // Usuń znak '#'
+  console.log('dupa');
+  // Ustawienie zawartości
+  heroSection.innerHTML = `
+    <div class="hero_background-2 container">
+      <h2 class="hero__text-1">Let’s Make Your Own Cinema</h2>
+      <h3 class="hero__text-2" id="hero_text">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.</h3>
+      <div class = "buttons"><button class="btn__hero-1 " onclick="window.location.href='catalog.html';">
+        <span class="hero__span-button">Get Started</span>
+      </button></div>
+    </div>
+  `;
+
+  updateTextHero();
+
+  window.addEventListener('resize', updateTextHero);
+}
 
 const homePageApiData = url =>
   axios
@@ -255,6 +285,10 @@ const homePageApiData = url =>
       if (url.includes('day')) {
         //console.log("day:", results)
         createHeroMovie(results);
+        return;
+      }
+      if (results.data.results.length === 0) {
+        createDefaultHeroSection();
         return;
       }
       if (url.includes('week')) {
