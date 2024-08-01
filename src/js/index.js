@@ -3,7 +3,6 @@ import './hero';
 import './movie-list';
 import './upcoming';
 import './footer';
-import './catalog';
 import './my-library';
 import './modal';
 import './oops';
