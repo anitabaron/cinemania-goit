@@ -2,6 +2,55 @@ import axios from 'axios';
 
 const API_KEY = '682127ed972e56f6bb70ae743d23c1d7';
 
+// ----------------------------------------
+
+const fullStar = `
+<svg class="star" width="18" height="18" viewBox="0 0 18 18" fill="rgba(248, 65, 25, 1)" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16.875 7.3125H10.8281L9 1.6875L7.17188 7.3125H1.125L6.04688 10.6875L4.14844 16.3125L9 12.7969L13.8516 16.3125L11.9531 10.6875L16.875 7.3125Z" stroke="url(#paint0_linear_405_766)" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="paint0_linear_405_766" x1="3.375" y1="2.625" x2="13.5" y2="16.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F84119"/>
+      <stop offset="1" stop-color="#F89F19" stop-opacity="0.68"/>
+    </linearGradient>
+  </defs>
+</svg>`;
+
+const halfStar = `
+<svg class="star" width="18" height="18" viewBox="0 0 18 18" fill="rgba(248, 65, 25, 1)" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16.875 7.3125H10.8281L9 1.6875L7.17188 7.3125H1.125L6.04688 10.6875L4.14844 16.3125L9 12.7969L13.8516 16.3125L11.9531 10.6875L16.875 7.3125Z" stroke="url(#paint0_linear_405_766)" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="paint0_linear_405_766" x1="3.375" y1="2.625" x2="13.5" y2="16.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F84119"/>
+      <stop offset="1" stop-color="#F89F19" stop-opacity="0.68"/>
+    </linearGradient>
+  </defs>
+  <mask id="halfMask">
+    <rect x="0" y="0" width="9" height="18" fill="white"/>
+  </mask>
+  <path d="M16.875 7.3125H10.8281L9 1.6875L7.17188 7.3125H1.125L6.04688 10.6875L4.14844 16.3125L9 12.7969L13.8516 16.3125L11.9531 10.6875L16.875 7.3125Z" fill="rgba(248, 65, 25, 1)" mask="url(#halfMask)"/>
+</svg>`;
+
+const emptyStar = `
+<svg class="star" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="rgba(248, 65, 25, 1)" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16.875 7.3125H10.8281L9 1.6875L7.17188 7.3125H1.125L6.04688 10.6875L4.14844 16.3125L9 12.7969L13.8516 16.3125L11.9531 10.6875L16.875 7.3125Z" stroke-linejoin="round"/>
+</svg>`;
+
+// ----------------------------------------------
+
+const generateStars = rating => {
+  let fullStars = Math.floor(rating);
+  let halfStars = rating % 1 >= 0.5 ? 1 : 0;
+  let emptyStars = 5 - fullStars - halfStars;
+
+  console.log('Pełne gwiazdki:', fullStars);
+  console.log('Połówkowe gwiazdki:', halfStars);
+  console.log('Puste gwiazdki:', emptyStars);
+
+  return `${fullStar.repeat(fullStars)}${halfStar.repeat(
+    halfStars
+  )}${emptyStar.repeat(emptyStars)}`;
+};
+// ---------------------------------------------
 const params = {
   page: 1,
   language: 'en-US',
@@ -23,38 +72,52 @@ const urls = {
 
 const createHeroMovie = results => {
   const heroSection = document.querySelector('#hero');
-  const randomMovie = Math.floor(Math.random() * results.data.results.length);
-  const topDayMovie = results.data.results[randomMovie];
+
+  if (
+    !results ||
+    !results.data ||
+    !results.data.results ||
+    results.data.results.length === 0
+  ) {
+    console.error('Invalid results data');
+    return;
+  }
+
+  const randomMovieIndex = Math.floor(
+    Math.random() * results.data.results.length
+  );
+  const topDayMovie = results.data.results[randomMovieIndex];
+
+  if (!topDayMovie) {
+    console.error('No movie data available');
+    return;
+  }
 
   const cutText = (text, maxLength) => {
-    if (text.length > maxLength) {
-      return text.slice(0, maxLength) + '...';
-    }
-    return text;
+    return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
   };
 
   const maxLength = 200;
   const truncatedOverview = cutText(topDayMovie.overview, maxLength);
 
-  heroSection.innerHTML = `<div class="hero__background container" 
-        style="background-image: linear-gradient(86.77deg, rgb(17, 17, 17) 30.38%, rgba(17, 17, 17, 0) 65.61%), 
-        url(https://image.tmdb.org/t/p/original${topDayMovie.backdrop_path})">
-  <h2 class="hero__text-1">${topDayMovie.title}</h2>
-  <ul class="movielist__rating-hero">
-						<li>*</li>
-						<li>*</li>
-						<li>*</li>
-						<li>*</li>
-						<li>*</li>
+  const rating = topDayMovie.vote_average / 2;
+  console.log('Ocena z API:', rating);
+  const starsHTML = generateStars(rating);
 
-					</ul>
-  <p class="hero__text-2" id="hero_text">${truncatedOverview}</p>
-  		
-  <div class="buttons">
-    <button class="btn__hero-1">Watch trailer</button>
-    <button class="btn__hero-2">More details</button>
-  </div>
-</div>`;
+  heroSection.innerHTML = `
+    <div class="hero__background container" 
+      style="background-image: linear-gradient(86.77deg, rgb(17, 17, 17) 30.38%, rgba(17, 17, 17, 0) 65.61%), 
+      url(https://image.tmdb.org/t/p/original${topDayMovie.backdrop_path})">
+      <h2 class="hero__text-1">${topDayMovie.title}</h2>
+      <ul class="movielist__rating-hero">
+        ${starsHTML}
+      </ul>
+      <p class="hero__text-2" id="hero_text">${truncatedOverview}</p>
+      <div class="buttons">
+        <button class="btn__hero-1">Watch trailer</button>
+        <button class="btn__hero-2">More details</button>
+      </div>
+    </div>`;
 };
 
 const TopWeekMovieBox = (index, results) => {
