@@ -6,8 +6,8 @@
   .hero__background {
     width: 320px;
     height: 380px;
-    background: linear-gradient(82deg, #111 28.7%, rgba(17, 17, 17, 0) 100%),
-      url('../images/hero_mobile.png') no-repeat center center;
+    // background: linear-gradient(82deg, #111 28.7%, rgba(17, 17, 17, 0) 100%),
+    //   url('../images/hero_mobile.png') no-repeat center center;
     background-size: cover, cover;
   }
 
@@ -43,8 +43,8 @@
   .hero__background {
     width: 768px;
     height: 432px;
-    background: linear-gradient(75deg, #111 9.77%, rgba(17, 17, 17, 0) 100%),
-      url('../images/hero_tablet.png') no-repeat left center;
+    // background: linear-gradient(75deg, #111 9.77%, rgba(17, 17, 17, 0) 100%),
+    //   url('../images/hero_tablet.png') no-repeat left center;
     background-size: cover, cover;
   }
   .hero__text-1 {
@@ -81,8 +81,8 @@
     width: 1280px;
     height: 720px;
 
-    background: linear-gradient(82deg, #111 28.55%, rgba(17, 17, 17, 0) 100%),
-      url('../images/hero_desktop.png') no-repeat left center;
+    // background: linear-gradient(82deg, #111 28.55%, rgba(17, 17, 17, 0) 100%),
+    //   url('../images/hero_desktop.png') no-repeat left center;
     background-size: cover, cover;
   }
   .hero__text-1 {
