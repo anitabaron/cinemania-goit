@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const createCard = ({ backdrop_path, title, genre, release_date }) => {
     const li = document.createElement("li");
     li.innerHTML=
@@ -26,3 +28,5 @@ export const createCard = ({ backdrop_path, title, genre, release_date }) => {
 // --------Przykładowy sposób dodania elementu na stronę -------
 // const list = document.querySelector("#idOfList");
 // list.append(createCard({}));
+
+
