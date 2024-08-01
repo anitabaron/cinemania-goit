@@ -4,11 +4,11 @@
   font-family: inherit;
   font-weight: 500;
   cursor: pointer;
-  display: inline-block; // Daniel// zmieniłem display block na display inline-block
+  display: inline-block;
   margin: 0;
   border: none;
   border-radius: 74px;
-  padding: 12px 24px 12px 24px;
+  padding: 12px 24px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -23,25 +23,21 @@
   background: none;
   color: var(--orange);
   border: 1px solid var(--orange);
-  // border: 1px solid linear-gradient(145deg, #ffc226 0%, #f84119 100%);
-  // border-color: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
-  // border to powinien być gradient ale coś nie działa
 }
 
 .btn__black {
   background: var(--background);
   color: var(--white);
   border: 1px solid var(--orange);
-  // border: 1px solid linear-gradient(145deg, #ffc226 0%, #f84119 100%);
-  // border powinno być gradient ale coś nie działa
 }
 
 .btn.btn__black:hover,
 .btn.btn__black:active {
   background-color: var(--white);
   color: var(--orange);
-  border: var(--background);
+  border-color: var(--background);
 }
+
 .btn__white {
   background: var(--white);
   color: var(--black);
@@ -53,12 +49,50 @@
 .btn.btn__white:active {
   background-color: var(--black);
   color: var(--orange);
-  border: var(--background);
+  border-color: var(--background);
 }
 
 .btn__small {
   font-size: 12px;
   line-height: 1.33333;
+}
+
+.btn__hero-1,
+.btn__hero-2 {
+  width: 117px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 74px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn__hero-1 {
+  background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
+  color: var(--background);
+}
+
+.btn__hero-1:hover,
+.btn__hero-1:active {
+  color: var(--orange);
+  background: var(--white);
+}
+
+.btn__hero-2 {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+}
+
+.btn__hero-2:hover,
+.btn__hero-2:active {
+  color: var(--background);
+  background: var(--white);
 }
 
 .search {
@@ -111,17 +145,24 @@
 .search.btn__search_white:hover .icon path {
   stroke: url(#myGradient);
 }
+
 /* ----------------------------- responsive -------------------------- */
 
 /* ----------------------------------------------------------------------------------------------------TABLET */
-@media (width >= 768px) and (width < 1280px) {
+@media (min-width: 768px) and (max-width: 1279px) {
   .btn__big {
     font-size: 14px;
   }
+  .btn__hero-1,
+  .btn__hero-2 {
+    width: 128px;
+    height: 40px;
+    font-size: 14px;
+  }
 }
-/* ----------------------------------------------------------------------------------------------------DESKTOP */
 
-@media (width >= 1280px) {
+/* ----------------------------------------------------------------------------------------------------DESKTOP */
+@media (min-width: 1280px) {
   .btn__big {
     font-size: 18px;
     line-height: 1.55556;
@@ -133,5 +174,19 @@
   .btn__medium {
     font-size: 14px;
     line-height: 1.14286;
+  }
+  .btn__hero-1,
+  .btn__hero-2 {
+    width: 139px;
+    height: 48px;
+    font-size: 16px;
+  }
+  .btn__hero-1:hover,
+  .btn__hero-1:active,
+  .btn__hero-2:hover,
+  .btn__hero-2:active {
+    width: 139px;
+    height: 48px;
+    font-size: 16px;
   }
 }
