@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catalog</title>
     <link rel="stylesheet" href="./sass/index.scss" />
+    <script type="module" src="./js/api-catalog-page.js"></script>
   </head>
   <body>
     <include src="./partials/header.html"></include>
     <main>
-      <section class="hero" id="hero"></section>
-      <!-- --- -->
-      <section class="movielist container" id="catalog">
+      <section class="hero" id="hero">
+
+      </section>
+
+      <section class="movielist container" id="search">
         <div class="catalog__search">
           <form class="catalog__form" id="catalogForm">
             <input
@@ -25,43 +28,15 @@
           </form>
         </div>
       </section>
-      <section class="catalog__text disabled">
-        <!-- Czy zawartość tej sekcji też powinna być wstawiona przez JS po negatywnym wyniku wyszukania? Czy od razu może być a jedynie toogler disable/enable w JS? -->
-        <h3 class="catalog__text-sorry">OOPS...</h3>
-        <p class="catalog__text-sorry">
-          We are very sorry! We dont have any results matching your search.
-        </p>
-      </section>
-      <section>
-        <ul class="movielist__movie-list" id="catalogMovielist">
-          <!-- ------------------ -->
-          <!--                 <li class="movie__catalog-item">
-				    <img class="movielist__movie-image"
-				        src="./images/logo.png"
 
-				        alt="Logo of this page"
-				    />
-                    <div class="movielist__movie-description">
-						<h3>THE LOST CITY</h3>
-                        <div class="movielist__-movie-details">
-						    <p>Drama, Action</p>
-						    <p>2023</p>
-					    </div>
-					</div>
-					<ul class="movielist__rating-list">
-						<li>*</li>
-						<li>*</li>
-						<li>*</li>
-						<li>*</li>
-						<li>*</li>
-					</ul>
-				</li> -->
-          <!-- ------------------ -->
-        </ul>
-        <div id="catalogPages">
-          <!-- ------------------ -->
-        </div>
+      <section class="movielist container" id="catalogSection">
+        <ul class="movielist__movie-card-list" id="catalg"></ul>
       </section>
+
+      <section class="movielist container" id="pagesBtnSection">
+        
+      </section>
+      
     </main>
     <include src="./partials/footer.html"></include>
   </body>
