@@ -1,13 +1,8 @@
-export const createCard = ({
-  backdrop_path,
-  title,
-  genre,
-  release_date,
-  id,
-}) => {
+import axios from 'axios';
+
+export const createCard = ({ backdrop_path, title, genre, release_date }) => {
   const li = document.createElement('li');
-  console.log(id);
-  li.innerHTML = `<div class="movielist-item" data-id="${id}"
+  li.innerHTML = `<div class="movielist-item"
                    style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%) url(${backdrop_path});
                     background-repeat: no-repeat;
                     background-size: cover; 
