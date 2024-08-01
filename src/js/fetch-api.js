@@ -51,8 +51,8 @@ const createHeroMovie = results => {
   <p class="hero__text-2" id="hero_text">${truncatedOverview}</p>
   		
   <div class="buttons">
-    <button class="btn btn__orange-gradient size__1">Watch trailer</button>
-    <button class="btn  btn__black size__2">More details</button>
+    <button class="btn__hero-1">Watch trailer</button>
+    <button class="btn__hero-2">More details</button>
   </div>
 </div>`;
 };

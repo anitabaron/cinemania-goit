@@ -38,25 +38,8 @@
     padding-top: 20px;
     display: flex;
     justify-content: center;
-    // gap: 8px; zmienia wysokość przycisków
-  }
-  .size__1 {
-    width: 117px;
-    height: 38px;
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 12px;
-    text-align: center;
-    color: var(--background);
-  }
-  .size__2 {
-    width: 117px;
-    height: 38px;
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 12px;
-    text-align: center;
-    color: var(--white);
+
+    gap: 8px;
   }
 }
 
