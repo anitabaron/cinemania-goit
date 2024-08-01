@@ -1,12 +1,16 @@
 /* ========================MOVIE-LIST====================== */
-
+.movielist {
+  width: 1280px;
+  min-width: 500px;
+  margin: 0 auto;
+  padding: 0 32px 0 32px;
+  background-color: var(--background);
+}
 .movielist__nav-tends-box {
+  width: 100%;
+  padding: 0 32px 0 32px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 28px;
-}
-.movielist__nav-tends-box a {
-  color: var(--orange);
 }
 .movielist__movie-itemt {
   height: 574px;
@@ -39,7 +43,7 @@
   display: flex;
   gap: 16px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -57,6 +61,9 @@
     width: 224px;
     height: 324px;
   }
+    .movielist__movie-card-list {
+      justify-content: space-evenly;
+    }
 }
 
 @media (min-width: 1280px) {
