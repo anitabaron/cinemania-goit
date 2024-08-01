@@ -120,9 +120,44 @@ const createHeroMovie = results => {
     </div>`;
 };
 
+const genres = [
+	{ "id": 28, "name": "Action" },
+	{ "id": 12, "name": "Adventure" },
+	{ "id": 16, "name": "Animation" },
+	{ "id": 35, "name": "Comedy" },
+	{ "id": 80, "name": "Crime" },
+	{ "id": 99, "name": "Documentary" },
+	{ "id": 18, "name": "Drama" },
+	{ "id": 10751, "name": "Family" },
+	{ "id": 14, "name": "Fantasy" },
+	{ "id": 36, "name": "History" },
+	{ "id": 27, "name": "Horror" },
+	{ "id": 10402, "name": "Music" },
+	{ "id": 9648, "name": "Mystery" },
+	{ "id": 10749, "name": "Romance" },
+	{ "id": 878, "name": "Science Fiction" },
+	{ "id": 10770, "name": "TV Movie" },
+	{ "id": 53, "name": "Thriller" },
+	{ "id": 10752, "name": "War" },
+	{ "id": 37, "name": "Western" },
+]
+
+const movieGenresCompare = (arr1, arr2) => {
+	const finalArr = [];
+	for (i = 0; i < arr1.length; i += 1) {
+				if (arr2.includes(arr1[i].id)) {
+					finalArr.push(arr1[i].name)
+				}
+			}
+
+	return finalArr.slice(0,2).join(", ");
+}
+  
 const TopWeekMovieBox = (index, results) => {
   const TopWeekMovie = results.data.results[index];
   const releaseYear = TopWeekMovie.release_date.slice(0, 4);
+  const movieGenresIds = TopWeekMovie.genre_ids;
+  const movieGenres = movieGenresCompare(genres, movieGenresIds);
   return `<li>
   <div class="movielist-item"
                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${TopWeekMovie.backdrop_path});
@@ -131,11 +166,15 @@ const TopWeekMovieBox = (index, results) => {
                     background-position: center">
                     <div class="movielist__information-box">
                     <div class="movielist__title-box">
-						<p class ="movielist__movie-title">${TopWeekMovie.title}</p>
-						<p class ="movielist__movie-genre"> genre | ${releaseYear}</p>
+						<p class ="movielist__movie-title">${ TopWeekMovie.title }</p>
+						<p class ="movielist__movie-genre"> ${ movieGenres } | ${ releaseYear }</p>
 					    </div>
                         <ul class="movielist__movie-rating">
-						<li>*</li>
+						<li>
+            <svg width="10px" height="10px">
+  <use href="./images/icons_desktop.svg#icon_star_large"></use>
+</svg>
+  </li>
 						<li>*</li>
 						<li>*</li>
 						<li>*</li>
