@@ -23,8 +23,7 @@ const urls = {
   urlWeek: `https://api.themoviedb.org/3/trending/movie/week`,
   urlSearch:`https://api.themoviedb.org/3/search/movie`,
   url:``,
-  titel:``,
-  page:1,
+  title:``,
   quantity: 20,
 };
 
@@ -136,7 +135,7 @@ const PageApiData = url =>
         .get(url, { params, ...options })
         .then(resResponse => {
             const length=resResponse.data.results.length
-
+            //obsługa gdy pojawi się błąd null z document.querySelector('#catalg')
             if (document.querySelector('#catalg').hasChildNodes()) {
                 const childs = document.querySelectorAll("#catalg > li");
                 childs.forEach(child => child.remove());
@@ -159,11 +158,6 @@ const PageApiData = url =>
             return console.log(error)});
 
 
-
-
-
-
-
 window.addEventListener("click" , event=>{
     console.log(event.target.parentElement.id)
     
@@ -175,10 +169,10 @@ window.addEventListener("click" , event=>{
                  return
              }
             urls.url=`https://api.themoviedb.org/3/search/movie`
-            urls.page=1
-            urls.titel= document.querySelector('#catalogFormInput').value.trim()
+            params.page=1
+            urls.title= document.querySelector('#catalogFormInput').value.trim()
 
-            const searchUrl=`${urls.url}?query=${urls.titel}&include_adult=false&page=${urls.page}` 
+            const searchUrl=`${urls.url}?query=${urls.title}&include_adult=false` 
 
             const PageContent = async () => await PageApiData(searchUrl)
             PageContent();
@@ -186,14 +180,11 @@ window.addEventListener("click" , event=>{
         }
         if (event.target.parentElement.id ==="navForm") {
             event.preventDefault();
-            urls.page=event.target.textContent
+            params.page=event.target.textContent
             let navUrl= urls.url
             if(navUrl.includes("search")){
-                navUrl=navUrl+`?query=${urls.titel}&include_adult=false&page=${urls.page}`
+                navUrl=navUrl+`?query=${urls.title}&include_adult=false`
                 console.log(navUrl)
-            } else {
-                navUrl=navUrl+`?page=${urls.page}`
-                console.log(navUrl) 
             }
             const PageContent = async () => await PageApiData(navUrl)
             
