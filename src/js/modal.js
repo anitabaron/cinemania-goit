@@ -1,17 +1,18 @@
 import APIService from './api-service';
-import sprite from '../images/icons_desktop.svg';
+import sprite from '../images/sprite.svg';
 import BtnState from './btn-state';
+import { checkStorage } from './my-library';
 
 const apiService = new APIService();
 
-const catalog = document.getElementById('catalogMovielist');
+const catalog = document.getElementById('catalg');
 const myLibGallery = document.getElementById('mylibraryMovielist');
-//const weeklyTrends = document.getElementById('');
+const weeklyTrends = document.getElementById('catalogMovielist');
 const modalWindow = document.querySelector('.modal-film');
 const overlay = document.querySelector('.overlay');
 
 addModalListener(catalog);
-//addModalListener(weeklyTrends);
+addModalListener(weeklyTrends);
 addModalListener(myLibGallery);
 
 function addModalListener(listRef) {
@@ -43,11 +44,11 @@ async function onMovieCardClick(e) {
 }
 
 function openModal() {
-  const lockPaddingValue = window.innerWidth - document.body.offsetWidth + 'px';
+  /* const lockPaddingValue = window.innerWidth - document.body.offsetWidth + 'px'; */
 
   modalWindow.classList.remove('hidden');
   overlay.classList.remove('hidden');
-  document.body.style.paddingRight = lockPaddingValue;
+  /* document.body.style.paddingRight = lockPaddingValue; */
   document.body.style.overflow = 'hidden';
 }
 
@@ -83,7 +84,7 @@ function createMarkup({
   return `<div class="modal-film__container" data-id=${id}>
   <button class="modal-film__close">
     <svg width="18" height="18" class="modal-film__close-icon">
-    <use href="${sprite}#icon_close_outline_white"></use>       
+    <use href="${sprite}#icon-close2"></use>       
 </svg>
   </button>
   <img ${getMoivePoster} loading="lazy" alt="movie-poster" class="modal-film__img" />
@@ -117,7 +118,7 @@ function createMarkup({
 function closeModalWindows() {
   modalWindow.classList.add('hidden');
   overlay.classList.add('hidden');
-  document.body.style.paddingRight = '0px';
+  /* document.body.style.paddingRight = '0px'; */
   document.body.style.overflow = 'auto';
   checkStorage();
 }
