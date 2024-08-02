@@ -71,7 +71,7 @@ const movieGenresCompare = (arr1, arr2) => {
 }
 
 const catalogItem = (movie) =>{
-  const movieGenres = movieGenresCompare(movie.genre_ids, genres)
+  const movieGenres = movieGenresCompare(genres, movie.genre_ids)
   const releaseYear = movie.release_date.slice(0, 4);
   const rating = movie.vote_average / 2;
   const starsHTML = generateStars(rating);
