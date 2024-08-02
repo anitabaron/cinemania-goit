@@ -1,5 +1,6 @@
 import APIService from './api-service';
-import sprite from '../images/sprite.svg';
+import sprite from '../images/icons_desktop.svg';
+import BtnState from './btn-state';
 
 const apiService = new APIService();
 
@@ -66,9 +67,9 @@ function createMarkup({
 }) {
   const getMoivePoster = getPoster(poster_path);
   function getPoster(poster_path) {
-    if (poster_path === null || !poster_path) {
+    /* if (poster_path === null || !poster_path) {
       return `src='${comingSoonImg}'`;
-    }
+    } */
     return `srcset="
                 https://image.tmdb.org/t/p/w500/${poster_path} 500w,
                 https://image.tmdb.org/t/p/w300/${poster_path} 342w,
@@ -82,7 +83,7 @@ function createMarkup({
   return `<div class="modal-film__container" data-id=${id}>
   <button class="modal-film__close">
     <svg width="18" height="18" class="modal-film__close-icon">
-    <use href="${sprite}#icon-cross-closed"></use>       
+    <use href="${sprite}#icon_close_outline_white"></use>       
 </svg>
   </button>
   <img ${getMoivePoster} loading="lazy" alt="movie-poster" class="modal-film__img" />
