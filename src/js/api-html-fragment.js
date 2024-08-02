@@ -53,7 +53,7 @@ export const emptyStar = `
 
 
 export const heroFragment = (id, backdrop_path, title, stars, description)=>{
-  return`<div class="hero__background container " 
+  return`<div class="hero__background container " data-id="${id}"
           style="background-image: linear-gradient(86.77deg, rgb(17, 17, 17) 30.38%, rgba(17, 17, 17, 0) 65.61%), 
           url(https://image.tmdb.org/t/p/original${backdrop_path})">
           <h2 class="hero__text-1">${title}</h2>
@@ -70,7 +70,7 @@ export const heroFragment = (id, backdrop_path, title, stars, description)=>{
 
 export const topMoviesFragment =(id, backdrop_path, title, movieGenres, releaseYear, stars)=>{
   return `<li id="${id}">
-              <div class="movielist-item"
+              <div class="movielist-item" data-id="${id}"
                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), 
                    url(https://image.tmdb.org/t/p/w500${backdrop_path});
                     background-repeat: no-repeat;
@@ -118,7 +118,7 @@ export const upcomingMovieFragment =(id, backdrop_path, title, description)=> `<
 
 
 export const pagesBtnStartup = (lastPage)=>`
-            <form class="catalog__form" id="catalogForm">
+            <form class="catalog__form" id="navForm">
                 <button class="btn btn__orange-gradient" id="catalogBtn">1</button>
                 <button class="btn btn__orange-gradient" id="catalogBtn">2</button>
                 <button class="btn btn__orange-gradient" id="catalogBtn">3</button>
