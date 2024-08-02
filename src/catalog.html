@@ -7,14 +7,11 @@
     <title>Catalog</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./js/api-catalog-page.js"></script>
-
   </head>
   <body>
     <include src="./partials/header.html"></include>
     <main>
-      <section class="hero" id="hero">
-
-      </section>
+      <section class="hero" id="hero"></section>
 
       <section class="movielist container" id="search">
         <div class="catalog__search">
@@ -25,7 +22,17 @@
               type="search"
               placeholder="Search"
             />
-            <button class="btn btn__orange-gradient" id="searchBtn">Search</button>
+            <button class="btn btn__orange-gradient" id="searchBtn">Search</button>     <!-- tu chyba lupka powinna być -->
+            <button class="search btn__search_black" id="catalogBtn">     <!-- jasny tryb -->
+              <svg width="20" height="20">
+                <use href="./images/icons_desktop.svg#search_icon"></use>
+              </svg>
+            </button>  
+            <button class="search btn__search_white" id="catalogBtn">     <!-- ciemny tryb -->
+               <svg width="20" height="20">
+                 <use href="./images/icons_desktop.svg#search_icon"></use>
+               </svg>
+            </button>
           </form>
         </div>
       </section>
@@ -34,10 +41,7 @@
         <ul class="movielist__movie-card-list" id="catalg"></ul>
       </section>
 
-      <section class="movielist container" id="pagesBtnSection">
-        
-      </section>
-      
+      <section class="movielist container" id="pagesBtnSection"></section>
     </main>
     <include src="./partials/footer.html"></include>
   </body>

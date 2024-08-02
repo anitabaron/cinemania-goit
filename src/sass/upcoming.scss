@@ -12,59 +12,56 @@
   gap: 5px;
 }
 .upcoming-header-one {
-  font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  font-size: 20px;
-  color: #fff;
+  font-size: 16px;
+  color: var(--white);
   margin-top: 32px;
   margin-bottom: 24px;
 }
 .upcoming-header-two {
-  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 16px;
   text-transform: uppercase;
-  color: #fff;
-  margin-top: 24px;
+  color: var(--white);
   margin-bottom: 7px;
 }
 .upcoming-p {
-  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 16px;
-  color: #b7b7b7;
+  color: var(--grey);
   padding-top: 12px;
 }
 .upcoming-header-three {
-  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 16px;
-  color: #b7b7b7;
+  color: var(--grey);
   margin-top: 20px;
   margin-bottom: 16px;
 }
 .upcoming-p-three {
-  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.42857;
-  color: #f8f8f8;
+  color: var(--secondary-text-grey);
+  padding-bottom: 20px;
 }
 .upcoming-p-two {
-  color: #f87719;
+  color: var(--orange);
 }
 .upcoming-box {
   border-radius: 5px;
   padding: 1px 4px;
   width: 40px;
   height: 18px;
-  background: #fff;
-  color: #111;
+  background: var(--white);
+  color: var(--black);
 }
 .upcoming-image {
   border-radius: 5px;
   width: 280px;
   height: 402px;
+  object-fit: cover;
+
 }
 .upcoming__film-box {
   display: flex;
@@ -77,6 +74,9 @@
 @media (min-width: 768px) {
   .upcoming {
     padding-top: 44px;
+  }
+  .upcoming-header-one {
+    font-size: 24px;
   }
   .upcoming-image {
     width: 704px;
