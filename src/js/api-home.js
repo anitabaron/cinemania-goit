@@ -22,24 +22,35 @@ const urls = {
   trendMoviesWeek: `https://api.themoviedb.org/3/trending/movie/week`,
   upcomingMovies: `https://api.themoviedb.org/3/movie/upcoming`,
 };
-const generateStars = rating => {
-  let fullStars = Math.floor(rating);
-  let halfStars = rating % 1 >= 0.5 ? 1 : 0;
-  let emptyStars = 5 - fullStars - halfStars;
-  return `${fullStar.repeat(fullStars)}${halfStar.repeat(
-    halfStars
-  )}${emptyStar.repeat(emptyStars)}`;
+const generateStars = (rating, starClass) => {
+  const fullStars = Math.floor(rating);
+  const halfStars = rating % 1 >= 0.5 ? 1 : 0;
+  const emptyStars = 5 - fullStars - halfStars;
+
+  console.log('Rating:', rating);
+  console.log('Full Stars:', fullStars);
+  console.log('Half Stars:', halfStars);
+  console.log('Empty Stars:', emptyStars);
+
+  return `
+    ${fullStar.replace('star', starClass).repeat(fullStars)}
+    ${halfStar.replace('star', starClass).repeat(halfStars)}
+    ${emptyStar.replace('star', starClass).repeat(emptyStars)}
+  `;
 };
 
 const createHeroMovie = resResponse => {
   const maxLength = 200;
   const heroSection = document.querySelector('#hero');
-  const randomMovieIndex = Math.floor(Math.random() * resResponse.data.results.length);
+  const randomMovieIndex = Math.floor(
+    Math.random() * resResponse.data.results.length
+  );
   const topDayMovie = resResponse.data.results[randomMovieIndex];
-  const cutText = (text, maxLength) => text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+  const cutText = (text, maxLength) =>
+    text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
   const truncatedOverview = cutText(topDayMovie.overview, maxLength);
   const rating = topDayMovie.vote_average / 2;
-  const starsHTML = generateStars(rating);
+  const starsHTML = generateStars(rating, 'hero-star');
 
   heroSection.innerHTML =heroFragment(topDayMovie.id, topDayMovie.backdrop_path, topDayMovie.title, starsHTML, truncatedOverview)
 };
