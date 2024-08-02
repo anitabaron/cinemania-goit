@@ -6,34 +6,38 @@
 
 .movielist__nav-item-link {
   color: var(--orange);
-  font-weight: 500;
-  font-size: 16px;
+  
 }
+
+.movielist__nav-item-link, 
+.movielist__nav-trends-title {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
 @media (min-width: 768px) {
-.movielist__nav-item-link {
+  .movielist__nav-item-link, 
+  .movielist__nav-trends-title {
     font-size: 24px;
   }
 }
 
 @media (min-width: 1280px) {
-.movielist__nav-item-link {
-  font-size: 28px;
+  .movielist__nav-item-link,
+  .movielist__nav-trends-title {
+    font-size: 28px;
   }
 }
 
-.movielist__nav-trend-title {
-  font-weight: 500;
-  font-size: 28px;
+.movielist__nav-trends-title {
   text-transform: uppercase;
   color: var(--white);
 }
 
 .movielist__movie-card-list {
   display: flex;
-  gap: 16px;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
+  gap: 16px;
 }
 
 .movielist-item {
