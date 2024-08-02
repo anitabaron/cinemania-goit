@@ -93,15 +93,12 @@
   .footer__desc {
     color: #b7b7b7;
   }
-  .footer__text {
-    color: #b7b7b7;
-  }
 }
-@media (min-width: 768px) {
-  .footer__desc {
-    display: flex;
-  }
-}
+// @media (min-width: 768px) {
+//   .footer__desc {
+//     display: flex;
+//   }
+// }
 
 .heart {
   @include tel {
@@ -117,4 +114,20 @@
     margin-left: 5px;
     margin-right: 5px;
   }
+}
+
+.footer__text {
+  color: #b7b7b7;
+}
+
+.footer__link {
+  background-color: transparent;
+  color: #b7b7b7;
+  border: none;
+}
+
+.footer__link:hover {
+  transition: color 0.6s, transform 0.6s;
+  transform: scale(1.2);
+  color: #f87719;
 }
