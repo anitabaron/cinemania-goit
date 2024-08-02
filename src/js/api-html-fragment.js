@@ -138,3 +138,4 @@ export const emptyApiResponeCatalog = `<div class="hero_background container">
                                     <h3 class="catalog__text-sorry">OOPS...</h3>
                                     <p class="catalog__text-sorry"> We are very sorry! We dont have any results matching your search.</p>
                                 </div>`
+const a=1
