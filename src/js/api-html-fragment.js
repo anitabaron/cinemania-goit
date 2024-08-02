@@ -118,13 +118,13 @@ export const upcomingMovieFragment =(id, backdrop_path, title, description)=> `<
 
 
 export const pagesBtnStartup = (lastPage)=>`
-            <form class="catalog__form" id="navForm">
+            <div class="catalog__form" id="navForm">
                 <button class="btn btn__orange-gradient" id="catalogBtn">1</button>
                 <button class="btn btn__orange-gradient" id="catalogBtn">2</button>
                 <button class="btn btn__orange-gradient" id="catalogBtn">3</button>
                 <span> ... </span>
                 <button class="btn btn__orange-gradient" id="catalogBtn">${lastPage}</button>
-            </form>`
+            </div>`
 
 export const emptyApiResponeHero = `<div class="hero_background container">
         <h2 class="hero__text-1">Let’s Make Your Own Cinema</h2>

@@ -21,6 +21,9 @@ const urls = {
 
   urlDay: `https://api.themoviedb.org/3/trending/movie/day`,
   urlWeek: `https://api.themoviedb.org/3/trending/movie/week`,
+  urlSearch:`https://api.themoviedb.org/3/search/movie`,
+  url:``,
+  titel:``,
   page:1,
   quantity: 20,
 };
@@ -48,7 +51,7 @@ const createHeroMovie = resResponse => {
     heroSection.innerHTML =heroFragment(topDayMovie.id, topDayMovie.backdrop_path, topDayMovie.title, starsHTML, truncatedOverview)
   };
 
-//nie działa
+
 const movieGenresCompare = (arr1, arr2) => {
 	const finalArr = [];
 	for (i = 0; i < arr1.length; i += 1) {
@@ -109,6 +112,7 @@ const catalogPageApiData = url =>
             emptyResponseCatalog()
             return;
           }
+          urls.url=url
         crateCatalog(resResponse.data.results)
         createPagesBtn(resResponse.data.total_results, 20)
         return;
@@ -127,7 +131,7 @@ const catalogPageContent = async () =>
 catalogPageContent();
 
 
-const searchPageApiData = url =>
+const PageApiData = url =>
     axios
         .get(url, { params, ...options })
         .then(resResponse => {
@@ -145,7 +149,7 @@ const searchPageApiData = url =>
                 emptyResponseCatalog()
                 return;
               }
-            //console.log(resResponse)
+              console.log(resResponse)
             crateCatalog(resResponse.data.results)
             createPagesBtn(resResponse.data.total_results, 20)
             return;
@@ -154,55 +158,11 @@ const searchPageApiData = url =>
             emptyResponseCatalog()
             return console.log(error)});
 
- class UrlSearch {
-
-        constructor({titel, adulds, page, country, year}){
-            this.inputs.queryTitle = titel
-            this.inputs.queryAdults = adulds
-            this.inputs.queryPages = page
-            this.inputs.queryRegion = country
-            this.inputs.queryYear = year
-        }
-        
-        setups={
-            coreUrl:"https://api.themoviedb.org/3/search/movie",
-            query:"?",
-            queryTitle:"query=",
-            queryAdults:"&include_adult=",       
-            queryPages:"&page=",
-            queryRegion:"&region=",
-            queryYear:"&year="
-        }
-
-        inputs={
-            queryTitle:"",
-            queryAdults:"",       
-            queryPages:"",
-            queryRegion:"",
-            queryYear:""
-        }
-
-        set pageNumber(number){
-               this.inputs.queryPages = number
-        }
-        set coreUrl(url){
-            this.setups.coreUrl = url
-        }
-
-        get url (){
 
 
-            return  (this.setups.coreUrl+
-                    this.setups.query+
-                    this.setups.queryTitle+
-                    this.inputs.queryTitle+
-                    this.setups.queryAdults+
-                    this.inputs.queryAdults+
-                    this.setups.queryPages+
-                    this.inputs.queryPages)
-        }
 
-        }
+
+
 
 window.addEventListener("click" , event=>{
     console.log(event.target.parentElement.id)
@@ -212,35 +172,39 @@ window.addEventListener("click" , event=>{
             event.preventDefault();
             console.log(document.querySelector('#catalogFormInput').value.trim())
             if (document.querySelector('#catalogFormInput').value.trim()=="") {
-                return
+                 return
+             }
+            urls.url=`https://api.themoviedb.org/3/search/movie`
+            urls.page=1
+            urls.titel= document.querySelector('#catalogFormInput').value.trim()
+
+            const searchUrl=`${urls.url}?query=${urls.titel}&include_adult=false&page=${urls.page}` 
+
+            const PageContent = async () => await PageApiData(searchUrl)
+            PageContent();
+            console.log(urls)
+        }
+        if (event.target.parentElement.id ==="navForm") {
+            event.preventDefault();
+            urls.page=event.target.textContent
+            let navUrl= urls.url
+            if(navUrl.includes("search")){
+                navUrl=navUrl+`?query=${urls.titel}&include_adult=false&page=${urls.page}`
+                console.log(navUrl)
+            } else {
+                navUrl=navUrl+`?page=${urls.page}`
+                console.log(navUrl) 
             }
-
-            const searchMovieTitle = document.querySelector('#catalogFormInput').value.trim()
-            let searchMovieRegion=""
-            let searchMovieYear=""
-
-            const titel= document.querySelector('#catalogFormInput').value.trim()
-            const adulds="false"
-            const page = "1"
-            const country = "US"
-            const year = "2024"
-
-            const test = new UrlSearch({titel, adulds, page, country, year})
-
-
-            const searchUrl=`https://api.themoviedb.org/3/search/movie?query=${searchMovieTitle}&include_adult=false&page=1${searchMovieRegion}${searchMovieYear}` 
+            const PageContent = async () => await PageApiData(navUrl)
             
-            console.log("searchUrl: ", searchUrl)
-            console.log("url: ", test.url)
-
-            const searchPageContent = async () => await searchPageApiData(searchUrl)
-
-            searchPageContent(searchUrl);
+            PageContent();
 
         }
+
     } catch (error) {
     console.error(error);
     }
+
   
 } )
 
