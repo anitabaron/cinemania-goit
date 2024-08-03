@@ -13,14 +13,12 @@
   font-weight: 500;
   font-size: 16px;
 }
-
 @media (min-width: 768px) {
   .movielist__nav-item-link,
   .movielist__nav-trends-title {
     font-size: 24px;
   }
 }
-
 @media (min-width: 1280px) {
   .movielist__nav-item-link,
   .movielist__nav-trends-title {
@@ -53,11 +51,6 @@
     width: 224px;
     height: 324px;
   }
-  .movielist__movie-card-list {
-    justify-content: space-evenly;
-  }
-}
-
 @media (min-width: 1280px) {
   .movielist-item {
     width: 394px;
