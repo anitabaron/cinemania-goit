@@ -6,22 +6,19 @@
 
 .movielist__nav-item-link {
   color: var(--orange);
-  
 }
 
-.movielist__nav-item-link, 
+.movielist__nav-item-link,
 .movielist__nav-trends-title {
-    font-weight: 500;
-    font-size: 16px;
-  }
-
+  font-weight: 500;
+  font-size: 16px;
+}
 @media (min-width: 768px) {
-  .movielist__nav-item-link, 
+  .movielist__nav-item-link,
   .movielist__nav-trends-title {
     font-size: 24px;
   }
 }
-
 @media (min-width: 1280px) {
   .movielist__nav-item-link,
   .movielist__nav-trends-title {
@@ -55,7 +52,6 @@
     height: 324px;
   }
 }
-
 @media (min-width: 1280px) {
   .movielist-item {
     width: 394px;

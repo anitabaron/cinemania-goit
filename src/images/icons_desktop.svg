@@ -5,7 +5,7 @@
       <stop offset="68%" style="stop-color: #F89F19; stop-opacity: 1" />
     </linearGradient>
 
-<symbol id="icon_close_outline_white" width="24" height="24" viewBox="0 0 32 32"><path fill="none" stroke="#f8f8f8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.333" d="M23 23 9 9m14 0L9 23" style="stroke:var(--color1, #f8f8f8)"/></symbol>
+<symbol id="icon_close_outline_white" viewBox="0 0 32 32"><path  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.333" d="M23 23 9 9m14 0L9 23"/></symbol>
 <symbol id="icon_close_outline_black" width="24" height="24" viewBox="0 0 32 32"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.333" d="M23 23 9 9m14 0L9 23" style="stroke:var(--color1, #151515)"/></symbol>
 <symbol id="icon_close_outline_hover" width="24" height="24" viewBox="0 0 32 32"><path fill="none" stroke="#f87719" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.333" d="M23 23 9 9m14 0L9 23" style="stroke:var(--color4, #f87719)"/></symbol>
 
