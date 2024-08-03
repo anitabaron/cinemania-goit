@@ -9,3 +9,4 @@ import './oops';
 import './buttons-icons';
 import './api-home';
 import './api-catalog-page';
+import './scroll-up';
