@@ -27,7 +27,9 @@ const options = {
 const urls = {
   urlDay: `https://api.themoviedb.org/3/trending/movie/day`,
   urlWeek: `https://api.themoviedb.org/3/trending/movie/week`,
-  page: 1,
+  urlSearch:`https://api.themoviedb.org/3/search/movie`,
+  url:``,
+  title:``,
   quantity: 20,
 };
 
@@ -63,7 +65,7 @@ const createHeroMovie = resResponse => {
   );
 };
 
-//nie działa
+
 const movieGenresCompare = (arr1, arr2) => {
   const finalArr = [];
   for (i = 0; i < arr1.length; i += 1) {
@@ -124,6 +126,14 @@ const catalogPageApiData = url =>
           return;
         }
         createHeroMovie(resResponse);
+        if (length===0){
+            emptyResponseCatalog()
+            return;
+          }
+          urls.url=url
+        crateCatalog(resResponse.data.results)
+        createPagesBtn(resResponse.data.total_results, 20)
+
         return;
       }
       if (length === 0) {
@@ -148,119 +158,169 @@ const catalogPageContent = async () =>
 
 catalogPageContent();
 
-const searchPageApiData = url =>
-  axios
-    .get(url, { params, ...options })
-    .then(resResponse => {
-      const length = resResponse.data.results.length;
+////////////////// Kamil całą tą definicję klasy Krystian wywalił wcześniej, inaczej przerobił ten plik i już mam to w mainie, widzę że dopisaleś do tej definicji klasy coś więcej, nie chcę usuwać, póki co zakomentuję, zobaczymy czy bez tego zadziała 
+// class UrlSearch {
+//   constructor({ titel, adulds, page, country, year }) {
+//     this.inputs.queryTitle = titel;
+//     this.inputs.queryAdults = adulds;
+//     this.inputs.queryPages = page;
+//     this.inputs.queryRegion = country;
+//     this.inputs.queryYear = year;
+//   }
 
-      if (document.querySelector('#catalg').hasChildNodes()) {
-        const childs = document.querySelectorAll('#catalg > li');
-        childs.forEach(child => child.remove());
-      }
-      if (document.querySelector('#navForm') !== null)
-        document.querySelector('#navForm').remove();
+//   setups = {
+//     coreUrl: 'https://api.themoviedb.org/3/search/movie',
+//     query: '?',
+//     queryTitle: 'query=',
+//     queryAdults: '&include_adult=',
+//     queryPages: '&page=',
+//     queryRegion: '&region=',
+//     queryYear: '&year=',
+//   };
 
-      if (length === 0) {
-        emptyResponseCatalog();
-        return;
-      }
-      //console.log(resResponse)
-      crateCatalog(resResponse.data.results);
-      createPagesBtn(resResponse.data.total_results, 20);
-      return;
-    })
-    .catch(error => {
-      emptyResponseCatalog();
-      return console.log(error);
-    });
+//   inputs = {
+//     queryTitle: '',
+//     queryAdults: '',
+//     queryPages: '',
+//     queryRegion: '',
+//     queryYear: '',
+//   };
 
-class UrlSearch {
-  constructor({ titel, adulds, page, country, year }) {
-    this.inputs.queryTitle = titel;
-    this.inputs.queryAdults = adulds;
-    this.inputs.queryPages = page;
-    this.inputs.queryRegion = country;
-    this.inputs.queryYear = year;
-  }
+//   set pageNumber(number) {
+//     this.inputs.queryPages = number;
+//   }
+//   set coreUrl(url) {
+//     this.setups.coreUrl = url;
+//   }
 
-  setups = {
-    coreUrl: 'https://api.themoviedb.org/3/search/movie',
-    query: '?',
-    queryTitle: 'query=',
-    queryAdults: '&include_adult=',
-    queryPages: '&page=',
-    queryRegion: '&region=',
-    queryYear: '&year=',
-  };
+//   get url() {
+//     return (
+//       this.setups.coreUrl +
+//       this.setups.query +
+//       this.setups.queryTitle +
+//       this.inputs.queryTitle +
+//       this.setups.queryAdults +
+//       this.inputs.queryAdults +
+//       this.setups.queryPages +
+//       this.inputs.queryPages
+//     );
+//   }
+// }
 
-  inputs = {
-    queryTitle: '',
-    queryAdults: '',
-    queryPages: '',
-    queryRegion: '',
-    queryYear: '',
-  };
 
-  set pageNumber(number) {
-    this.inputs.queryPages = number;
-  }
-  set coreUrl(url) {
-    this.setups.coreUrl = url;
-  }
 
-  get url() {
-    return (
-      this.setups.coreUrl +
-      this.setups.query +
-      this.setups.queryTitle +
-      this.inputs.queryTitle +
-      this.setups.queryAdults +
-      this.inputs.queryAdults +
-      this.setups.queryPages +
-      this.inputs.queryPages
-    );
-  }
-}
+const PageApiData = url =>
+    axios
+        .get(url, { params, ...options })
+        .then(resResponse => {
+            const length=resResponse.data.results.length
+            //obsługa gdy pojawi się błąd null z document.querySelector('#catalg')
+            if (document.querySelector('#catalg').hasChildNodes()) {
+                const childs = document.querySelectorAll("#catalg > li");
+                childs.forEach(child => child.remove());
+            }
+            if (document.querySelector('#navForm')!==null)
+                document.querySelector("#navForm").remove();
+            
 
-window.addEventListener('click', event => {
-  console.log(event.target.parentElement.id);
+             if (length===0){
+                emptyResponseCatalog()
+                return;
+              }
+              console.log(resResponse)
+            crateCatalog(resResponse.data.results)
+            createPagesBtn(resResponse.data.total_results, 20)
+            return;
+        })
+        .catch(error => {
+            emptyResponseCatalog()
+            return console.log(error)}
+              );
 
-  try {
-    if (event.target.id === 'searchBtn') {
-      event.preventDefault();
-      console.log(document.querySelector('#catalogFormInput').value.trim());
-      if (document.querySelector('#catalogFormInput').value.trim() == '') {
-        return;
-      }
+window.addEventListener("click" , event=>{
+    console.log(event.target.parentElement.id)
+    
+    try {
+        if (event.target.id ==="searchBtn") {
+            event.preventDefault();
+            console.log(document.querySelector('#catalogFormInput').value.trim())
+            if (document.querySelector('#catalogFormInput').value.trim()=="") {
+                 return
+             }
+            urls.url=`https://api.themoviedb.org/3/search/movie`
+            params.page=1
+            urls.title= document.querySelector('#catalogFormInput').value.trim()
 
-      const searchMovieTitle = document
-        .querySelector('#catalogFormInput')
-        .value.trim();
-      let searchMovieRegion = '';
-      let searchMovieYear = '';
+            const searchUrl=`${urls.url}?query=${urls.title}&include_adult=false` 
 
-      const titel = document.querySelector('#catalogFormInput').value.trim();
-      const adulds = 'false';
-      const page = '1';
-      const country = 'US';
-      const year = '2024';
+            const PageContent = async () => await PageApiData(searchUrl)
+            PageContent();
+            console.log(urls)
+        }
+        if (event.target.parentElement.id ==="navForm") {
+            event.preventDefault();
+            params.page=event.target.textContent
+            let navUrl= urls.url
+            if(navUrl.includes("search")){
+                navUrl=navUrl+`?query=${urls.title}&include_adult=false`
+                console.log(navUrl)
+            }
+            const PageContent = async () => await PageApiData(navUrl)
+            
+            PageContent();
 
-      const test = new UrlSearch({ titel, adulds, page, country, year });
+        }
+      
+    ///////////// w    window.addEventListener    od Kamila   , to jest chyba poprostu stara wersja tego kodu przed poprawkami, zostawiam dla pewności, ale raczej do wywalenia    
+//       const searchMovieTitle = document
+//         .querySelector('#catalogFormInput')
+//         .value.trim();
+//       let searchMovieRegion = '';
+//       let searchMovieYear = '';
 
-      const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchMovieTitle}&include_adult=false&page=1${searchMovieRegion}${searchMovieYear}`;
+//       const titel = document.querySelector('#catalogFormInput').value.trim();
+//       const adulds = 'false';
+//       const page = '1';
+//       const country = 'US';
+//       const year = '2024';
 
-      console.log('searchUrl: ', searchUrl);
-      console.log('url: ', test.url);
+//       const test = new UrlSearch({ titel, adulds, page, country, year });
 
-      const searchPageContent = async () => await searchPageApiData(searchUrl);
+//       const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchMovieTitle}&include_adult=false&page=1${searchMovieRegion}${searchMovieYear}`;
 
-      searchPageContent(searchUrl);
-    }
-  } catch (error) {
+//       console.log('searchUrl: ', searchUrl);
+//       console.log('url: ', test.url);  
+
+    } catch (error) {
     console.error(error);
-  }
-});
+    }
+
+    
+} )
+
+
+
+
+
+
+    // try {
+    //     if (event.target.parentElement.id ==="navForm"){
+    //         console.log(event.target.textContent)
+
+
+
+
+
+
+
+
+    //     }
+    //   } catch (error) {
+    //     console.error("ID is not define!");
+    //   }
+      
+
+
 
 // try {
 //     if (event.target.parentElement.id ==="navForm"){
