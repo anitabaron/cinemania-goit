@@ -32,10 +32,9 @@ export const fullStar = `
 </svg>`;
 
 export const halfStar = `
-<svg class="star"  viewBox="0 0 18 18" fill="rgba(248, 65, 25, 1)" xmlns="http://www.w3.org/2000/svg">
-  <path d="M16.875 7.3125H10.8281L9 1.6875L7.17188 7.3125H1.125L6.04688 10.6875L4.14844 16.3125L9 12.7969L13.8516 16.3125L11.9531 10.6875L16.875 7.3125Z" stroke="url(#paint0_linear_405_766)" stroke-linejoin="round"/>
+<svg class="star" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="paint0_linear_405_766" x1="3.375" y1="2.625" x2="13.5" y2="16.5" gradientUnits="userSpaceOnUse">
+    <linearGradient id="paint0_linear_4641_33902" x1="3.375" y1="2.625" x2="13.5" y2="16.5" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F84119"/>
       <stop offset="1" stop-color="#F89F19" stop-opacity="0.68"/>
     </linearGradient>
@@ -43,12 +42,20 @@ export const halfStar = `
   <mask id="halfMask">
     <rect x="0" y="0" width="9" height="18" fill="white"/>
   </mask>
-  <path d="M16.875 7.3125H10.8281L9 1.6875L7.17188 7.3125H1.125L6.04688 10.6875L4.14844 16.3125L9 12.7969L13.8516 16.3125L11.9531 10.6875L16.875 7.3125Z" fill="rgba(248, 65, 25, 1)" mask="url(#halfMask)"/>
+  <path d="M16.875 7.3125H10.8281L9 1.6875L7.17188 7.3125H1.125L6.04688 10.6875L4.14844 16.3125L9 12.7969L13.8516 16.3125L11.9531 10.6875L16.875 7.3125Z" stroke="url(#paint0_linear_4641_33902)" stroke-linejoin="round" fill="none"/>
+  <path d="M16.875 7.3125H10.8281L9 1.6875L7.17188 7.3125H1.125L6.04688 10.6875L4.14844 16.3125L9 12.7969L13.8516 16.3125L11.9531 10.6875L16.875 7.3125Z" fill="url(#paint0_linear_4641_33902)" mask="url(#halfMask)"/>
 </svg>`;
 
+
 export const emptyStar = `
-<svg class="star" viewBox="0 0 18 18" fill="none" stroke="rgba(248, 65, 25, 1)" xmlns="http://www.w3.org/2000/svg">
-  <path d="M16.875 7.3125H10.8281L9 1.6875L7.17188 7.3125H1.125L6.04688 10.6875L4.14844 16.3125L9 12.7969L13.8516 16.3125L11.9531 10.6875L16.875 7.3125Z" stroke-linejoin="round"/>
+<svg class="star" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paint0_linear_4641_33902" x1="3.375" y1="2.625" x2="13.5" y2="16.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F84119"/>
+      <stop offset="1" stop-color="#F89F19" stop-opacity="0.68"/>
+    </linearGradient>
+  </defs>
+  <path d="M16.875 7.3125H10.8281L9 1.6875L7.17188 7.3125H1.125L6.04688 10.6875L4.14844 16.3125L9 12.7969L13.8516 16.3125L11.9531 10.6875L16.875 7.3125Z" stroke="url(#paint0_linear_4641_33902)" stroke-linejoin="round" fill="none"/>
 </svg>`;
 
 
