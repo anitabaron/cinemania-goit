@@ -24,8 +24,6 @@ LightSwitcher.onclick = function () {
   localStorage.setItem('isLight', isLight);
 };
 
-// page link color
-
 const currentUrl = window.location.href;
 
 const navLink = document.querySelectorAll(
