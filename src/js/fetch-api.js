@@ -167,12 +167,12 @@ const createUpcomingMovie = results => {
 						<p class="upcoming-p-two upcoming-p-style">03.03.2023</p>
 						<p class="upcoming__film-rating upcoming-p-style"><span class="upcoming-box">7.3</span>  /  <span class="upcoming-box">1260</span></p>
 						<p class="upcoming-p-style">99.9</p>
-						<p>Comedy, action</p>
+						<p class="upcoming-p-style">Comedy, action</p>
 					</div>
 				</div>
 				<h4 class="upcoming-header-three">ABOUT</h4>
 				<p class="upcoming-p-three">${upcomingMovie.overview}</p>
-			    <button class="btn btn__big btn__orange-gradient">Add to my library</button>`;
+			    <button class="btn btn__big btn__orange-gradient btn-space">Add to my library</button>`;
 };
 
 const homePageApiData = url =>

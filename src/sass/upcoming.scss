@@ -87,9 +87,19 @@
   .upcoming-header-two {
     font-size: 28px;
   }
-}
-.upcoming-div {
-  display: flex;
+
+  .upcoming-div {
+    display: flex;
+  }
+  .btn-space {
+    max-height: 40px;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .upcoming-p-three {
+    margin-bottom: 20px;
+    max-height: 160px;
+  }
 }
 @media (min-width: 1280px) {
   .upcoming {
@@ -112,6 +122,7 @@
   .upcoming-header-two {
     font-size: 32px;
     margin-bottom: 28px;
+    margin-top: 0;
   }
   .upcoming-header-three {
     margin-top: 20px;
@@ -119,5 +130,14 @@
 
   .upcoming-film-box {
     flex-wrap: nowrap;
+  }
+  .btn-space {
+    max-height: 40px;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .upcoming-p-three {
+    margin-bottom: 20px;
+    max-height: 160px;
   }
 }
