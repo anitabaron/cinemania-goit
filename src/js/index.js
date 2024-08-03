@@ -8,3 +8,4 @@ import './modal';
 import './oops';
 import './buttons-icons';
 import './api-home';
+import './api-catalog-page';

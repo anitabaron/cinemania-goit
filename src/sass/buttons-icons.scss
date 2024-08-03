@@ -145,7 +145,15 @@
 .search.btn__search_white:hover .icon path {
   stroke: url(#myGradient);
 }
-
+.hero-star{
+  width: 16px;
+  height: 16px;
+  gap: 8px;
+}
+.card-star {
+  width: 14px;
+  height: 14px;
+}
 /* ----------------------------- responsive -------------------------- */
 
 /* ----------------------------------------------------------------------------------------------------TABLET */
@@ -158,6 +166,15 @@
     width: 128px;
     height: 40px;
     font-size: 14px;
+  }
+  .hero-star{
+    width: 20px;
+    height: 20px;
+    
+  }
+  .card-star {
+    width: 10px;
+    height: 10px;
   }
 }
 
@@ -188,5 +205,14 @@
     width: 139px;
     height: 48px;
     font-size: 16px;
+  }
+  .hero-star{
+    width: 24px;
+    height: 24px;
+    
+  }
+  .card-star {
+    width: 18px;
+    height: 18px;
   }
 }
