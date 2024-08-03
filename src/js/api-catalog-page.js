@@ -6,7 +6,10 @@ import {
   emptyStar,
   heroFragment,
   topMoviesFragment,
-  pagesBtnStartup,
+  pagesBtn,
+  pagesBtn2,
+  pagesBtn3,
+  pagesBtn4,
   emptyApiResponeHero,
   emptyApiResponeCatalog,
 } from './api-html-fragment.js';
@@ -30,7 +33,7 @@ const urls = {
   urlSearch:`https://api.themoviedb.org/3/search/movie`,
   url:``,
   title:``,
-  quantity: 20,
+  maxPages: 1,
 };
 
 const generateStars = rating => {
@@ -91,8 +94,8 @@ const catalogItem = movie => {
   );
 };
 const emptyResponseCatalog = () => {
-  const moviesCatalog = document.querySelector('#catalogSection');
-  catalogSection.innerHTML = emptyApiResponeCatalog;
+  const moviesCatalog = document.querySelector('#catalg');
+  moviesCatalog.innerHTML = emptyApiResponeCatalog;
 };
 const crateCatalog = movies => {
   const moviesCatalog = document.querySelector('#catalg');
@@ -102,13 +105,74 @@ const crateCatalog = movies => {
   });
   moviesCatalog.innerHTML = weekMoviesSectionFragment;
 };
-const createPagesBtn = (totalItems, itemsPerPage) => {
-  const pagesBtnSection = document.querySelector('#pagesBtnSection');
-  const lastPage = Math.ceil(totalItems / itemsPerPage);
-  if (lastPage < 2) return;
 
-  pagesBtnSection.innerHTML = pagesBtnStartup(lastPage);
-};
+const numberingBtn=(pagesNumber, maxPagesNumber)=>{
+    console.log(maxPagesNumber)
+    if(maxPagesNumber===1)return
+    const pagesBtnSection = document.querySelector('#pagesBtnSection');
+    const prageNumbers ={
+                        pageBtn1: 1,
+                        pageBtn2: 2,
+                        pageBtn3: 3,
+                        pageBtn4: 4,
+                        pageBtn5: 5,
+                        }
+    if(maxPagesNumber===2){
+        pagesBtnSection.innerHTML = pagesBtn2
+        if (pagesNumber===1) document.querySelector("#PageBtn1").classList.replace('btn__orange-gradient', 'btn__black')
+        if (pagesNumber===2) document.querySelector("#PageBtn2").classList.replace('btn__orange-gradient', 'btn__black')
+        return 
+    }
+    if(maxPagesNumber===3){
+        pagesBtnSection.innerHTML = pagesBtn3
+        if (pagesNumber===1) document.querySelector("#PageBtn1").classList.replace('btn__orange-gradient', 'btn__black')
+        if (pagesNumber===2) document.querySelector("#PageBtn2").classList.replace('btn__orange-gradient', 'btn__black')
+        if (pagesNumber===3) document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black')
+        return 
+    }
+    if(maxPagesNumber===4){
+        pagesBtnSection.innerHTML = pagesBtn4
+        if (pagesNumber===1) document.querySelector("#PageBtn1").classList.replace('btn__orange-gradient', 'btn__black')
+        if (pagesNumber===2) document.querySelector("#PageBtn2").classList.replace('btn__orange-gradient', 'btn__black')
+        if (pagesNumber===3) document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black')
+        if (pagesNumber===3) document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black')
+        return 
+ 
+    }
+
+
+    if(pagesNumber<4){
+        pagesBtnSection.innerHTML = pagesBtn(prageNumbers.pageBtn1, prageNumbers.pageBtn2, prageNumbers.pageBtn3, prageNumbers.pageBtn4, prageNumbers.pageBtn5);
+        if (pagesNumber===1) document.querySelector("#PageBtn1").classList.replace('btn__orange-gradient', 'btn__black')
+        if (pagesNumber===2) document.querySelector("#PageBtn2").classList.replace('btn__orange-gradient', 'btn__black')
+        if (pagesNumber===3) document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black') 
+        return 
+    }
+
+
+    if( (pagesNumber + 3) > maxPagesNumber){
+        prageNumbers.pageBtn1= (maxPagesNumber - 4)
+        prageNumbers.pageBtn2= (maxPagesNumber - 3)
+        prageNumbers.pageBtn3= (maxPagesNumber - 2)
+        prageNumbers.pageBtn4= (maxPagesNumber - 1)
+        prageNumbers.pageBtn5= (maxPagesNumber) 
+        pagesBtnSection.innerHTML = pagesBtn(prageNumbers.pageBtn1, prageNumbers.pageBtn2, prageNumbers.pageBtn3, prageNumbers.pageBtn4, prageNumbers.pageBtn5); 
+        if (pagesNumber===maxPagesNumber - 2) document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black')
+        if (pagesNumber===maxPagesNumber - 1) document.querySelector("#PageBtn4").classList.replace('btn__orange-gradient', 'btn__black')
+        if (pagesNumber===maxPagesNumber) document.querySelector("#PageBtn5").classList.replace('btn__orange-gradient', 'btn__black')  
+        return 
+    }
+    if(pagesNumber>3){
+        prageNumbers.pageBtn1= (pagesNumber - 2)
+        prageNumbers.pageBtn2= (pagesNumber - 1) 
+        prageNumbers.pageBtn3= pagesNumber
+        prageNumbers.pageBtn4= (pagesNumber + 1)
+        prageNumbers.pageBtn5= (pagesNumber + 2)
+        pagesBtnSection.innerHTML = pagesBtn(prageNumbers.pageBtn1, prageNumbers.pageBtn2, prageNumbers.pageBtn3, prageNumbers.pageBtn4, prageNumbers.pageBtn5);
+        document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black')
+        return      
+    }
+}
 function createDefaultHeroSection() {
   const heroSection = document.querySelector('#hero');
   heroSection.innerHTML = emptyApiResponeHero;
@@ -126,22 +190,16 @@ const catalogPageApiData = url =>
           return;
         }
         createHeroMovie(resResponse);
-        if (length===0){
-            emptyResponseCatalog()
-            return;
-          }
-          urls.url=url
-        crateCatalog(resResponse.data.results)
-        createPagesBtn(resResponse.data.total_results, 20)
-
         return;
       }
       if (length === 0) {
         emptyResponseCatalog();
         return;
       }
+      urls.maxPages=resResponse.data.total_pages
+      urls.url=url
       crateCatalog(resResponse.data.results);
-      createPagesBtn(resResponse.data.total_results, 20);
+      numberingBtn(params.page, urls.maxPages)
       return;
     })
     .catch(error => {
@@ -158,63 +216,11 @@ const catalogPageContent = async () =>
 
 catalogPageContent();
 
-////////////////// Kamil całą tą definicję klasy Krystian wywalił wcześniej, inaczej przerobił ten plik i już mam to w mainie, widzę że dopisaleś do tej definicji klasy coś więcej, nie chcę usuwać, póki co zakomentuję, zobaczymy czy bez tego zadziała 
-// class UrlSearch {
-//   constructor({ titel, adulds, page, country, year }) {
-//     this.inputs.queryTitle = titel;
-//     this.inputs.queryAdults = adulds;
-//     this.inputs.queryPages = page;
-//     this.inputs.queryRegion = country;
-//     this.inputs.queryYear = year;
-//   }
-
-//   setups = {
-//     coreUrl: 'https://api.themoviedb.org/3/search/movie',
-//     query: '?',
-//     queryTitle: 'query=',
-//     queryAdults: '&include_adult=',
-//     queryPages: '&page=',
-//     queryRegion: '&region=',
-//     queryYear: '&year=',
-//   };
-
-//   inputs = {
-//     queryTitle: '',
-//     queryAdults: '',
-//     queryPages: '',
-//     queryRegion: '',
-//     queryYear: '',
-//   };
-
-//   set pageNumber(number) {
-//     this.inputs.queryPages = number;
-//   }
-//   set coreUrl(url) {
-//     this.setups.coreUrl = url;
-//   }
-
-//   get url() {
-//     return (
-//       this.setups.coreUrl +
-//       this.setups.query +
-//       this.setups.queryTitle +
-//       this.inputs.queryTitle +
-//       this.setups.queryAdults +
-//       this.inputs.queryAdults +
-//       this.setups.queryPages +
-//       this.inputs.queryPages
-//     );
-//   }
-// }
-
-
-
 const PageApiData = url =>
     axios
         .get(url, { params, ...options })
         .then(resResponse => {
             const length=resResponse.data.results.length
-            //obsługa gdy pojawi się błąd null z document.querySelector('#catalg')
             if (document.querySelector('#catalg').hasChildNodes()) {
                 const childs = document.querySelectorAll("#catalg > li");
                 childs.forEach(child => child.remove());
@@ -227,23 +233,22 @@ const PageApiData = url =>
                 emptyResponseCatalog()
                 return;
               }
-              console.log(resResponse)
+            urls.maxPages=resResponse.data.total_pages
             crateCatalog(resResponse.data.results)
-            createPagesBtn(resResponse.data.total_results, 20)
+            numberingBtn(params.page, urls.maxPages)
             return;
         })
         .catch(error => {
             emptyResponseCatalog()
+            numberingBtn(params.page, urls.maxPages)
+            //document.querySelector("#navForm").remove()
             return console.log(error)}
               );
 
 window.addEventListener("click" , event=>{
-    console.log(event.target.parentElement.id)
-    
     try {
         if (event.target.id ==="searchBtn") {
             event.preventDefault();
-            console.log(document.querySelector('#catalogFormInput').value.trim())
             if (document.querySelector('#catalogFormInput').value.trim()=="") {
                  return
              }
@@ -255,41 +260,53 @@ window.addEventListener("click" , event=>{
 
             const PageContent = async () => await PageApiData(searchUrl)
             PageContent();
-            console.log(urls)
+
         }
-        if (event.target.parentElement.id ==="navForm") {
+        if (event.target.parentElement.id ==="navForm" &
+            event.target.id !=="previousPage" & event.target.id !=="nextPage" & 
+            event.target.id !=="firstPageBtn" & event.target.id !=="lastPageBtn") {
             event.preventDefault();
-            params.page=event.target.textContent
+            params.page=parseInt(event.target.textContent)
             let navUrl= urls.url
             if(navUrl.includes("search")){
                 navUrl=navUrl+`?query=${urls.title}&include_adult=false`
-                console.log(navUrl)
             }
             const PageContent = async () => await PageApiData(navUrl)
             
-            PageContent();
-
+            PageContent(); 
         }
+        if(event.target.id ==="previousPage" || event.target.id ==="nextPage"){
+            if(event.target.id ==="previousPage"){
+                    console.log("previousPage")
+                    if(params.page>1) params.page = params.page-1
+                    
+            }
+            if(event.target.id ==="nextPage"){
+                console.log("nextPage")
+                if(params.page< urls.maxPages) params.page = params.page+1
+            }
+            const naxUrl=`${urls.url}?query=${urls.title}&include_adult=false` 
+
+            const PageContent = async () => await PageApiData(naxUrl)
+            PageContent();
       
-    ///////////// w    window.addEventListener    od Kamila   , to jest chyba poprostu stara wersja tego kodu przed poprawkami, zostawiam dla pewności, ale raczej do wywalenia    
-//       const searchMovieTitle = document
-//         .querySelector('#catalogFormInput')
-//         .value.trim();
-//       let searchMovieRegion = '';
-//       let searchMovieYear = '';
+        }
+        if(event.target.id ==="firstPageBtn" || event.target.id ==="lastPageBtn"){
+            if(event.target.id ==="firstPageBtn"){
+                    console.log("firstPageBtn")
+                    params.page = 1
+                    
+            }
+            if(event.target.id ==="lastPageBtn"){
+                console.log("lastPageBtn")
+                params.page = urls.maxPages
+            }
+            const marginUrl=`${urls.url}?query=${urls.title}&include_adult=false` 
 
-//       const titel = document.querySelector('#catalogFormInput').value.trim();
-//       const adulds = 'false';
-//       const page = '1';
-//       const country = 'US';
-//       const year = '2024';
-
-//       const test = new UrlSearch({ titel, adulds, page, country, year });
-
-//       const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchMovieTitle}&include_adult=false&page=1${searchMovieRegion}${searchMovieYear}`;
-
-//       console.log('searchUrl: ', searchUrl);
-//       console.log('url: ', test.url);  
+            const PageContent = async () => await PageApiData(marginUrl)
+            PageContent();
+      
+        }
 
     } catch (error) {
     console.error(error);
@@ -298,35 +315,3 @@ window.addEventListener("click" , event=>{
     
 } )
 
-
-
-
-
-
-    // try {
-    //     if (event.target.parentElement.id ==="navForm"){
-    //         console.log(event.target.textContent)
-
-
-
-
-
-
-
-
-    //     }
-    //   } catch (error) {
-    //     console.error("ID is not define!");
-    //   }
-      
-
-
-
-// try {
-//     if (event.target.parentElement.id ==="navForm"){
-//         console.log(event.target.textContent)
-
-//     }
-//   } catch (error) {
-//     console.error("ID is not define!");
-//   }

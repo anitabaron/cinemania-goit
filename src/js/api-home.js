@@ -1,8 +1,7 @@
 import axios from 'axios';
 import {genres, fullStar, halfStar, emptyStar, 
   heroFragment, topMoviesFragment, 
-  upcomingMovieFragment, emptyApiResponeHero, 
-  emptyApiResponeCatalog} from './api-html-fragment.js'
+  upcomingMovieFragment, emptyApiResponeHero} from './api-html-fragment.js'
 
 const params = {
   page: 1,
@@ -27,10 +26,10 @@ const generateStars = (rating, starClass) => {
   const halfStars = rating % 1 >= 0.5 ? 1 : 0;
   const emptyStars = 5 - fullStars - halfStars;
 
-  console.log('Rating:', rating);
-  console.log('Full Stars:', fullStars);
-  console.log('Half Stars:', halfStars);
-  console.log('Empty Stars:', emptyStars);
+  // console.log('Rating:', rating);
+  // console.log('Full Stars:', fullStars);
+  // console.log('Half Stars:', halfStars);
+  // console.log('Empty Stars:', emptyStars);
 
   return `
     ${fullStar.replace('star', starClass).repeat(fullStars)}
@@ -98,11 +97,9 @@ const crateCatalog = (movies)=>{
 }
 
 const createUpcomingMovie = movies => {
-  
   const upcomingSection = document.querySelector('#upcoming');
   const randomMovie = Math.floor(Math.random() * movies.length);
   const upcomingMovie = movies[randomMovie];
-  console.log(upcomingMovie.id)
   upcomingSection.innerHTML = upcomingMovieFragment(upcomingMovie.id, upcomingMovie.backdrop_path, upcomingMovie.title, upcomingMovie.overview)
 };
 function createDefaultHeroSection() {
@@ -115,8 +112,8 @@ const homePageApiData = url =>
     .get(url, { params, ...options })
     .then(resResponse => {
       if (url.includes('day')) {
-        const length=resResponse.data.results.length
-        //const length =0
+        //const length=resResponse.data.results.length
+        const length =0
         if (length===0){
           createDefaultHeroSection()
           return;
