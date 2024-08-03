@@ -84,7 +84,7 @@ const catalogItem = (movie) =>{
   const movieGenres = movieGenresCompare(genres, movie.genre_ids)
   const releaseYear = movie.release_date.slice(0, 4);
   const rating = movie.vote_average / 2;
-  const starsHTML = generateStars(rating);
+  const starsHTML = generateStars(rating, 'card-star');
   return topMoviesFragment(movie.id, movie.backdrop_path, movie.title, movieGenres, releaseYear, starsHTML, movie.id)
 }
 
