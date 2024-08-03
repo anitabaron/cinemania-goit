@@ -24,6 +24,7 @@
   text-transform: uppercase;
   color: var(--white);
   margin-bottom: 7px;
+  margin-top: 24px;
 }
 .upcoming-p {
   font-weight: 500;
@@ -61,7 +62,6 @@
   width: 280px;
   height: 402px;
   object-fit: cover;
-
 }
 .upcoming__film-box {
   display: flex;
@@ -69,6 +69,9 @@
 }
 .upcoming-p-style {
   padding-top: 12px;
+}
+.btn-space {
+  color: var(--black);
 }
 
 @media (min-width: 768px) {
@@ -81,6 +84,9 @@
   .upcoming-image {
     width: 704px;
     height: 400px;
+  }
+  .upcominig-header-two {
+    margin-top: 32px;
   }
 }
 @media (min-width: 1280px) {
@@ -104,6 +110,7 @@
   .upcoming-header-two {
     font-size: 32px;
     margin-bottom: 28px;
+    margin-top: 0;
   }
   .upcoming-header-three {
     margin-top: 20px;
