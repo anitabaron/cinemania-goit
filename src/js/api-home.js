@@ -69,7 +69,6 @@ const createHeroMovie = resResponse => {
 
 
 
-//nie działa
 const movieGenresCompare = (arr1, arr2) => {
 	const finalArr = [];
 	for (i = 0; i < arr1.length; i += 1) {
