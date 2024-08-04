@@ -78,7 +78,7 @@ const createHeroMovie = resResponse => {
 
 const movieGenresCompare = (arr1, arr2) => {
   const finalArr = [];
-  for (i = 0; i < arr1.length; i += 1) {
+  for (let i = 0; i < arr1.length; i += 1) {
     if (arr2.includes(arr1[i].id)) {
       finalArr.push(arr1[i].name);
     }

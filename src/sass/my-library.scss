@@ -8,3 +8,162 @@
   height: 44px;
   font-size: 14px;
 }
+
+.library__text-1 {
+  margin-left: 117px;
+  padding-top: 118px;
+  font-weight: 700;
+  font-size: 64px;
+  color: var(--white);
+  max-width: 464px;
+}
+.library__text-2 {
+  margin-left: 117px;
+  padding-top: 28px;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--secondary-text);
+  max-width: 464px;
+}
+
+.error-lib {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.125;
+  text-align: center;
+  color: var(--white);
+}
+
+.library-content__wrap {
+  margin-top: 160px;
+}
+
+.library-content__text {
+  margin-bottom: 28px;
+}
+
+.library__btn-load {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.herolib {
+  min-width: 320px;
+  height: 380px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--main-background);
+  background-image: linear-gradient(
+      83.48deg,
+      #0e0e0e 25.78%,
+      rgba(14, 14, 14, 0) 60.07%
+    ),
+    url('../images/hero-hall-mobile-1x.jpg');
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    & {
+      background-image: linear-gradient(
+          83.48deg,
+          #0e0e0e 25.78%,
+          rgba(14, 14, 14, 0) 60.07%
+        ),
+        url('/src/images/hero-hall-mobile-2x.jpg');
+    }
+  }
+  @media (min-device-pixel-ratio: 3),
+    (-webkit-min-device-pixel-ratio: 3),
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+    & {
+      background-image: linear-gradient(
+          83.48deg,
+          #0e0e0e 25.78%,
+          rgba(14, 14, 14, 0) 60.07%
+        ),
+        url('/src/images/hero-hall-mobile-3x.jpg');
+    }
+  }
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    height: 432px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(
+        83.48deg,
+        #0e0e0e 25.78%,
+        rgba(14, 14, 14, 0) 60.07%
+      ),
+      url('/src/images/hero-hall-tablet-1x.jpg');
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      & {
+        background-image: linear-gradient(
+            83.48deg,
+            #0e0e0e 25.78%,
+            rgba(14, 14, 14, 0) 60.07%
+          ),
+          url('/src/images/hero-hall-tablet-2x.jpg');
+      }
+    }
+    @media (min-device-pixel-ratio: 3),
+      (-webkit-min-device-pixel-ratio: 3),
+      (min-resolution: 288dpi),
+      (min-resolution: 3dppx) {
+      & {
+        background-image: linear-gradient(
+            83.48deg,
+            #0e0e0e 25.78%,
+            rgba(14, 14, 14, 0) 60.07%
+          ),
+          url('/src/images/hero-hall-tablet-3x.jpg');
+      }
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    height: 720px;
+    background-image: linear-gradient(
+        83.48deg,
+        #0e0e0e 25.78%,
+        rgba(14, 14, 14, 0) 60.07%
+      ),
+      // url('/src/images/hero-hall-desktop-1x.jpg');
+      url('../images/hero-hall-desktop-1x.jpg');
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      & {
+        background-image: linear-gradient(
+            83.48deg,
+            #0e0e0e 25.78%,
+            rgba(14, 14, 14, 0) 60.07%
+          ),
+          url('../images/hero-hall-desktop-2x.jpg');
+      }
+      @media (min-device-pixel-ratio: 3),
+        (-webkit-min-device-pixel-ratio: 3),
+        (min-resolution: 288dpi),
+        (min-resolution: 3dppx) {
+        & {
+          background-image: linear-gradient(
+              83.48deg,
+              #0e0e0e 25.78%,
+              rgba(14, 14, 14, 0) 60.07%
+            ),
+            url('../images/hero-hall-desktop-3x.jpg');
+        }
+      }
+    }
+  }
+}
