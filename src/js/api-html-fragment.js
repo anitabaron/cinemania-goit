@@ -76,10 +76,16 @@ export const heroFragment = (id, backdrop_path, title, stars, description)=>{
 
 
 export const topMoviesFragment =(id, backdrop_path, title, movieGenres, releaseYear, stars)=>{
+  
+  let path =`https://image.tmdb.org/t/p/w500${backdrop_path}`
+   if (backdrop_path===null) {
+     path= `src/images/oops_warning_mobile.png`
+   }
+  
   return `<li id="${id}">
               <div class="movielist-item" data-id="${id}"
                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), 
-                   url(https://image.tmdb.org/t/p/w500${backdrop_path});
+                   url(${path});
                     background-repeat: no-repeat;
                     background-size: cover; 
                     background-position: center">
@@ -124,14 +130,55 @@ export const upcomingMovieFragment =(id, backdrop_path, title, description)=> `<
 
 
 
-export const pagesBtnStartup = (lastPage)=>`
+export const pagesBtn = (pageBtn1, pageBtn2, pageBtn3, pageBtn4, pageBtn5)=>`
             <div class="catalog__form" id="navForm">
-                <button class="btn btn__orange-gradient" id="catalogBtn">1</button>
-                <button class="btn btn__orange-gradient" id="catalogBtn">2</button>
-                <button class="btn btn__orange-gradient" id="catalogBtn">3</button>
-                <span> ... </span>
-                <button class="btn btn__orange-gradient" id="catalogBtn">${lastPage}</button>
+                <button class="btn btn__orange-gradient" id="firstPageBtn"> << </button>
+                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
+                <button class="btn btn__orange-gradient" id="PageBtn1">${pageBtn1}</button>
+                <button class="btn btn__orange-gradient" id="PageBtn2">${pageBtn2}</button>
+                <button class="btn btn__orange-gradient" id="PageBtn3">${pageBtn3}</button>
+                <button class="btn btn__orange-gradient" id="PageBtn4">${pageBtn4}</button>
+                <button class="btn btn__orange-gradient" id="PageBtn5">${pageBtn5}</button>
+                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
+                <button class="btn btn__orange-gradient" id="lastPageBtn"> >> </button>
             </div>`
+
+ export const pagesBtn2 =`
+            <div class="catalog__form" id="navForm">
+                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
+                <button class="btn btn__orange-gradient" id="PageBtn1">1</button>
+                <button class="btn btn__orange-gradient" id="PageBtn2">2</button>
+                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
+            </div>`           
+export const pagesBtn3 =`
+            <div class="catalog__form" id="navForm">
+                <button class="btn btn__orange-gradient" id="firstPageBtn"> << </button>
+                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
+                <button class="btn btn__orange-gradient" id="PageBtn1">1</button>
+                <button class="btn btn__orange-gradient" id="PageBtn2">2</button>
+                <button class="btn btn__orange-gradient" id="PageBtn3">3</button>
+                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
+                <button class="btn btn__orange-gradient" id="lastPageBtn"> >> </button>
+            </div>` 
+export const pagesBtn4 =`
+            <div class="catalog__form" id="navForm">
+                <button class="btn btn__orange-gradient" id="firstPageBtn"> << </button>
+                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
+                <button class="btn btn__orange-gradient" id="PageBtn1">1</button>
+                <button class="btn btn__orange-gradient" id="PageBtn2">2</button>
+                <button class="btn btn__orange-gradient" id="PageBtn3">3</button>
+                <button class="btn btn__orange-gradient" id="PageBtn4">4}</button>
+                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
+                <button class="btn btn__orange-gradient" id="lastPageBtn"> >> </button>
+            </div>` 
+
+
+
+
+
+
+
+
 
 export const emptyApiResponeHero = `<div class="hero_background container">
         <h2 class="hero__text-1">Let’s Make Your Own Cinema</h2>
