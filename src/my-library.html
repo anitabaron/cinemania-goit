@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My library</title>
+    <title>Cinemania - My Library</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
     <script type="module" src="./js/index.js"></script>
     <!-- <script type="module" src="./js/movie-list.js"></script> -->
     <!-- <script type="module" src="./js/my-library.js"></script> -->
   </head>
-  <body>
+  <body class="current-page__my-library">
     <include src="./partials/header.html"></include>
     <main>
       <include src="./partials/my-library.html"> </include>
@@ -25,6 +25,11 @@
       </section>
     </main>
     <include src="./partials/footer.html"></include>
-    <script type="module" src="./js/my-library.js"></script>
+    <!-- <include src="./partials/footer-modal-team.html"></include> -->
+    <include src="./partials/modal.html"></include>
+    <include src="./partials/loader.html"></include>
+    <!-- <include src="./partials/scroll-up.html"></include> -->
+
+    <div class="modal-scroll"></div>
   </body>
 </html>

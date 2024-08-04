@@ -6,7 +6,7 @@ import { checkStorage } from './my-library';
 const apiService = new APIService();
 
 const catalog = document.getElementById('catalg');
-const myLibGallery = document.getElementById('mylibraryMovielist');
+const myLibGallery = document.getElementById('my-lib-gallery-list');
 const weeklyTrends = document.getElementById('catalogMovielist');
 const modalWindow = document.querySelector('.modal-film');
 const overlay = document.querySelector('.overlay');
