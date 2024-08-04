@@ -7,8 +7,13 @@
     <title>Catalog</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
-    <!-- <script type="module" src="./js/index.js"></script> -->
-    <script type="module" src="./js/api-catalog-page.js"></script> 
+    <script type="module" src="./js/api-catalog-page.js"></script>
+    <script type="module" src="./js/header.js"></script>
+    <script type="module" src="./js/hero.js"></script>
+    <!-- <script type="module" src="./js/movie-list.js"></script> -->
+    <!-- <script type="module" src="./js/my-library.js"></script> -->
+    <!-- <script type="module" src="./js/modal.js"></script> -->
+
   </head>
   <body>
     <include src="./partials/header.html"></include>
@@ -17,24 +22,21 @@
 
       <section class="movielist container" id="search">
         <div class="catalog__search">
-          <form class="catalog__form" id="catalogForm">
+          <form class="catalog__form-search catalog__form" id="catalogForm">  // class:   catalog__form-search lub catalog__form - nie jestem pewna
             <input
               class="catalog__form-input"
               id="catalogFormInput"
               type="search"
               placeholder="Search"
             />
-            <button class="btn btn__orange-gradient" id="searchBtn">
-              Search
-            </button>
             <!-- tu chyba lupka powinna być -->
-            <button class="search btn__search_black" id="catalogBtn">
+            <!-- <button class="search btn__search_black" id="searchBtn"> -->
               <!-- jasny tryb -->
-              <svg width="20" height="20">
-                <use href="./images/icons_desktop.svg#search_icon"></use>
-              </svg>
-            </button>
-            <button class="search btn__search_white" id="catalogBtn">
+              <!-- <svg width="20" height="20"> -->
+                <!-- <use href="./images/icons_desktop.svg#search_icon"></use> -->
+              <!-- </svg> -->
+            <!-- </button> -->
+            <button class="search btn__search_white" id="searchBtn">
               <!-- ciemny tryb -->
               <svg width="20" height="20">
                 <use href="./images/icons_desktop.svg#search_icon"></use>

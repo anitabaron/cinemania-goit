@@ -9,29 +9,55 @@
   border: 1px solid var(--white);
   border-radius: 8px;
   padding: 12px 26px 12px 24px;
-  width: 334px;
   height: 48px;
-  margin-bottom: 48px;
 }
 
 .catalog__search {
   display: flex;
   justify-content: center;
 }
+.catalog__form-search {
+  display: flex;
+  margin:0 auto;
+  justify-content: center;
+  gap:16px;
+ }
+.catalog__form {
+  display: flex;
+  margin:0 auto;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+  //text-wrap: wrap;
+ }
+
 
 @media (width < 768px) {
   .catalog__text {
     font-size: 20px;
   }
+  .catalog__form-input {
+    width: 224px;
+  }
+  .catalog__form {
+    text-wrap: wrap;
+   }
+
 }
 @media (width >= 768px) and (width < 1280px) {
   .catalog__text {
     font-size: 24px;
+  }
+  .catalog__form-input {
+    width: 264px;
   }
 }
 @media (width >= 1280px) {
   .catalog__text {
     font-size: 32px;
     padding-top: 160px;
+  }
+  .catalog__form-input {
+    width: 315px;
   }
 }

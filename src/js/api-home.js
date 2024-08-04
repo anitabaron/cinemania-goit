@@ -112,8 +112,8 @@ const homePageApiData = url =>
     .get(url, { params, ...options })
     .then(resResponse => {
       if (url.includes('day')) {
-        //const length=resResponse.data.results.length
-        const length =0
+        const length=resResponse.data.results.length
+        //const length =0
         if (length===0){
           createDefaultHeroSection()
           return;
