@@ -36,13 +36,21 @@ const urls = {
   maxPages: 1,
 };
 
-const generateStars = rating => {
-  let fullStars = Math.floor(rating);
-  let halfStars = rating % 1 >= 0.5 ? 1 : 0;
-  let emptyStars = 5 - fullStars - halfStars;
-  return `${fullStar.repeat(fullStars)}${halfStar.repeat(
-    halfStars
-  )}${emptyStar.repeat(emptyStars)}`;
+const generateStars = (rating, starClass) => {
+  const fullStars = Math.floor(rating);
+  const halfStars = rating % 1 >= 0.5 ? 1 : 0;
+  const emptyStars = 5 - fullStars - halfStars;
+
+  // console.log('Rating:', rating);
+  // console.log('Full Stars:', fullStars);
+  // console.log('Half Stars:', halfStars);
+  // console.log('Empty Stars:', emptyStars);
+
+  return `
+    ${fullStar.replace('star', starClass).repeat(fullStars)}
+    ${halfStar.replace('star', starClass).repeat(halfStars)}
+    ${emptyStar.replace('star', starClass).repeat(emptyStars)}
+  `;
 };
 
 const createHeroMovie = resResponse => {

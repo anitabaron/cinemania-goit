@@ -68,9 +68,9 @@ export const heroFragment = (id, backdrop_path, title, stars, description)=>{
             ${stars}
           </ul>
           <p class="hero__text-2" id="hero_text">${description}</p>
-          <div class="buttons" data-id="${id}">
-            <button class="btn__hero-1">Watch trailer</button>
-            <button class="btn__hero-2">More details</button>
+          <div class="buttons">
+            <button class="btn__hero-1" data-id="${id}">Watch trailer</button>
+            <button class="btn__hero-2" data-id="${id}">More details</button>
           </div>
          </div>`};
 
@@ -101,7 +101,7 @@ export const topMoviesFragment =(id, backdrop_path, title, movieGenres, releaseY
               </div>
           </li>`};
 
-export const upcomingMovieFragment =(id, backdrop_path, title, description, release_date, vote_average, vote_count )=> `<h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
+export const upcomingMovieFragment =(id, backdrop_path, title, description, release_date, vote_average, vote_count, movieGenres )=> `<h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
         <div class="upcoming__film-box">
         <img class="upcoming-image"
         src="https://image.tmdb.org/t/p/w500${backdrop_path}"
