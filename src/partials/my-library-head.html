@@ -1,16 +1,30 @@
-<section class="library-section container">
-  <div class="library-content__section">
-    <div class="mylib-gallery library-content gallery-hidden">
-      <ul class="mylib-gallery__list catalog"></ul>
+<!-- <section class="my-lib__hero section">
+  <div class="my-lib__hero-container container">
+    <h2 class="my-lib__hero-title">
+      Create Your <br />
+      Dream Cinema
+    </h2>
+    <p class="my-lib__hero-description">
+      Is a guide to designing a personalized movie theater experience with the
+      right equipment, customized decor, and favorite films. This guide helps
+      you bring the cinema experience into your own home with cozy seating, dim
+      lighting, and movie theater snacks.
+    </p>
+  </div>
+</section> -->
+
+<section class="my-lib__gallery">
+  <div class="container">
+    <div class="my-lib__no-movies visually-hidden">
+      <p class="my-lib__oops-message">
+        OOPS...<br />
+        We are very sorry! <br />
+        You don’t have any movies at your library.
+      </p>
+      <a href="/src/catalog.html" class="my-lib__search-link button"
+        >Search movie</a
+      >
     </div>
-    <div class="library-content error-lib is-hidden" id="is-hidden">
-      <div class="library-content__wrap">
-        <p class="library-content__text">
-          OOPS... <br />
-          We are very sorry! <br />
-          You don't have any movies at your library.
-        </p>
-      </div>
-    </div>
+    <ul class="my-lib__gallery-list" id="my-lib-gallery-list"></ul>
   </div>
 </section>
