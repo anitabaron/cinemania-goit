@@ -45,7 +45,14 @@
   position: relative;
   border-radius: 5px;
   background-size: cover;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out;;
 }
+.movielist-item:hover {
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  transform: scale(1.02);
+}
+
 @media (min-width: 768px) {
   .movielist-item {
     width: 224px;
