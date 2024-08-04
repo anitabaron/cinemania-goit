@@ -1,11 +1,8 @@
 import renderMoviesCards from './cards-rendering';
 import LibraryAPI from './library-functions';
-import APIService from './api-service';
 
 const library = new LibraryAPI();
-const libraryService = new APIService();
 library.setLibrary();
-libraryService.getMovieInfo(533535);
 checkStorage();
 
 export function checkStorage() {
