@@ -21,7 +21,6 @@ const urls = {
   trendMoviesWeek: `https://api.themoviedb.org/3/trending/movie/week`,
   upcomingMovies: `https://api.themoviedb.org/3/movie/upcoming`,
 };
-
 const generateStars = (rating, starClass) => {
   const fullStars = Math.floor(rating);
   const halfStars = rating % 1 >= 0.5 ? 1 : 0;
@@ -101,7 +100,7 @@ const createUpcomingMovie = movies => {
   const upcomingSection = document.querySelector('#upcoming');
   const randomMovie = Math.floor(Math.random() * movies.length);
   const upcomingMovie = movies[randomMovie];
-  const movieGenres = movieGenresCompare(genres, upcomingMovie.genre_ids); // ?? udef
+  // const movieGenres = movieGenresCompare(genres, movies.genre_ids);
   upcomingSection.innerHTML = upcomingMovieFragment(upcomingMovie.id, upcomingMovie.backdrop_path, upcomingMovie.title, upcomingMovie.overview, 
     upcomingMovie.release_date,  
     // movieGenres 
@@ -117,8 +116,8 @@ const homePageApiData = url =>
     .get(url, { params, ...options })
     .then(resResponse => {
       if (url.includes('day')) {
-        // const length=resResponse.data.results.length     // tu się zmienia żeby podejrzeć default
-        const length =0                                     // tu się zmienia żeby podejrzeć default
+        const length=resResponse.data.results.length
+        //const length =0
         if (length===0){
           createDefaultHeroSection()
           return;
