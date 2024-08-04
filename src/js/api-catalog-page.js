@@ -30,19 +30,27 @@ const options = {
 const urls = {
   urlDay: `https://api.themoviedb.org/3/trending/movie/day`,
   urlWeek: `https://api.themoviedb.org/3/trending/movie/week`,
-  urlSearch:`https://api.themoviedb.org/3/search/movie`,
-  url:``,
-  title:``,
+  urlSearch: `https://api.themoviedb.org/3/search/movie`,
+  url: ``,
+  title: ``,
   maxPages: 1,
 };
 
-const generateStars = rating => {
-  let fullStars = Math.floor(rating);
-  let halfStars = rating % 1 >= 0.5 ? 1 : 0;
-  let emptyStars = 5 - fullStars - halfStars;
-  return `${fullStar.repeat(fullStars)}${halfStar.repeat(
-    halfStars
-  )}${emptyStar.repeat(emptyStars)}`;
+const generateStars = (rating, starClass) => {
+  const fullStars = Math.floor(rating);
+  const halfStars = rating % 1 >= 0.5 ? 1 : 0;
+  const emptyStars = 5 - fullStars - halfStars;
+
+  // console.log('Rating:', rating);
+  // console.log('Full Stars:', fullStars);
+  // console.log('Half Stars:', halfStars);
+  // console.log('Empty Stars:', emptyStars);
+
+  return `
+    ${fullStar.replace('star', starClass).repeat(fullStars)}
+    ${halfStar.replace('star', starClass).repeat(halfStars)}
+    ${emptyStar.replace('star', starClass).repeat(emptyStars)}
+  `;
 };
 
 const createHeroMovie = resResponse => {
@@ -67,7 +75,6 @@ const createHeroMovie = resResponse => {
     truncatedOverview
   );
 };
-
 
 const movieGenresCompare = (arr1, arr2) => {
   const finalArr = [];
@@ -106,73 +113,135 @@ const crateCatalog = movies => {
   moviesCatalog.innerHTML = weekMoviesSectionFragment;
 };
 
-const numberingBtn=(pagesNumber, maxPagesNumber)=>{
-    console.log(maxPagesNumber)
-    if(maxPagesNumber===1)return
-    const pagesBtnSection = document.querySelector('#pagesBtnSection');
-    const prageNumbers ={
-                        pageBtn1: 1,
-                        pageBtn2: 2,
-                        pageBtn3: 3,
-                        pageBtn4: 4,
-                        pageBtn5: 5,
-                        }
-    if(maxPagesNumber===2){
-        pagesBtnSection.innerHTML = pagesBtn2
-        if (pagesNumber===1) document.querySelector("#PageBtn1").classList.replace('btn__orange-gradient', 'btn__black')
-        if (pagesNumber===2) document.querySelector("#PageBtn2").classList.replace('btn__orange-gradient', 'btn__black')
-        return 
-    }
-    if(maxPagesNumber===3){
-        pagesBtnSection.innerHTML = pagesBtn3
-        if (pagesNumber===1) document.querySelector("#PageBtn1").classList.replace('btn__orange-gradient', 'btn__black')
-        if (pagesNumber===2) document.querySelector("#PageBtn2").classList.replace('btn__orange-gradient', 'btn__black')
-        if (pagesNumber===3) document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black')
-        return 
-    }
-    if(maxPagesNumber===4){
-        pagesBtnSection.innerHTML = pagesBtn4
-        if (pagesNumber===1) document.querySelector("#PageBtn1").classList.replace('btn__orange-gradient', 'btn__black')
-        if (pagesNumber===2) document.querySelector("#PageBtn2").classList.replace('btn__orange-gradient', 'btn__black')
-        if (pagesNumber===3) document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black')
-        if (pagesNumber===3) document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black')
-        return 
- 
-    }
+const numberingBtn = (pagesNumber, maxPagesNumber) => {
+  console.log(maxPagesNumber);
+  if (maxPagesNumber === 1) return;
+  const pagesBtnSection = document.querySelector('#pagesBtnSection');
+  const prageNumbers = {
+    pageBtn1: 1,
+    pageBtn2: 2,
+    pageBtn3: 3,
+    pageBtn4: 4,
+    pageBtn5: 5,
+  };
+  if (maxPagesNumber === 2) {
+    pagesBtnSection.innerHTML = pagesBtn2;
+    if (pagesNumber === 1)
+      document
+        .querySelector('#PageBtn1')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    if (pagesNumber === 2)
+      document
+        .querySelector('#PageBtn2')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    return;
+  }
+  if (maxPagesNumber === 3) {
+    pagesBtnSection.innerHTML = pagesBtn3;
+    if (pagesNumber === 1)
+      document
+        .querySelector('#PageBtn1')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    if (pagesNumber === 2)
+      document
+        .querySelector('#PageBtn2')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    if (pagesNumber === 3)
+      document
+        .querySelector('#PageBtn3')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    return;
+  }
+  if (maxPagesNumber === 4) {
+    pagesBtnSection.innerHTML = pagesBtn4;
+    if (pagesNumber === 1)
+      document
+        .querySelector('#PageBtn1')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    if (pagesNumber === 2)
+      document
+        .querySelector('#PageBtn2')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    if (pagesNumber === 3)
+      document
+        .querySelector('#PageBtn3')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    if (pagesNumber === 3)
+      document
+        .querySelector('#PageBtn3')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    return;
+  }
 
+  if (pagesNumber < 4) {
+    pagesBtnSection.innerHTML = pagesBtn(
+      prageNumbers.pageBtn1,
+      prageNumbers.pageBtn2,
+      prageNumbers.pageBtn3,
+      prageNumbers.pageBtn4,
+      prageNumbers.pageBtn5
+    );
+    if (pagesNumber === 1)
+      document
+        .querySelector('#PageBtn1')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    if (pagesNumber === 2)
+      document
+        .querySelector('#PageBtn2')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    if (pagesNumber === 3)
+      document
+        .querySelector('#PageBtn3')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    return;
+  }
 
-    if(pagesNumber<4){
-        pagesBtnSection.innerHTML = pagesBtn(prageNumbers.pageBtn1, prageNumbers.pageBtn2, prageNumbers.pageBtn3, prageNumbers.pageBtn4, prageNumbers.pageBtn5);
-        if (pagesNumber===1) document.querySelector("#PageBtn1").classList.replace('btn__orange-gradient', 'btn__black')
-        if (pagesNumber===2) document.querySelector("#PageBtn2").classList.replace('btn__orange-gradient', 'btn__black')
-        if (pagesNumber===3) document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black') 
-        return 
-    }
-
-
-    if( (pagesNumber + 3) > maxPagesNumber){
-        prageNumbers.pageBtn1= (maxPagesNumber - 4)
-        prageNumbers.pageBtn2= (maxPagesNumber - 3)
-        prageNumbers.pageBtn3= (maxPagesNumber - 2)
-        prageNumbers.pageBtn4= (maxPagesNumber - 1)
-        prageNumbers.pageBtn5= (maxPagesNumber) 
-        pagesBtnSection.innerHTML = pagesBtn(prageNumbers.pageBtn1, prageNumbers.pageBtn2, prageNumbers.pageBtn3, prageNumbers.pageBtn4, prageNumbers.pageBtn5); 
-        if (pagesNumber===maxPagesNumber - 2) document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black')
-        if (pagesNumber===maxPagesNumber - 1) document.querySelector("#PageBtn4").classList.replace('btn__orange-gradient', 'btn__black')
-        if (pagesNumber===maxPagesNumber) document.querySelector("#PageBtn5").classList.replace('btn__orange-gradient', 'btn__black')  
-        return 
-    }
-    if(pagesNumber>3){
-        prageNumbers.pageBtn1= (pagesNumber - 2)
-        prageNumbers.pageBtn2= (pagesNumber - 1) 
-        prageNumbers.pageBtn3= pagesNumber
-        prageNumbers.pageBtn4= (pagesNumber + 1)
-        prageNumbers.pageBtn5= (pagesNumber + 2)
-        pagesBtnSection.innerHTML = pagesBtn(prageNumbers.pageBtn1, prageNumbers.pageBtn2, prageNumbers.pageBtn3, prageNumbers.pageBtn4, prageNumbers.pageBtn5);
-        document.querySelector("#PageBtn3").classList.replace('btn__orange-gradient', 'btn__black')
-        return      
-    }
-}
+  if (pagesNumber + 3 > maxPagesNumber) {
+    prageNumbers.pageBtn1 = maxPagesNumber - 4;
+    prageNumbers.pageBtn2 = maxPagesNumber - 3;
+    prageNumbers.pageBtn3 = maxPagesNumber - 2;
+    prageNumbers.pageBtn4 = maxPagesNumber - 1;
+    prageNumbers.pageBtn5 = maxPagesNumber;
+    pagesBtnSection.innerHTML = pagesBtn(
+      prageNumbers.pageBtn1,
+      prageNumbers.pageBtn2,
+      prageNumbers.pageBtn3,
+      prageNumbers.pageBtn4,
+      prageNumbers.pageBtn5
+    );
+    if (pagesNumber === maxPagesNumber - 2)
+      document
+        .querySelector('#PageBtn3')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    if (pagesNumber === maxPagesNumber - 1)
+      document
+        .querySelector('#PageBtn4')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    if (pagesNumber === maxPagesNumber)
+      document
+        .querySelector('#PageBtn5')
+        .classList.replace('btn__orange-gradient', 'btn__black');
+    return;
+  }
+  if (pagesNumber > 3) {
+    prageNumbers.pageBtn1 = pagesNumber - 2;
+    prageNumbers.pageBtn2 = pagesNumber - 1;
+    prageNumbers.pageBtn3 = pagesNumber;
+    prageNumbers.pageBtn4 = pagesNumber + 1;
+    prageNumbers.pageBtn5 = pagesNumber + 2;
+    pagesBtnSection.innerHTML = pagesBtn(
+      prageNumbers.pageBtn1,
+      prageNumbers.pageBtn2,
+      prageNumbers.pageBtn3,
+      prageNumbers.pageBtn4,
+      prageNumbers.pageBtn5
+    );
+    document
+      .querySelector('#PageBtn3')
+      .classList.replace('btn__orange-gradient', 'btn__black');
+    return;
+  }
+};
 function createDefaultHeroSection() {
   const heroSection = document.querySelector('#hero');
   heroSection.innerHTML = emptyApiResponeHero;
@@ -196,10 +265,10 @@ const catalogPageApiData = url =>
         emptyResponseCatalog();
         return;
       }
-      urls.maxPages=resResponse.data.total_pages
-      urls.url=url
+      urls.maxPages = resResponse.data.total_pages;
+      urls.url = url;
       crateCatalog(resResponse.data.results);
-      numberingBtn(params.page, urls.maxPages)
+      numberingBtn(params.page, urls.maxPages);
       return;
     })
     .catch(error => {
@@ -217,101 +286,98 @@ const catalogPageContent = async () =>
 catalogPageContent();
 
 const PageApiData = url =>
-    axios
-        .get(url, { params, ...options })
-        .then(resResponse => {
-            const length=resResponse.data.results.length
-            if (document.querySelector('#catalg').hasChildNodes()) {
-                const childs = document.querySelectorAll("#catalg > li");
-                childs.forEach(child => child.remove());
-            }
-            if (document.querySelector('#navForm')!==null)
-                document.querySelector("#navForm").remove();
-            
+  axios
+    .get(url, { params, ...options })
+    .then(resResponse => {
+      const length = resResponse.data.results.length;
+      if (document.querySelector('#catalg').hasChildNodes()) {
+        const childs = document.querySelectorAll('#catalg > li');
+        childs.forEach(child => child.remove());
+      }
+      if (document.querySelector('#navForm') !== null)
+        document.querySelector('#navForm').remove();
 
-             if (length===0){
-                emptyResponseCatalog()
-                return;
-              }
-            urls.maxPages=resResponse.data.total_pages
-            crateCatalog(resResponse.data.results)
-            numberingBtn(params.page, urls.maxPages)
-            return;
-        })
-        .catch(error => {
-            emptyResponseCatalog()
-            numberingBtn(params.page, urls.maxPages)
-            //document.querySelector("#navForm").remove()
-            return console.log(error)}
-              );
+      if (length === 0) {
+        emptyResponseCatalog();
+        return;
+      }
+      urls.maxPages = resResponse.data.total_pages;
+      crateCatalog(resResponse.data.results);
+      numberingBtn(params.page, urls.maxPages);
+      return;
+    })
+    .catch(error => {
+      emptyResponseCatalog();
+      numberingBtn(params.page, urls.maxPages);
+      //document.querySelector("#navForm").remove()
+      return console.log(error);
+    });
 
-window.addEventListener("click" , event=>{
-    try {
-        if (event.target.id ==="searchBtn") {
-            event.preventDefault();
-            if (document.querySelector('#catalogFormInput').value.trim()=="") {
-                 return
-             }
-            urls.url=`https://api.themoviedb.org/3/search/movie`
-            params.page=1
-            urls.title= document.querySelector('#catalogFormInput').value.trim()
+window.addEventListener('click', event => {
+  try {
+    if (event.target.id === 'searchBtn') {
+      event.preventDefault();
+      if (document.querySelector('#catalogFormInput').value.trim() == '') {
+        return;
+      }
+      urls.url = `https://api.themoviedb.org/3/search/movie`;
+      params.page = 1;
+      urls.title = document.querySelector('#catalogFormInput').value.trim();
 
-            const searchUrl=`${urls.url}?query=${urls.title}&include_adult=false` 
+      const searchUrl = `${urls.url}?query=${urls.title}&include_adult=false`;
 
-            const PageContent = async () => await PageApiData(searchUrl)
-            PageContent();
-
-        }
-        if (event.target.parentElement.id ==="navForm" &
-            event.target.id !=="previousPage" & event.target.id !=="nextPage" & 
-            event.target.id !=="firstPageBtn" & event.target.id !=="lastPageBtn") {
-            event.preventDefault();
-            params.page=parseInt(event.target.textContent)
-            let navUrl= urls.url
-            if(navUrl.includes("search")){
-                navUrl=navUrl+`?query=${urls.title}&include_adult=false`
-            }
-            const PageContent = async () => await PageApiData(navUrl)
-            
-            PageContent(); 
-        }
-        if(event.target.id ==="previousPage" || event.target.id ==="nextPage"){
-            if(event.target.id ==="previousPage"){
-                    console.log("previousPage")
-                    if(params.page>1) params.page = params.page-1
-                    
-            }
-            if(event.target.id ==="nextPage"){
-                console.log("nextPage")
-                if(params.page< urls.maxPages) params.page = params.page+1
-            }
-            const naxUrl=`${urls.url}?query=${urls.title}&include_adult=false` 
-
-            const PageContent = async () => await PageApiData(naxUrl)
-            PageContent();
-      
-        }
-        if(event.target.id ==="firstPageBtn" || event.target.id ==="lastPageBtn"){
-            if(event.target.id ==="firstPageBtn"){
-                    console.log("firstPageBtn")
-                    params.page = 1
-                    
-            }
-            if(event.target.id ==="lastPageBtn"){
-                console.log("lastPageBtn")
-                params.page = urls.maxPages
-            }
-            const marginUrl=`${urls.url}?query=${urls.title}&include_adult=false` 
-
-            const PageContent = async () => await PageApiData(marginUrl)
-            PageContent();
-      
-        }
-
-    } catch (error) {
-    console.error(error);
+      const PageContent = async () => await PageApiData(searchUrl);
+      PageContent();
     }
+    if (
+      (event.target.parentElement.id === 'navForm') &
+      (event.target.id !== 'previousPage') &
+      (event.target.id !== 'nextPage') &
+      (event.target.id !== 'firstPageBtn') &
+      (event.target.id !== 'lastPageBtn')
+    ) {
+      event.preventDefault();
+      params.page = parseInt(event.target.textContent);
+      let navUrl = urls.url;
+      if (navUrl.includes('search')) {
+        navUrl = navUrl + `?query=${urls.title}&include_adult=false`;
+      }
+      const PageContent = async () => await PageApiData(navUrl);
 
-    
-} )
+      PageContent();
+    }
+    if (event.target.id === 'previousPage' || event.target.id === 'nextPage') {
+      if (event.target.id === 'previousPage') {
+        console.log('previousPage');
+        if (params.page > 1) params.page = params.page - 1;
+      }
+      if (event.target.id === 'nextPage') {
+        console.log('nextPage');
+        if (params.page < urls.maxPages) params.page = params.page + 1;
+      }
+      const naxUrl = `${urls.url}?query=${urls.title}&include_adult=false`;
 
+      const PageContent = async () => await PageApiData(naxUrl);
+      PageContent();
+    }
+    if (
+      event.target.id === 'firstPageBtn' ||
+      event.target.id === 'lastPageBtn'
+    ) {
+      if (event.target.id === 'firstPageBtn') {
+        console.log('firstPageBtn');
+        params.page = 1;
+      }
+      if (event.target.id === 'lastPageBtn') {
+        console.log('lastPageBtn');
+        params.page = urls.maxPages;
+      }
+      const marginUrl = `${urls.url}?query=${urls.title}&include_adult=false`;
+
+      const PageContent = async () => await PageApiData(marginUrl);
+      PageContent();
+    }
+  } catch (error) {
+    console.error(error);
+  }
+});
