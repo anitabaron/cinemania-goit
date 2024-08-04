@@ -15,22 +15,33 @@
 .catalog__search {
   display: flex;
   justify-content: center;
+  margin-bottom: 16px;
 }
+@media (min-width: 768px) {
+  .catalog__search {
+    margin-bottom: 36px;
+  }
+}
+@media (min-width: 1280px) {
+  .catalog__search {
+    margin-bottom: 48px;
+  }
+}
+
 .catalog__form-search {
   display: flex;
-  margin:0 auto;
+  margin: 0 auto;
   justify-content: center;
-  gap:16px;
- }
+  gap: 16px;
+}
 .catalog__form {
   display: flex;
-  margin:0 auto;
+  margin: 0 auto;
   align-items: center;
   justify-content: center;
   padding-top: 60px;
   //text-wrap: wrap;
- }
-
+}
 
 @media (width < 768px) {
   .catalog__text {
@@ -41,8 +52,7 @@
   }
   .catalog__form {
     text-wrap: wrap;
-   }
-
+  }
 }
 @media (width >= 768px) and (width < 1280px) {
   .catalog__text {

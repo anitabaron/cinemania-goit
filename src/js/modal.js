@@ -23,12 +23,12 @@ function addModalListener(listRef) {
 }
 
 async function onMovieCardClick(e) {
-  if (!e.target.closest('.movielist-item')) {
+  if (!e.target.closest('.movie-details')) {
     return;
   }
 
   try {
-    const movieID = e.target.closest('.movielist-item').getAttribute('data-id');
+    const movieID = e.target.closest('.movie-details').getAttribute('data-id');
     const movieData = await apiService.getMovieInfo(movieID);
     const markup = createMarkup(movieData);
     updateModal(markup);

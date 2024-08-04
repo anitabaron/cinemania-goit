@@ -23,7 +23,7 @@ export default async function renderMoviesCards(movies, selector) {
   for (const movie of movies) {
     const {
       id,
-      poster_path: poster,
+      backdrop_path: poster,
       title,
       release_date: date,
       vote_average: rating,
@@ -34,25 +34,37 @@ export default async function renderMoviesCards(movies, selector) {
     const movieYear = await getYear(date);
     const starRating = await createStarRating(rating);
 
-    markup += `<li class='cards__list-item' data-id='${id}'>
-                    
-    <img class='cards__list-img' loading="lazy" ${movieSrc} width='395' height='574'/>
-    
-                   <div class='weekly-trends__overlay'></div>
-                    <div class='cards__list-search'>                       
-                        <div class='cards__bloc-stars'>
-                          <h3 class='cards__list-title'>${title}</h3>
-                          <div class='cards__list-text'>${movieGenre}|${movieYear}<span class='cards__list-span'></span></div>
+    markup += ` <li class='cards__list-item movie-details' data-id='${id}'>
+                  <img class='cards__list-img' loading="lazy" ${movieSrc}/>
+                    <div class='weekly-trends__overlay'></div>
+                    <div class='cards__list-search movielist__information-box'>                       
+                        <div class='cards__bloc-stars movielist__title-box'>
+                          <h3 class='cards__list-title movielist__movie-title'>${title}</h3>
+                          <div class='cards__list-text movielist__movie-genre'> ${movieGenre} | ${movieYear} <span class='cards__list-span'></span></div>
                         </div>  
-                        
-                        
+                        <ul class='cards__list-stars'>${starRating}</ul>
                     </div>
-                    <div class='cards__list-stars'>${starRating}</div>
                 </li>`;
   }
 
   if (!movieList) {
     return;
+    // markup = '<li>
+    //   < div class='library-content error-lib is-hidden' id = 'is-hidden' >
+    //   <div class="library-content__wrap">
+    //     <p class="library-content__text">
+    //       OOPS... <br />
+    //       We are very sorry! <br />
+    //       You don't have any movies at your library.
+    //     </p>
+    //     <button
+    //       type="button"
+    //       class="catalog__search-link btn btn__big btn__orange-gradient"
+    //     >
+    //       <a class="catalog__search-link" href="./catalog.html">Search movie</a>
+    //     </button>
+    //   </div>
+    // </></li>';
   }
   movieList.innerHTML = markup;
 }
@@ -98,7 +110,7 @@ function createStarRating(data) {
 
   if (!data) {
     ratingStars = `${emptyStar.repeat(5)}`;
-    return `<div>${ratingStars}</div>`;
+    return `<li>${ratingStars}</li>`;
   }
 
   const rating = Math.round(data);
@@ -141,7 +153,7 @@ function createStarRating(data) {
       throw new Error('Invalid rating');
   }
 
-  return `<div>${ratingStars}</div>`;
+  return `<li>${ratingStars}</li>`;
 }
 
 function getImg(poster, title) {
