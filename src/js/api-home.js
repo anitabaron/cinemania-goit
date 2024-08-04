@@ -100,7 +100,11 @@ const createUpcomingMovie = movies => {
   const upcomingSection = document.querySelector('#upcoming');
   const randomMovie = Math.floor(Math.random() * movies.length);
   const upcomingMovie = movies[randomMovie];
-  upcomingSection.innerHTML = upcomingMovieFragment(upcomingMovie.id, upcomingMovie.backdrop_path, upcomingMovie.title, upcomingMovie.overview)
+  // const movieGenres = movieGenresCompare(genres, movies.genre_ids);
+  upcomingSection.innerHTML = upcomingMovieFragment(upcomingMovie.id, upcomingMovie.backdrop_path, upcomingMovie.title, upcomingMovie.overview, 
+    upcomingMovie.release_date,  
+    // movieGenres 
+    )
 };
 function createDefaultHeroSection() {
   const heroSection = document.querySelector('#hero');

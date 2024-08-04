@@ -68,7 +68,7 @@ export const heroFragment = (id, backdrop_path, title, stars, description)=>{
             ${stars}
           </ul>
           <p class="hero__text-2" id="hero_text">${description}</p>
-          <div class="buttons" id="${id}">
+          <div class="buttons" data-id="${id}">
             <button class="btn__hero-1">Watch trailer</button>
             <button class="btn__hero-2">More details</button>
           </div>
@@ -101,12 +101,12 @@ export const topMoviesFragment =(id, backdrop_path, title, movieGenres, releaseY
               </div>
           </li>`};
 
-export const upcomingMovieFragment =(id, backdrop_path, title, description)=> `<h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
+export const upcomingMovieFragment =(id, backdrop_path, title, description, release_date, vote_average, vote_count )=> `<h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
         <div class="upcoming__film-box">
         <img class="upcoming-image"
         src="https://image.tmdb.org/t/p/w500${backdrop_path}"
        
-        alt="Logo of this page"
+        alt="movie poster"
         />
             <div class="upcoming__film-details-box">
                 <h3 class="upcoming-header-two">${title}</h3>
@@ -114,19 +114,19 @@ export const upcomingMovieFragment =(id, backdrop_path, title, description)=> `<
                     <div>
 						<p class="upcoming-p">Release date</p>
 						<p class="upcoming-p">Vote / Votes</p>
-						<p class="upcoming-p">Popularit</p>
+						<p class="upcoming-p">Popularity</p>
 						<p class="upcoming-p">Genre</p>
 					</div>
                     <div>
-						<p class="upcoming-p-two upcoming-p-style">03.03.2023</p>
-						<p class="upcoming__film-rating upcoming-p-style"><span class="upcoming-box">7.3</span>  /  <span class="upcoming-box">1260</span></p>
+						<p class="upcoming-p-two upcoming-p-style">${release_date}</p>
+						<p class="upcoming__film-rating upcoming-p-style"><span class="upcoming-box">${vote_average}</span>  /  <span class="upcoming-box">${vote_count}</span></p>
 						<p class="upcoming-p-style">99.9</p>
-						<p>Comedy, action</p>
+						<p class="upcoming-p-style">${movieGenres}</p>
 					</div>
 				</div>
 				<h4 class="upcoming-header-three">ABOUT</h4>
 				<p class="upcoming-p-three">${description}</p>
-			  <button class="btn btn__big btn__orange-gradient" id="${id}">Add to my library</button>`;
+			  <button class="btn btn__big btn__orange-gradient btn-space" id="${id}">Add to my library</button>`;
 
 
 

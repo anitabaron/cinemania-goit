@@ -57,7 +57,7 @@ const createHeroMovie = resResponse => {
     text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
   const truncatedOverview = cutText(topDayMovie.overview, maxLength);
   const rating = topDayMovie.vote_average / 2;
-  const starsHTML = generateStars(rating);
+  const starsHTML = generateStars(rating, 'hero-star');
 
   heroSection.innerHTML = heroFragment(
     topDayMovie.id,
