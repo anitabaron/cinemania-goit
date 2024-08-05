@@ -53,26 +53,6 @@ export default async function renderMoviesCards(movies, selector) {
               </div>
           </li>`;
   }
-
-  if (!movieList) {
-    return;
-    // markup = '<li>
-    //   < div class='library-content error-lib is-hidden' id = 'is-hidden' >
-    //   <div class="library-content__wrap">
-    //     <p class="library-content__text">
-    //       OOPS... <br />
-    //       We are very sorry! <br />
-    //       You don't have any movies at your library.
-    //     </p>
-    //     <button
-    //       type="button"
-    //       class="catalog__search-link btn btn__big btn__orange-gradient"
-    //     >
-    //       <a class="catalog__search-link" href="./catalog.html">Search movie</a>
-    //     </button>
-    //   </div>
-    // </></li>';
-  }
   movieList.innerHTML = markup;
 }
 
