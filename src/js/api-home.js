@@ -67,17 +67,7 @@ const createHeroMovie = resResponse => {
   );
 };
 
-// const createHeroMovie = results => {
-//   // if (
-//   //   !results ||
-//   //   !results.data ||
-//   //   !results.data.results ||
-//   //   results.data.results.length === 0
-//   // ) {
-//   //   console.error('Invalid results data');
-//   //   return;
-//   // }
-// };
+
 
 const movieGenresCompare = (arr1, arr2) => {
   const finalArr = [];
@@ -180,3 +170,31 @@ const homePageContent = async () =>
   ]);
 
 homePageContent();
+
+window.addEventListener("click" , event=>{
+  if (event.target.parentElement.id==="logo"){
+    const moviesCatalog = document.querySelector('#trends');
+    moviesCatalog.remove()
+
+    const upcomingSection = document.querySelector('#upcoming');
+    const upcomingChild = document.querySelector('#upcoming > div')
+    upcomingSection.removeChild(upcomingChild)
+
+    const heroSection = document.querySelector('#hero');
+    const heroChild = document.querySelector('#hero > div')
+    heroSection.removeChild(heroChild)
+    
+    params.api_key=""
+    const serverErrorContent = async () =>
+      await Promise.all([
+        homePageApiData(urls.trendMoviesDay),
+        homePageApiData(urls.trendMoviesWeek),
+        homePageApiData(urls.upcomingMovies),
+      ]);
+      serverErrorContent();
+
+
+
+  }
+
+})
