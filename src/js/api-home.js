@@ -193,8 +193,5 @@ window.addEventListener("click" , event=>{
       ]);
       serverErrorContent();
 
-
-
   }
-
 })

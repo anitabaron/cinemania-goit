@@ -11,8 +11,8 @@ const weeklyTrends = document.getElementById('catalogMovielist');
 const modalWindow = document.querySelector('.modal-film');
 const overlay = document.querySelector('.overlay');
 
-addModalListener(catalog);
-addModalListener(weeklyTrends);
+//addModalListener(catalog);
+//addModalListener(weeklyTrends);
 addModalListener(myLibGallery);
 
 function addModalListener(listRef) {
@@ -23,12 +23,12 @@ function addModalListener(listRef) {
 }
 
 async function onMovieCardClick(e) {
-  if (!e.target.closest('.movie-details')) {
-    return;
-  }
+  // if (!e.target.closest('.movie-details')) {
+  //   return;
+  // }
 
   try {
-    const movieID = e.target.closest('.movie-details').getAttribute('data-id');
+    const movieID = e.getAttribute('data-id');// const movieID = e.target.closest('.movie-details').getAttribute('data-id');
     const movieData = await apiService.getMovieInfo(movieID);
     const markup = createMarkup(movieData);
     updateModal(markup);
@@ -129,3 +129,19 @@ window.addEventListener('keydown', function (e) {
     closeModalWindows();
   }
 });
+
+
+
+window.addEventListener("click" , event=>{
+  console.log(event.target)
+if(event.target.classList.value.includes("btn__hero-2")){
+  onMovieCardClick(event.target)
+}
+if(event.target.classList.value.includes("movielist-item movie-details")){
+  onMovieCardClick(event.target)
+}
+if(event.target.classList.value.includes("cards__list-img")){
+  onMovieCardClick(event.target.parentElement)
+}
+
+})
