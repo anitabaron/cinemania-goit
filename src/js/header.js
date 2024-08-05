@@ -14,18 +14,13 @@ overlay.addEventListener('click', () => {
 
 //
 const LightSwitcher = document.getElementById('switch');
-const searchBtn = document.getElementById('searchBtn');
 let isLight = localStorage.getItem('isLight') === 'true';
 
 document.body.classList.toggle('light', isLight);
-searchBtn.classList.toggle('btn__search_black', isLight);
-searchBtn.classList.toggle('btn__search_white', !isLight);
 
 LightSwitcher.onclick = function () {
   isLight = !isLight;
   document.body.classList.toggle('light', isLight);
-  searchBtn.classList.toggle('btn__search_black', isLight);
-  searchBtn.classList.toggle('btn__search_white', !isLight);
   localStorage.setItem('isLight', isLight);
 };
 
