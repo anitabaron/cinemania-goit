@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+  }
+  
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10000;
+    visibility: hidden;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    margin: 0;
+    background-color: #10131a;
+    transition: opacity 400ms ease-in-out, visibility 0s 400ms;
+  }
+  
+  .show-loader {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .circle {
+    background-color: #f9dc97;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    -webkit-animation: stretchdelay 0.7s infinite ease-in-out;
+    animation: stretchdelay 0.7s infinite ease-in-out;
+  }
+  
+  .loader .circle:nth-child(1) {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+  }
+  
+  .loader .circle:nth-child(2) {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+  }
+  
+  .loader .circle:nth-child(3) {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+  }
+  
+  .loader .circle:nth-child(4) {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+  }
+  
+  @keyframes stretchdelay {
+    0%,
+    40%,
+    100% {
+      transform: translateY(-10px);
+      -webkit-transform: translateY(-10px);
+    }
+    20% {
+      transform: translateY(-20px);
+      -webkit-transform: translateY(-20px);
+    }
+  }
+  
+  
+
+    .background {
+      width: 100vw;
+      height: 100vh;
+      background-position: bottom;
+      background-size: cover;
+    }
