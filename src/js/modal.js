@@ -112,7 +112,7 @@ function createMarkup({
     <h3 class="modal-film__about">ABOUT</h3>
     <p class="modal-film__about-txt">${overview}
     </p>
-    <button class="btn" id="mylibrary" data-action="add">Add to my library</button>`;
+    <button class="btn-modal" id="mylibrary" data-action="add">Add to my library</button>`;
 }
 
 function closeModalWindows() {
