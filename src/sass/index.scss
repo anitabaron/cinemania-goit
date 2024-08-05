@@ -7,22 +7,15 @@
 @import './header.scss';
 @import './hero.scss';
 @import './modal.scss';
-@import './oops.scss';
 @import './movie-list.scss';
 @import './upcoming.scss';
-@import './fetch-api.scss';
-@import './my-library-head.scss';
 @import './catalog.scss';
 @import './my-library.scss';
-@import './scroll-up';
+@import './mixin.scss';
 
 body {
   background-color: var(--background);
 }
-
-// .disabled {
-//   display: none;
-// }
 
 /* ----------------------------- responsive -------------------------- */
 

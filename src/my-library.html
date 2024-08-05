@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinemania - My Library</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
+    <script type="module" src="./js/index.js"></script>
+  </head>
+  <body class="current-page__my-library">
+    <include src="./partials/header.html"></include>
+    <main>
+      <include src="./partials/my-library-part.html"> </include>
+      <section class="container">
+        <button
+          class="btn btn__big btn__orange-gradient library__btn-load"
+          id="mylibraryLoadMore"
+        >
+          Load more
+        </button>
+      </section>
+    </main>
+    <include src="./partials/footer.html"></include>
+    <!-- <include src="./partials/footer-modal-team.html"></include> -->
+    <include src="./partials/modal.html"></include>
+    <include src="./partials/loader.html"></include>
+    <!-- <include src="./partials/scroll-up.html"></include> -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My library</title>
-  <link rel="stylesheet" href="./sass/index.scss" />
-  <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
-  <script type="module" src="./js/index.js"></script>
-</head>
-
-<body>
-  <include src="./partials/header.html"></include>
-  <main>
-    <include src="./partials/my-library-head.html"> </include>
-    <button class="btn btn__big btn__orange-gradient" id="mylibraryLoadMore">
-      Load more
-    </button>
-    <button type="button" class="catalog__search-link btn btn__big btn__orange-gradient">
-      <a class="catalog__search-link" href="./catalog.html">Search movie</a>
-    </button>
-    </section>
-  </main>
-  <include src="./partials/footer.html"></include>
-  <include src="./partials/scroll-up.html"></include>
-  <script type="module" src="./js/my-library.js"></script>
-</body>
-
+    <div class="modal-scroll"></div>
+  </body>
 </html>
