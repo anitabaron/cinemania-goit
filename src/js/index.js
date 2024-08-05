@@ -3,3 +3,4 @@ import './hero';
 import './movie-list';
 import './my-library';
 import './modal';
+import './scroll-up';
