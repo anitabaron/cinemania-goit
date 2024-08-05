@@ -1,5 +1,5 @@
 /* ========================MODAL====================== */
-.btn {
+.btn-modal {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -21,11 +21,12 @@
   }
 }
 
-.btn:hover {
+.btn-modal:hover {
   color: var(--orange);
   background-color: var(--white);
   border: 1px solid;
   border-color: var(--white);
+  cursor: pointer;
 }
 
 .modal-film {

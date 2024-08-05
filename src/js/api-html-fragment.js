@@ -115,7 +115,8 @@ export const upcomingMovieFragment = (
   vote_average,
   vote_count,
   movieGenres
-) => `<h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
+) => `<div>
+<h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
         <div class="upcoming__film-box">
         <img class="upcoming-image"
         src="https://image.tmdb.org/t/p/w500${backdrop_path}"
@@ -140,48 +141,49 @@ export const upcomingMovieFragment = (
 				</div>
 				<h4 class="upcoming-header-three">ABOUT</h4>
 				<p class="upcoming-p-three">${description}</p>
-			  <button class="btn btn__big btn__orange-gradient btn-space" id="${id}">Add to my library</button>`;
+			  <button class="btn btn__big btn__orange-gradient btn-space" id="${id}">Add to my library</button>
+        <div>`;
 
 export const pagesBtn = (pageBtn1, pageBtn2, pageBtn3, pageBtn4, pageBtn5) => `
             <div class="catalog__form" id="navForm">
-                <button class="btn btn__orange-gradient" id="firstPageBtn"> << </button>
-                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
-                <button class="btn btn__orange-gradient" id="PageBtn1">${pageBtn1}</button>
-                <button class="btn btn__orange-gradient" id="PageBtn2">${pageBtn2}</button>
-                <button class="btn btn__orange-gradient" id="PageBtn3">${pageBtn3}</button>
-                <button class="btn btn__orange-gradient" id="PageBtn4">${pageBtn4}</button>
-                <button class="btn btn__orange-gradient" id="PageBtn5">${pageBtn5}</button>
-                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
-                <button class="btn btn__orange-gradient" id="lastPageBtn"> >> </button>
+                <button class="btn btn__nav-page" id="firstPageBtn"> << </button>
+                <button class="btn btn__nav-page" id="previousPage"> < </button>
+                <button class="btn btn__grey" id="PageBtn1">${pageBtn1}</button>
+                <button class="btn btn__grey" id="PageBtn2">${pageBtn2}</button>
+                <button class="btn btn__grey" id="PageBtn3">${pageBtn3}</button>
+                <button class="btn btn__grey" id="PageBtn4">${pageBtn4}</button>
+                <button class="btn btn__grey" id="PageBtn5">${pageBtn5}</button>
+                <button class="btn btn__nav-page" id="nextPage"> > </button>
+                <button class="btn btn__nav-page" id="lastPageBtn"> >> </button>
             </div>`;
 
 export const pagesBtn2 = `
             <div class="catalog__form" id="navForm">
-                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
-                <button class="btn btn__orange-gradient" id="PageBtn1">1</button>
-                <button class="btn btn__orange-gradient" id="PageBtn2">2</button>
-                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
+                <button class="btn btn__nav-page" id="previousPage"> < </button>
+                <button class="btn btn__grey" id="PageBtn1">1</button>
+                <button class="btn btn__grey" id="PageBtn2">2</button>
+                <button class="btn btn__nav-page" id="nextPage"> > </button>
             </div>`;
 export const pagesBtn3 = `
             <div class="catalog__form" id="navForm">
-                <button class="btn btn__orange-gradient" id="firstPageBtn"> << </button>
-                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
-                <button class="btn btn__orange-gradient" id="PageBtn1">1</button>
-                <button class="btn btn__orange-gradient" id="PageBtn2">2</button>
-                <button class="btn btn__orange-gradient" id="PageBtn3">3</button>
-                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
-                <button class="btn btn__orange-gradient" id="lastPageBtn"> >> </button>
+                <button class="btn btn__nav-page" id="firstPageBtn"> << </button>
+                <button class="btn btn__nav-page" id="previousPage"> < </button>
+                <button class="btn btn__grey" id="PageBtn1">1</button>
+                <button class="btn btn__grey" id="PageBtn2">2</button>
+                <button class="btn btn__grey" id="PageBtn3">3</button>
+                <button class="btn btn__nav-page" id="nextPage"> > </button>
+                <button class="btn btn__nav-page" id="lastPageBtn"> >> </button>
             </div>`;
 export const pagesBtn4 = `
             <div class="catalog__form" id="navForm">
-                <button class="btn btn__orange-gradient" id="firstPageBtn"> << </button>
-                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
-                <button class="btn btn__orange-gradient" id="PageBtn1">1</button>
-                <button class="btn btn__orange-gradient" id="PageBtn2">2</button>
-                <button class="btn btn__orange-gradient" id="PageBtn3">3</button>
-                <button class="btn btn__orange-gradient" id="PageBtn4">4}</button>
-                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
-                <button class="btn btn__orange-gradient" id="lastPageBtn"> >> </button>
+                <button class="btn btn__nav-page" id="firstPageBtn"> << </button>
+                <button class="btn btn__nav-page" id="previousPage"> < </button>
+                <button class="btn btn__grey" id="PageBtn1">1</button>
+                <button class="btn btn__grey" id="PageBtn2">2</button>
+                <button class="btn btn__grey" id="PageBtn3">3</button>
+                <button class="btn btn__grey" id="PageBtn4">4}</button>
+                <button class="btn btn__nav-page" id="nextPage"> > </button>
+                <button class="btn btn__nav-page" id="lastPageBtn"> >> </button>
             </div>`;
 
 export const emptyApiResponeHero = `<div class="hero_background container">

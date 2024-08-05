@@ -19,8 +19,7 @@
 
 .btn.btn__orange-gradient:hover,
 .btn.btn__orange-gradient:active {
-  background-color: var(--white);
-  background: none;
+  background: var(--white);
   color: var(--orange);
   border: 1px solid var(--orange);
 }
@@ -37,6 +36,19 @@
   color: var(--orange);
   border-color: var(--background);
 }
+.btn__grey {
+  background: var(--secondary-black-grey);
+  color: var(--grey);
+  border: 1px solid;
+  border-color: var(--grey-white-theme);
+}
+
+.btn.btn__grey:hover,
+.btn.btn__grey:active {
+  background: var(--white);
+  color: var(--orange);
+  border: 1px solid var(--orange);
+}
 
 .btn__white {
   background: var(--white);
@@ -50,6 +62,24 @@
   background-color: var(--black);
   color: var(--orange);
   border-color: var(--background);
+}
+.btn__nav-page {
+  width:auto;
+  height: auto;
+  padding: 0 10px;
+  font-size: 50px;
+  font-weight: 400;
+  background: transparent;
+  color: var(--grey);
+  border: none;
+  
+}
+
+.btn.btn__nav-page:hover,
+.btn.btn__nav-page:active {
+  background: transparent;
+  color: var(--orange);
+  border: none;
 }
 
 .btn__small {
@@ -70,6 +100,9 @@
   font-size: 12px;
   text-align: center;
   white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn__hero-1 {
@@ -81,6 +114,7 @@
 .btn__hero-1:active {
   color: var(--orange);
   background: var(--white);
+  border: 1px solid var(--orange);
 }
 
 .btn__hero-2 {
