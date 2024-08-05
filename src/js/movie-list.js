@@ -1,17 +1,16 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const createCard = ({ backdrop_path, title, genre, release_date }) => {
-    const li = document.createElement("li");
-    li.innerHTML=
-                   `<div class="movielist-item"
+  const li = document.createElement('li');
+  li.innerHTML = `<div class="movielist-item"
                    style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%) url(${backdrop_path});
                     background-repeat: no-repeat;
                     background-size: cover; 
                     background-position: center">
                     <div class="movielist__information-box">
                     <div class="movielist__title-box">
-						<p class ="movielist__movie-title">${ title }</p>
-						<p class ="movielist__movie-genre">${ genre} | ${release_date}</p>
+						<p class ="movielist__movie-title">${title}</p>
+						<p class ="movielist__movie-genre">${genre} | ${release_date}</p>
 					    </div>
                         <ul class="movielist__movie-rating">
 						<li>*</li>
@@ -22,11 +21,9 @@ export const createCard = ({ backdrop_path, title, genre, release_date }) => {
 					</ul>
 					</div>
                     </div>
-					`
-    return li
-}
+					`;
+  return li;
+};
 // --------Przykładowy sposób dodania elementu na stronę -------
 // const list = document.querySelector("#idOfList");
 // list.append(createCard({}));
-
-

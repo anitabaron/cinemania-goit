@@ -15,7 +15,7 @@ function updateTextHero(description) {
 function createDefaultHeroSection() {
   const heroSection = document.querySelector('#hero'); // Usuń znak '#'
 
-  // Ustawienie zawartości
+  // Ustawienie zawartości jest w api-html-fragment
   heroSection.innerHTML = `
     <div class="hero_background container">
       <h2 class="hero__text-1">Let’s Make Your Own Cinema</h2>

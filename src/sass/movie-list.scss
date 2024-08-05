@@ -1,50 +1,40 @@
-/* ========================MOVIE-LIST====================== */
-.movielist {
-  width: 1280px;
-  min-width: 500px;
-  margin: 0 auto;
-  padding: 0 32px 0 32px;
-  background-color: var(--background);
-}
-.movielist__nav-tends-box {
-  width: 100%;
-  padding: 0 32px 0 32px;
+.movielist__nav-trends-box {
+  padding-bottom: 28px;
   display: flex;
   justify-content: space-between;
 }
-.movielist__movie-itemt {
-  height: 574px;
-  width: 395px;
-  position: relative;
-  border: solid 1px white;
-}
-.movielist__movie-image {
-  height: 100%;
-  width: 100%;
-}
-.movielist__movie-description {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-}
-.movielist__movie-details {
-  display: flex;
-  gap: 10px;
-}
-.movielist__rating-list {
-  display: flex;
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
+
+.movielist__nav-item-link {
+  color: var(--orange);
 }
 
-// -------style do pliku move-list.js--------
+.movielist__nav-item-link,
+.movielist__nav-trends-title {
+  font-weight: 500;
+  font-size: 16px;
+}
+@media (min-width: 768px) {
+  .movielist__nav-item-link,
+  .movielist__nav-trends-title {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1280px) {
+  .movielist__nav-item-link,
+  .movielist__nav-trends-title {
+    font-size: 28px;
+  }
+}
+
+.movielist__nav-trends-title {
+  text-transform: uppercase;
+  color: var(--white);
+}
+
 .movielist__movie-card-list {
   display: flex;
-  gap: 16px;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
+  gap: 16px;
 }
 
 .movielist-item {
@@ -55,17 +45,20 @@
   position: relative;
   border-radius: 5px;
   background-size: cover;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out;
 }
+.movielist-item:hover {
+  box-shadow: 1px 1px 6px 4px rgba(255, 107, 8, 0.42);
+  transform: scale(1.008);
+}
+
 @media (min-width: 768px) {
   .movielist-item {
     width: 224px;
     height: 324px;
   }
-    .movielist__movie-card-list {
-      justify-content: space-evenly;
-    }
 }
-
 @media (min-width: 1280px) {
   .movielist-item {
     width: 394px;
@@ -83,7 +76,7 @@
 .movielist__information-box {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   position: absolute;
   right: 0px;
   bottom: 0px;
@@ -110,6 +103,22 @@
 .movielist__movie-genre {
   color: var(--grey);
 }
+
 .movielist__movie-rating {
   display: flex;
+  padding-bottom: 8px;
+  padding-left: 20px;
+  list-style-type: none;
+}
+@media (min-width: 768px) {
+  .movielist__movie-rating {
+    padding-top: 32px;
+    padding-left: 24px;
+  }
+}
+@media (min-width: 1280px) {
+  .movielist__movie-rating {
+    padding-top: 32px;
+    padding-left: 32px;
+  }
 }

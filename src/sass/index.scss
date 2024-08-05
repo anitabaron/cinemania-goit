@@ -7,21 +7,16 @@
 @import './header.scss';
 @import './hero.scss';
 @import './modal.scss';
-@import './oops.scss';
 @import './movie-list.scss';
 @import './upcoming.scss';
-@import './fetch-api.scss';
-
 @import './catalog.scss';
 @import './my-library.scss';
+@import './mixin.scss';
+@import './scroll-up.scss';
 
 body {
   background-color: var(--background);
 }
-
-// .disabled {
-//   display: none;
-// }
 
 /* ----------------------------- responsive -------------------------- */
 
@@ -47,6 +42,28 @@ body {
 @media (width >= 1280px) {
   .container {
     max-width: 1280px;
+    padding: 0 32px;
     margin: 0 auto;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 2.5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

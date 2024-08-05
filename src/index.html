@@ -2,27 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Cinemania</title>
-
     <link rel="stylesheet" href="./sass/index.scss" />
-
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
     <script type="module" src="./js/index.js"></script>
-
+    <script type="module" src="./js/api-home.js"></script>
   </head>
-  
   <body>
     <include src="./partials/header.html"></include>
     <main>
       <section class="hero" id="hero"></section>
       <!-- --- -->
       <section class="movielist container" id="trends">
-        <div class="movielist__nav-tends-box">
-          <h2>WEEKLY TRENDS</h2>
+        <div class="movielist__nav-trends-box">
+          <h2 class="movielist__nav-trends-title">Weekly trends</h2>
           <a class="movielist__nav-item-link" href="./catalog.html">See all</a>
         </div>
         <ul class="movielist__movie-card-list" id="catalogMovielist"></ul>
@@ -31,5 +26,9 @@
       <section class="upcoming container" id="upcoming"></section>
     </main>
     <include src="./partials/footer.html"></include>
+    <!-- <include src="./partials/footer-modal-team.html"></include> -->
+    <include src="./partials/modal.html"></include>
+    <include src="./partials/loader.html"></include>
+    <include src="./partials/scroll-up.html"></include>
   </body>
 </html>
