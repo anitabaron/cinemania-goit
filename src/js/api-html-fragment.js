@@ -142,7 +142,7 @@ export const upcomingMovieFragment = (
 				<h4 class="upcoming-header-three">ABOUT</h4>
 				<p class="upcoming-p-three">${description}</p>
 			  <button class="btn btn__big btn__orange-gradient btn-space" id="${id}">Add to my library</button>
-        <div>`;
+        </div>`;
 
 export const pagesBtn = (pageBtn1, pageBtn2, pageBtn3, pageBtn4, pageBtn5) => `
             <div class="catalog__form" id="navForm">
