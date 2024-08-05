@@ -390,4 +390,30 @@ body.light {
   .current__nav-link {
     color: #f87719;
   }
+
+  .catalog__form-input {
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--black);
+    border-radius: 8px;
+    padding: 12px 26px 12px 24px;
+    height: 48px;
+  }
+  .my-library__form-select {
+    background-color: var(--white);
+    color: var(--secondary-black-grey);
+    border: 1px solid var(--secondary-black-grey);
+    border-radius: 8px;
+    padding: 12px 60px 12px 20px;
+    width: 173px;
+    height: 40px;
+    }
+    .movielist__movie-title {
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    
+    .movielist__movie-genre {
+      color: var(--grey);
+    }
 }
