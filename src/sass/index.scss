@@ -26,6 +26,9 @@ body {
 /* ----------------------------------------------------------------------------------------------------MOBILE */
 
 @media (width < 768px) {
+  .web-width {
+    width: 320px;
+  }
   .container {
     max-width: 320px;
     padding: 0 20px;
@@ -34,6 +37,9 @@ body {
 }
 /* ----------------------------------------------------------------------------------------------------TABLET */
 @media (width >= 768px) and (width < 1280px) {
+  .web-width {
+    width: 768px;
+  }
   .container {
     max-width: 768px;
     padding: 0 32px;
@@ -43,6 +49,9 @@ body {
 /* ----------------------------------------------------------------------------------------------------DESKTOP */
 
 @media (width >= 1280px) {
+  .web-width {
+    width: 1280px;
+  }
   .container {
     max-width: 1280px;
     padding: 0 32px;
