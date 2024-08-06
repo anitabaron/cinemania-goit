@@ -28,7 +28,7 @@ export function checkStorage() {
     } else if (allCards.length > cardPerPage) {
       const partOfCards = allCards.slice(0, step + 9);
       renderMoviesCards(partOfCards, '.my-lib__gallery-list');
-      btnLoad.classList.remove('invisible');
+      btnLoad.classList.remove('is-hidden');
       step += 9;
     }
   }
@@ -44,7 +44,7 @@ const loadHandleClick = e => {
   if (e.target === btnLoad) {
     loadMoreCards(allCards, step);
     if (allCards.length <= step) {
-      btnLoad.classList.add('invisible');
+      btnLoad.classList.add('is-hidden');
     }
   }
 };

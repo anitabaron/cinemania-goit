@@ -147,7 +147,7 @@ function getImg(poster, title) {
   /* if (poster === null || !poster) {
     return `src='${comingSoonImg}' alt='${title}'`;
   } */
-  return `https://image.tmdb.org/t/p/w500/${poster}`;
+  return `https://image.tmdb.org/t/p/w780/${poster}`;
 }
 
 export { createStarRating };
