@@ -1,17 +1,14 @@
 import renderMoviesCards from './cards-rendering';
 import LibraryAPI from './library-functions';
 
+
+ // ----------Dorota-----------------
 const btnLoad = document.querySelector("#mylibraryLoadMore");
-const cardPerPage = 9;
 let allCards = [];
 let step = 0;
 
 const loadMoreCards = (arr, num) => {
-  let end = num + 9; 
-  if (end < allCards.length) {
-    end = allCards.length;
-   };
-  const arrOfCards = arr.slice(0, end);
+  const arrOfCards = arr.slice(0, num + 9);
   renderMoviesCards(arrOfCards, '.my-lib__gallery-list');
   step += 9;
 }
@@ -21,6 +18,7 @@ library.setLibrary();
 checkStorage();
 
 export function checkStorage() {
+  step = 0;
   library.setLibrary();
   if (library.movies.length === 0) {
     if (!document.querySelector('.my-lib__no-movies')) {
@@ -29,8 +27,11 @@ export function checkStorage() {
     document.querySelector('.my-lib__no-movies').classList.remove('is-hidden');
     document.querySelector('.my-lib__gallery-list').innerHTML = '';
   } else {
+    // ----------Dorota-----------------
     allCards = library.movies;
+    const cardPerPage = 9;
     if (allCards.length <= cardPerPage) {
+      // btnLoad.classList.toggle("invisible");
       renderMoviesCards(allCards, '.my-lib__gallery-list');
     } else if (allCards.length > cardPerPage) {
       const partOfCards = allCards.slice(0, step + 9);
@@ -42,14 +43,10 @@ export function checkStorage() {
   }
 } 
 
-console.log(allCards);
-console.log(step)
-
 const loadHandleClick = (e) => {
   if (e.target === btnLoad) {
-     loadMoreCards(allCards, step);
+    loadMoreCards(allCards, step);
   }
- 
 }
 
 window.addEventListener("click", loadHandleClick);
