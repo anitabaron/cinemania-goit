@@ -207,6 +207,7 @@
 }
 
 .my-library__form-select {
+  margin-top: 40px;
   background-color: var(--background);
   color: var(--secondary-text-grey);
   border: 1px solid var(--white);
@@ -218,12 +219,14 @@
 }
 @media (min-width: 768px) {
   .my-library__form-select {
+    margin-top:60px;
     width: 144px;
     height: 44px;
   }
 }
 @media (min-width: 1280px) {
   .my-library__form-select {
+    margin-top: 80px;
     width: 260px;
     height: 48px;
   }
