@@ -18,9 +18,6 @@ export default class APIService {
         const response = await axios.get(
           `${this.baseURL}trending/movie/${param}?api_key=${this.key}&page=${this.page}`
         );
-
-        console.log(response.data.results);
-
         return response.data.results;
       } catch (error) {
         console.log(error);
@@ -30,9 +27,6 @@ export default class APIService {
         const response = await axios.get(
           `${this.baseURL}trending/movie/${param}?api_key=${this.key}&page=${page}`
         );
-
-        console.log(response.data);
-
         return response.data;
       } catch (error) {
         console.log(error);
@@ -45,9 +39,6 @@ export default class APIService {
       const response = await axios.get(
         `${this.baseURL}movie/upcoming?api_key=${this.key}`
       );
-
-      console.log(response.data.results);
-
       return response.data.results;
     } catch (error) {
       console.log(error);
@@ -61,7 +52,6 @@ export default class APIService {
         const response = await axios.get(
           `${this.baseURL}search/movie?api_key=${this.key}&query=${query}&page=${this.page}`
         );
-
         return response.data.results;
       } catch (error) {
         console.log(error);
@@ -71,7 +61,6 @@ export default class APIService {
         const response = await axios.get(
           `${this.baseURL}search/movie?api_key=${this.key}&query=${query}&page=${page}`
         );
-
         return response.data;
       } catch (error) {
         console.log(error);
@@ -84,9 +73,6 @@ export default class APIService {
       const response = await axios.get(
         `${this.baseURL}movie/${id}?api_key=${this.key}`
       );
-
-      console.log(response.data);
-
       return response.data;
     } catch (error) {
       console.log(error);
@@ -98,9 +84,6 @@ export default class APIService {
       const response = await axios.get(
         `${this.baseURL}movie/${id}/videos?api_key=${this.key}`
       );
-
-      console.log(response.data.results[0]);
-
       return response.data.results[0];
     } catch (error) {
       console.log(error);
@@ -112,9 +95,6 @@ export default class APIService {
       const response = await axios.get(
         `${this.baseURL}genre/movie/list?api_key=${this.key}`
       );
-
-      console.log(response.data.genres);
-
       return response.data.genres;
     } catch (error) {
       console.log(error);
@@ -126,9 +106,6 @@ export default class APIService {
       const response = await axios.get(
         `${this.baseURL}configuration/countries?api_key=${this.key}`
       );
-
-      console.log(response.data);
-
       return response.data;
     } catch (error) {
       console.log(error);

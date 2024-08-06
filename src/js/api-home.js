@@ -33,11 +33,6 @@ const generateStars = (rating, starClass) => {
   const halfStars = rating % 1 >= 0.5 ? 1 : 0;
   const emptyStars = 5 - fullStars - halfStars;
 
-  // console.log('Rating:', rating);
-  // console.log('Full Stars:', fullStars);
-  // console.log('Half Stars:', halfStars);
-  // console.log('Empty Stars:', emptyStars);
-
   return `
     ${fullStar.replace('star', starClass).repeat(fullStars)}
     ${halfStar.replace('star', starClass).repeat(halfStars)}
@@ -160,17 +155,17 @@ const homePageApiData = url =>
           createDefaultHeroSection();
           return;
         }
-        //console.log("day:", results)
+
         createHeroMovie(resResponse);
         return;
       }
       if (url.includes('week')) {
-        //console.log("week:", results)
+
         crateCatalog(resResponse.data.results);
         return;
       }
       if (url.includes('upcoming')) {
-        //console.log("upcoming:", results)
+
         createUpcomingMovie(resResponse.data.results);
         return;
       }

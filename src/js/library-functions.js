@@ -6,7 +6,6 @@ export default class LibraryAPI {
 
   updateLocalStorage() {
     localStorage.setItem(this.keyValue, JSON.stringify(this.movies));
-    console.log(this.movies, 'updated localS');
   }
 
   setLibrary() {
@@ -19,7 +18,7 @@ export default class LibraryAPI {
       this.movies = [];
     }
 
-    console.log(this.movies, 'this.movies');
+
   }
 
   addMovie(movie) {
