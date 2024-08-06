@@ -83,7 +83,7 @@ export const topMoviesFragment = (
   releaseYear,
   stars
 ) => {
-  let path = `https://image.tmdb.org/t/p/w500${backdrop_path}`;
+  let path = `https://image.tmdb.org/t/p/w780${backdrop_path}`;
   if (backdrop_path === null) {
     path = `src/images/oops_warning_mobile.png`;
   }
@@ -123,7 +123,7 @@ export const upcomingMovieFragment = (
 <h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
         <div class="upcoming__film-box">
         <img class="upcoming-image"
-        src="https://image.tmdb.org/t/p/w500${backdrop_path}"
+        src="https://image.tmdb.org/t/p/w1280${backdrop_path}"
        
         alt="movie poster"
         />
