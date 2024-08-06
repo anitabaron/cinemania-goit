@@ -4,23 +4,26 @@
 
 @media (width < 768px) {
   .hero__background {
-    width: 100%;
+    width: 320px;
     height: 380px;
     // background: linear-gradient(82deg, #111 28.7%, rgba(17, 17, 17, 0) 100%),
     // url("/src/images/hero_mobile.png") no-repeat center center;  które z tych
     // url('../images/hero_mobile.png') no-repeat center center;  które z tych
     background-size: cover, cover;
     background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
   }
 
   .hero_background-def {
-    width: 100%;
+    width: 320px;
     height: 380px;
 
     background: linear-gradient(82deg, #111 28.7%, rgba(17, 17, 17, 0) 100%),
       url('/src/images/hero_mobile.png');
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0 auto;
   }
 
   .hero__text-box {
@@ -51,7 +54,7 @@
 
   .hero__text-default {
     padding-top: 8px;
-    width: 100%px;
+    width: 100%;
     height: 80px;
     font-family: var(--font-family);
     font-weight: 400;
@@ -89,22 +92,24 @@
 /* ----------------------------------------------------------------------------------------------------TABLET */
 @media (width >=768px) and (width < 1280px) {
   .hero__background {
-    width: 100%;
+    width: 768px;
     height: 432px;
     // background: linear-gradient(75deg, #111 9.77%, rgba(17, 17, 17, 0) 100%),
     //  url('../images/hero_tablet.png') no-repeat left center;
     background-size: cover, cover;
     background-repeat: no-repeat;
+    margin: 0 auto;
   }
 
   .hero_background-def {
-    width: 100%;
+    width: 768px;
     height: 432px;
 
     background: linear-gradient(76deg, #111 6.82%, rgba(17, 17, 17, 0) 100%),
       url('/src/images/hero_tablet.png');
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0 auto;
   }
 
   .hero__text-box {
@@ -172,23 +177,25 @@
 
 @media (width >=1280px) {
   .hero__background {
-    width: 100%;
+    width: 1280px;
     height: 720px;
 
     // background: linear-gradient(82deg, #111 28.55%, rgba(17, 17, 17, 0) 100%),
     //   url('../images/hero_desktop.png') no-repeat left center;
     background-size: cover, cover;
     background-repeat: no-repeat;
+    margin: 0 auto;
   }
 
   .hero_background-def {
-    width: 100%;
+    width: 1280px;
     height: 720px;
 
     background: linear-gradient(69deg, #111 19.23%, rgba(17, 17, 17, 0) 100%),
       url('/src/images/hero_desktop.png');
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0 auto;
   }
 
   .hero__text-box {
