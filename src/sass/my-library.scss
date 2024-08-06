@@ -178,7 +178,7 @@
   }
 
   @include desktop {
-    padding: 160px 0 100px 0;
+    padding: 80px 0 100px 0;
   }
 }
 
@@ -285,10 +285,6 @@
   line-height: 1.125;
   text-align: center;
   color: var(--white);
-}
-
-.library-content__wrap {
-  margin-top: 160px;
 }
 
 .library-content__text {
@@ -459,4 +455,11 @@
       }
     }
   }
+}
+
+.is-hidden {
+  display: none;
+}
+.invisible {
+  display: none;
 }

@@ -36,6 +36,19 @@
   color: var(--orange);
   border-color: var(--background);
 }
+.btn__grey {
+  background: var(--secondary-black-grey);
+  color: var(--grey);
+  border: 1px solid;
+  border-color: var(--grey-white-theme);
+}
+
+.btn.btn__grey:hover,
+.btn.btn__grey:active {
+  background: var(--white);
+  color: var(--orange);
+  border: 1px solid var(--orange);
+}
 
 .btn__white {
   background: var(--white);
@@ -49,6 +62,24 @@
   background-color: var(--black);
   color: var(--orange);
   border-color: var(--background);
+}
+.btn__nav-page {
+  width:auto;
+  height: auto;
+  padding: 0 10px;
+  font-size: 50px;
+  font-weight: 400;
+  background: transparent;
+  color: var(--grey);
+  border: none;
+  
+}
+
+.btn.btn__nav-page:hover,
+.btn.btn__nav-page:active {
+  background: transparent;
+  color: var(--orange);
+  border: none;
 }
 
 .btn__small {
@@ -115,28 +146,12 @@
 
 .btn__search_black {
   background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
-  color: var(--background);
-  color: var(--black);
+  color: white;
 }
-
 .search.btn__search_black:hover,
 .search.btn__search_black:active {
-  background: var(--white);
-  color: #f84119;
-  border: 1px solid #f84119;
-}
-
-.search.btn__search_black:hover .icon path {
-  stroke: url(#myGradient);
-}
-
-.btn__search_white {
-  background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
-  color: var(--white);
-}
-.search.btn__search_white:hover,
-.search.btn__search_white:active {
-  background: var(--white);
+  background-color: white;
+  background: none;
   color: #f84119;
   border: 1px solid #f84119;
 }
@@ -144,8 +159,7 @@
   fill: none;
   stroke: var(--white);
 }
-
-.search.btn__search_white:hover .icon path {
+.search.btn__search_black:hover .icon path {
   stroke: url(#myGradient);
 }
 .hero-star{
@@ -157,6 +171,7 @@
   width: 14px;
   height: 14px;
 }
+
 /* ----------------------------- responsive -------------------------- */
 
 /* ----------------------------------------------------------------------------------------------------TABLET */

@@ -34,37 +34,24 @@ export default async function renderMoviesCards(movies, selector) {
     const movieYear = await getYear(date);
     const starRating = await createStarRating(rating);
 
-    markup += ` <li class='cards__list-item movie-details' data-id='${id}'>
-                  <img class='cards__list-img' loading="lazy" ${movieSrc}/>
-                    <div class='weekly-trends__overlay'></div>
-                    <div class='cards__list-search movielist__information-box'>                       
-                        <div class='cards__bloc-stars movielist__title-box'>
-                          <h3 class='cards__list-title movielist__movie-title'>${title}</h3>
-                          <div class='cards__list-text movielist__movie-genre'> ${movieGenre} | ${movieYear} <span class='cards__list-span'></span></div>
-                        </div>  
-                        <ul class='cards__list-stars'>${starRating}</ul>
-                    </div>
-                </li>`;
-  }
-
-  if (!movieList) {
-    return;
-    // markup = '<li>
-    //   < div class='library-content error-lib is-hidden' id = 'is-hidden' >
-    //   <div class="library-content__wrap">
-    //     <p class="library-content__text">
-    //       OOPS... <br />
-    //       We are very sorry! <br />
-    //       You don't have any movies at your library.
-    //     </p>
-    //     <button
-    //       type="button"
-    //       class="catalog__search-link btn btn__big btn__orange-gradient"
-    //     >
-    //       <a class="catalog__search-link" href="./catalog.html">Search movie</a>
-    //     </button>
-    //   </div>
-    // </></li>';
+    markup += `<li id="${id}">
+              <div class="movielist-item movie-details" data-id="${id}"
+                   style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), 
+                   url(${movieSrc});
+                    background-repeat: no-repeat;
+                    background-size: cover; 
+                    background-position: center">
+                    <div class="movielist__information-box">
+                      <div class="movielist__title-box">
+                        <p class ="movielist__movie-title">${title}</p>
+                        <p class ="movielist__movie-genre"> ${movieGenre} | ${movieYear}</p>
+                      </div>
+                      <ul class="movielist__movie-rating">
+                      ${starRating}
+					            </ul>
+					          </div>
+              </div>
+          </li>`;
   }
   movieList.innerHTML = markup;
 }
@@ -110,7 +97,7 @@ function createStarRating(data) {
 
   if (!data) {
     ratingStars = `${emptyStar.repeat(5)}`;
-    return `<li>${ratingStars}</li>`;
+    return `${ratingStars}`;
   }
 
   const rating = Math.round(data);
@@ -153,23 +140,14 @@ function createStarRating(data) {
       throw new Error('Invalid rating');
   }
 
-  return `<li>${ratingStars}</li>`;
+  return `${ratingStars}`;
 }
 
 function getImg(poster, title) {
   /* if (poster === null || !poster) {
     return `src='${comingSoonImg}' alt='${title}'`;
   } */
-
-  return `
-    srcset="
-                https://image.tmdb.org/t/p/w500/${poster} 500w,
-                https://image.tmdb.org/t/p/w300/${poster} 342w,
-                https://image.tmdb.org/t/p/w185/${poster} 185w"
-        src="https://image.tmdb.org/t/p/w500/${poster}"
-
-        " sizes=" (min-width: 768px) 500px, (min-width: 480px) 342px, (min-width: 320px) 185px, 100vw"   
-     alt='${title}'`;
+  return `https://image.tmdb.org/t/p/w500/${poster}`;
 }
 
 export { createStarRating };

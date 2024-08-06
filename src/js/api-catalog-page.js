@@ -129,11 +129,11 @@ const numberingBtn = (pagesNumber, maxPagesNumber) => {
     if (pagesNumber === 1)
       document
         .querySelector('#PageBtn1')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     if (pagesNumber === 2)
       document
         .querySelector('#PageBtn2')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     return;
   }
   if (maxPagesNumber === 3) {
@@ -141,15 +141,15 @@ const numberingBtn = (pagesNumber, maxPagesNumber) => {
     if (pagesNumber === 1)
       document
         .querySelector('#PageBtn1')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     if (pagesNumber === 2)
       document
         .querySelector('#PageBtn2')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     if (pagesNumber === 3)
       document
         .querySelector('#PageBtn3')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     return;
   }
   if (maxPagesNumber === 4) {
@@ -157,19 +157,19 @@ const numberingBtn = (pagesNumber, maxPagesNumber) => {
     if (pagesNumber === 1)
       document
         .querySelector('#PageBtn1')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     if (pagesNumber === 2)
       document
         .querySelector('#PageBtn2')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     if (pagesNumber === 3)
       document
         .querySelector('#PageBtn3')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     if (pagesNumber === 3)
       document
         .querySelector('#PageBtn3')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     return;
   }
 
@@ -184,15 +184,15 @@ const numberingBtn = (pagesNumber, maxPagesNumber) => {
     if (pagesNumber === 1)
       document
         .querySelector('#PageBtn1')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     if (pagesNumber === 2)
       document
         .querySelector('#PageBtn2')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     if (pagesNumber === 3)
       document
         .querySelector('#PageBtn3')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     return;
   }
 
@@ -212,15 +212,15 @@ const numberingBtn = (pagesNumber, maxPagesNumber) => {
     if (pagesNumber === maxPagesNumber - 2)
       document
         .querySelector('#PageBtn3')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     if (pagesNumber === maxPagesNumber - 1)
       document
         .querySelector('#PageBtn4')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     if (pagesNumber === maxPagesNumber)
       document
         .querySelector('#PageBtn5')
-        .classList.replace('btn__orange-gradient', 'btn__black');
+        .classList.replace('btn__grey', 'btn__orange-gradient');
     return;
   }
   if (pagesNumber > 3) {
@@ -238,7 +238,7 @@ const numberingBtn = (pagesNumber, maxPagesNumber) => {
     );
     document
       .querySelector('#PageBtn3')
-      .classList.replace('btn__orange-gradient', 'btn__black');
+      .classList.replace('btn__grey', 'btn__orange-gradient');
     return;
   }
 };
@@ -265,7 +265,13 @@ const catalogPageApiData = url =>
         emptyResponseCatalog();
         return;
       }
-      urls.maxPages = resResponse.data.total_pages;
+      if(resResponse.data.total_pages>501){
+        urls.maxPages = 501;
+      }else{
+        urls.maxPages = resResponse.data.total_pages;
+      }
+      
+
       urls.url = url;
       crateCatalog(resResponse.data.results);
       numberingBtn(params.page, urls.maxPages);
@@ -301,7 +307,11 @@ const PageApiData = url =>
         emptyResponseCatalog();
         return;
       }
-      urls.maxPages = resResponse.data.total_pages;
+      if(resResponse.data.total_pages>501){
+        urls.maxPages = 501;
+      }else{
+        urls.maxPages = resResponse.data.total_pages;
+      }
       crateCatalog(resResponse.data.results);
       numberingBtn(params.page, urls.maxPages);
       return;
@@ -313,71 +323,71 @@ const PageApiData = url =>
       return console.log(error);
     });
 
-window.addEventListener('click', event => {
-  try {
-    if (event.target.id === 'searchBtn') {
-      event.preventDefault();
-      if (document.querySelector('#catalogFormInput').value.trim() == '') {
-        return;
-      }
-      urls.url = `https://api.themoviedb.org/3/search/movie`;
-      params.page = 1;
-      urls.title = document.querySelector('#catalogFormInput').value.trim();
+window.addEventListener("click" , event=>{
+    try {
+        if (event.target.id ==="searchBtn") {
+            event.preventDefault();
+            if (document.querySelector('#catalogFormInput').value.trim()=="") {
+                 return
+             }
+            urls.url=`https://api.themoviedb.org/3/search/movie`
+            params.page=1
+            urls.title= document.querySelector('#catalogFormInput').value.trim()
 
-      const searchUrl = `${urls.url}?query=${urls.title}&include_adult=false`;
+            const searchUrl=`${urls.url}?query=${urls.title}&include_adult=false` 
 
-      const PageContent = async () => await PageApiData(searchUrl);
-      PageContent();
-    }
-    if (
-      (event.target.parentElement.id === 'navForm') &
-      (event.target.id !== 'previousPage') &
-      (event.target.id !== 'nextPage') &
-      (event.target.id !== 'firstPageBtn') &
-      (event.target.id !== 'lastPageBtn')
-    ) {
-      event.preventDefault();
-      params.page = parseInt(event.target.textContent);
-      let navUrl = urls.url;
-      if (navUrl.includes('search')) {
-        navUrl = navUrl + `?query=${urls.title}&include_adult=false`;
-      }
-      const PageContent = async () => await PageApiData(navUrl);
+            const PageContent = async () => await PageApiData(searchUrl)
+            PageContent();
 
-      PageContent();
-    }
-    if (event.target.id === 'previousPage' || event.target.id === 'nextPage') {
-      if (event.target.id === 'previousPage') {
-        console.log('previousPage');
-        if (params.page > 1) params.page = params.page - 1;
-      }
-      if (event.target.id === 'nextPage') {
-        console.log('nextPage');
-        if (params.page < urls.maxPages) params.page = params.page + 1;
-      }
-      const naxUrl = `${urls.url}?query=${urls.title}&include_adult=false`;
+        }
+        if (event.target.parentElement.id ==="navForm" &
+            event.target.id !=="previousPage" & event.target.id !=="nextPage" & 
+            event.target.id !=="firstPageBtn" & event.target.id !=="lastPageBtn") {
+            event.preventDefault();
+            params.page=parseInt(event.target.textContent)
+            let navUrl= urls.url
+            if(navUrl.includes("search")){
+                navUrl=navUrl+`?query=${urls.title}&include_adult=false`
+            }
+            const PageContent = async () => await PageApiData(navUrl)
+            
+            PageContent(); 
+        }
+        if(event.target.id ==="previousPage" || event.target.id ==="nextPage"){
+            if(event.target.id ==="previousPage"){
+                    if(params.page>1) params.page = params.page-1
+                    
+            }
+            if(event.target.id ==="nextPage"){
+                if(params.page< urls.maxPages) params.page = params.page+1
+            }
+            const naxUrl=`${urls.url}?query=${urls.title}&include_adult=false` 
+            const PageContent = async () => await PageApiData(naxUrl)
+            PageContent();
+      
+        }
+        if(event.target.id ==="firstPageBtn" || event.target.id ==="lastPageBtn"){
+            if(event.target.id ==="firstPageBtn"){
+                    params.page = 1
+                    
+            }
+            if(event.target.id ==="lastPageBtn"){
+                params.page = urls.maxPages
+            }
+            const marginUrl=`${urls.url}?query=${urls.title}&include_adult=false` 
 
-      const PageContent = async () => await PageApiData(naxUrl);
-      PageContent();
-    }
-    if (
-      event.target.id === 'firstPageBtn' ||
-      event.target.id === 'lastPageBtn'
-    ) {
-      if (event.target.id === 'firstPageBtn') {
-        console.log('firstPageBtn');
-        params.page = 1;
-      }
-      if (event.target.id === 'lastPageBtn') {
-        console.log('lastPageBtn');
-        params.page = urls.maxPages;
-      }
-      const marginUrl = `${urls.url}?query=${urls.title}&include_adult=false`;
+            const PageContent = async () => await PageApiData(marginUrl)
+            PageContent();
+      
+        }
 
-      const PageContent = async () => await PageApiData(marginUrl);
-      PageContent();
-    }
-  } catch (error) {
+    } catch (error) {
     console.error(error);
   }
 });
+
+
+
+
+
+

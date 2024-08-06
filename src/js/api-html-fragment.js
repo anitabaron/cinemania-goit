@@ -58,17 +58,19 @@ export const emptyStar = `
 </svg>`;
 
 export const heroFragment = (id, backdrop_path, title, stars, description) => {
-  return `<div class="hero__background container " data-id="${id}"
+  return `<div class="hero__background" data-id="${id}"
           style="background-image: linear-gradient(86.77deg, rgb(17, 17, 17) 30.38%, rgba(17, 17, 17, 0) 65.61%), 
           url(https://image.tmdb.org/t/p/original${backdrop_path})">
-          <h2 class="hero__text-1">${title}</h2>
-          <ul class="movielist__rating-hero">
-            ${stars}
-          </ul>
-          <p class="hero__text-2" id="hero_text">${description}</p>
-          <div class="buttons" >
-            <button class="btn__hero-1" data-id="${id}">Watch trailer</button>
-            <button class="btn__hero-2 movie-details" data-id="${id}">More details</button>
+          <div class="hero__text-box">
+            <h2 class="hero__text-1">${title}</h2>
+            <ul class="movielist__rating-hero">
+              ${stars}
+            </ul>
+            <p class="hero__text-2" id="hero_text">${description}</p>
+            <div class="buttons" >
+              <button class="btn__hero-1" data-id="${id}">Watch trailer</button>
+              <button class="btn__hero-2 movie-details" data-id="${id}">More details</button>
+          </div>
           </div>
          </div>`;
 };
@@ -81,7 +83,7 @@ export const topMoviesFragment = (
   releaseYear,
   stars
 ) => {
-  let path = `https://image.tmdb.org/t/p/w500${backdrop_path}`;
+  let path = `https://image.tmdb.org/t/p/w780${backdrop_path}`;
   if (backdrop_path === null) {
     path = `src/images/oops_warning_mobile.png`;
   }
@@ -112,13 +114,16 @@ export const upcomingMovieFragment = (
   title,
   description,
   release_date,
-  vote_average,
+  roundedVoteAverage,
   vote_count,
+  roundedVPopularity,
   movieGenres
-) => `<h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
+) => {
+  return `<div>
+<h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
         <div class="upcoming__film-box">
         <img class="upcoming-image"
-        src="https://image.tmdb.org/t/p/w500${backdrop_path}"
+        src="https://image.tmdb.org/t/p/w1280${backdrop_path}"
        
         alt="movie poster"
         />
@@ -133,66 +138,72 @@ export const upcomingMovieFragment = (
 					</div>
                     <div>
 						<p class="upcoming-p-two upcoming-p-style">${release_date}</p>
-						<p class="upcoming__film-rating upcoming-p-style"><span class="upcoming-box">${vote_average}</span>  /  <span class="upcoming-box">${vote_count}</span></p>
-						<p class="upcoming-p-style">99.9</p>
+						<p class="upcoming__film-rating upcoming-p-style"><span class="upcoming-box">${roundedVoteAverage}</span>  /  <span class="upcoming-box">${vote_count}</span></p>
+						<p class="upcoming-p-style">${roundedVPopularity}</p>
 						<p class="upcoming-p-style">${movieGenres}</p>
 					</div>
 				</div>
 				<h4 class="upcoming-header-three">ABOUT</h4>
 				<p class="upcoming-p-three">${description}</p>
-			  <button class="btn btn__big btn__orange-gradient btn-space" id="${id}">Add to my library</button>`;
+			  <button class="btn btn__big btn__orange-gradient btn-space btn-modal" id="${id}">Add to my library</button>
+        </div>`;
+};
 
 export const pagesBtn = (pageBtn1, pageBtn2, pageBtn3, pageBtn4, pageBtn5) => `
             <div class="catalog__form" id="navForm">
-                <button class="btn btn__orange-gradient" id="firstPageBtn"> << </button>
-                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
-                <button class="btn btn__orange-gradient" id="PageBtn1">${pageBtn1}</button>
-                <button class="btn btn__orange-gradient" id="PageBtn2">${pageBtn2}</button>
-                <button class="btn btn__orange-gradient" id="PageBtn3">${pageBtn3}</button>
-                <button class="btn btn__orange-gradient" id="PageBtn4">${pageBtn4}</button>
-                <button class="btn btn__orange-gradient" id="PageBtn5">${pageBtn5}</button>
-                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
-                <button class="btn btn__orange-gradient" id="lastPageBtn"> >> </button>
+                <button class="btn btn__nav-page" id="firstPageBtn"> << </button>
+                <button class="btn btn__nav-page" id="previousPage"> < </button>
+                <button class="btn btn__grey" id="PageBtn1">${pageBtn1}</button>
+                <button class="btn btn__grey" id="PageBtn2">${pageBtn2}</button>
+                <button class="btn btn__grey" id="PageBtn3">${pageBtn3}</button>
+                <button class="btn btn__grey" id="PageBtn4">${pageBtn4}</button>
+                <button class="btn btn__grey" id="PageBtn5">${pageBtn5}</button>
+                <button class="btn btn__nav-page" id="nextPage"> > </button>
+                <button class="btn btn__nav-page" id="lastPageBtn"> >> </button>
             </div>`;
 
 export const pagesBtn2 = `
             <div class="catalog__form" id="navForm">
-                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
-                <button class="btn btn__orange-gradient" id="PageBtn1">1</button>
-                <button class="btn btn__orange-gradient" id="PageBtn2">2</button>
-                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
+                <button class="btn btn__nav-page" id="previousPage"> < </button>
+                <button class="btn btn__grey" id="PageBtn1">1</button>
+                <button class="btn btn__grey" id="PageBtn2">2</button>
+                <button class="btn btn__nav-page" id="nextPage"> > </button>
             </div>`;
 export const pagesBtn3 = `
             <div class="catalog__form" id="navForm">
-                <button class="btn btn__orange-gradient" id="firstPageBtn"> << </button>
-                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
-                <button class="btn btn__orange-gradient" id="PageBtn1">1</button>
-                <button class="btn btn__orange-gradient" id="PageBtn2">2</button>
-                <button class="btn btn__orange-gradient" id="PageBtn3">3</button>
-                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
-                <button class="btn btn__orange-gradient" id="lastPageBtn"> >> </button>
+                <button class="btn btn__nav-page" id="firstPageBtn"> << </button>
+                <button class="btn btn__nav-page" id="previousPage"> < </button>
+                <button class="btn btn__grey" id="PageBtn1">1</button>
+                <button class="btn btn__grey" id="PageBtn2">2</button>
+                <button class="btn btn__grey" id="PageBtn3">3</button>
+                <button class="btn btn__nav-page" id="nextPage"> > </button>
+                <button class="btn btn__nav-page" id="lastPageBtn"> >> </button>
             </div>`;
 export const pagesBtn4 = `
             <div class="catalog__form" id="navForm">
-                <button class="btn btn__orange-gradient" id="firstPageBtn"> << </button>
-                <button class="btn btn__orange-gradient" id="previousPage"> < </button>
-                <button class="btn btn__orange-gradient" id="PageBtn1">1</button>
-                <button class="btn btn__orange-gradient" id="PageBtn2">2</button>
-                <button class="btn btn__orange-gradient" id="PageBtn3">3</button>
-                <button class="btn btn__orange-gradient" id="PageBtn4">4}</button>
-                <button class="btn btn__orange-gradient" id="nextPage"> > </button>
-                <button class="btn btn__orange-gradient" id="lastPageBtn"> >> </button>
+                <button class="btn btn__nav-page" id="firstPageBtn"> << </button>
+                <button class="btn btn__nav-page" id="previousPage"> < </button>
+                <button class="btn btn__grey" id="PageBtn1">1</button>
+                <button class="btn btn__grey" id="PageBtn2">2</button>
+                <button class="btn btn__grey" id="PageBtn3">3</button>
+                <button class="btn btn__grey" id="PageBtn4">4}</button>
+                <button class="btn btn__nav-page" id="nextPage"> > </button>
+                <button class="btn btn__nav-page" id="lastPageBtn"> >> </button>
             </div>`;
 
-export const emptyApiResponeHero = `<div class="hero_background container">
-        <h2 class="hero__text-1">Let’s Make Your Own Cinema</h2>
-        <h3 class="hero__text-2" id="hero_text">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.</h3>
-        <button class="hero__button" onclick="window.location.href='catalog.html';">
-          <span class="hero__span-button">Get Started</span>
-        </button>
-      </div>`;
+export const emptyApiResponeHero = `<div class="hero_background-def">
+<div class="hero__text-box-default">
+    <h2 class="hero__text-def">Let’s Make Your Own Cinema</h2>
+    <h3 class="hero__text-default" id="hero_text"></h3>
+    <div class ="buttons__def-hero">
+   <button class="btn__hero-1" onclick="window.location.href='catalog.html';">
+     <span class="hero__span-button">Get Started</span>
+   </button>
+    </div>
+    </div>
+   </div>`;
 
-export const emptyApiResponeCatalog = `<div class="hero_background container">
+export const emptyApiResponeCatalog = `<div class="hero_background">
                                     <h3 class="catalog__text-sorry">OOPS...</h3>
                                     <p class="catalog__text-sorry"> We are very sorry! We dont have any results matching your search.</p>
                                 </div>`;

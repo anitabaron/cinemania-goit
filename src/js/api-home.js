@@ -67,18 +67,6 @@ const createHeroMovie = resResponse => {
   );
 };
 
-// const createHeroMovie = results => {
-//   // if (
-//   //   !results ||
-//   //   !results.data ||
-//   //   !results.data.results ||
-//   //   results.data.results.length === 0
-//   // ) {
-//   //   console.error('Invalid results data');
-//   //   return;
-//   // }
-// };
-
 const movieGenresCompare = (arr1, arr2) => {
   const finalArr = [];
   for (let i = 0; i < arr1.length; i += 1) {
@@ -120,21 +108,46 @@ const createUpcomingMovie = movies => {
   const upcomingSection = document.querySelector('#upcoming');
   const randomMovie = Math.floor(Math.random() * movies.length);
   const upcomingMovie = movies[randomMovie];
-  // const movieGenres = movieGenresCompare(genres, movies.genre_ids);
   const movieGenres = movieGenresCompare(genres, upcomingMovie.genre_ids);
+  const roundedVoteAverage = Math.round(upcomingMovie.vote_average * 10) / 10;
+  const roundedVPopularity = parseInt(upcomingMovie.popularity);
   upcomingSection.innerHTML = upcomingMovieFragment(
     upcomingMovie.id,
     upcomingMovie.backdrop_path,
     upcomingMovie.title,
     upcomingMovie.overview,
-    upcomingMovie.release_date
-    // movieGenres
+    upcomingMovie.release_date,
+    roundedVoteAverage,
+    upcomingMovie.vote_count,
+    roundedVPopularity,
+    movieGenres
   );
 };
+function updateTextHero(description) {
+  const heroText = document.getElementById('hero_text');
+
+  if (window.innerWidth >= 768) {
+    heroText.textContent =
+      description ||
+      "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.";
+  } else {
+    heroText.textContent =
+      description ||
+      "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.";
+    heroText.classList.add('hero_text_2');
+  }
+}
+
 function createDefaultHeroSection() {
   const heroSection = document.querySelector('#hero');
   heroSection.innerHTML = emptyApiResponeHero;
+  updateTextHero();
+  window.addEventListener('resize', () => updateTextHero());
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  createDefaultHeroSection();
+});
 
 const homePageApiData = url =>
   axios
@@ -142,7 +155,7 @@ const homePageApiData = url =>
     .then(resResponse => {
       if (url.includes('day')) {
         const length = resResponse.data.results.length;
-        //const length =0
+        // const length = 0;
         if (length === 0) {
           createDefaultHeroSection();
           return;
@@ -180,3 +193,27 @@ const homePageContent = async () =>
   ]);
 
 homePageContent();
+
+window.addEventListener('click', event => {
+  if (event.target.parentElement.id === 'logo') {
+    const moviesCatalog = document.querySelector('#trends');
+    moviesCatalog.remove();
+
+    const upcomingSection = document.querySelector('#upcoming');
+    const upcomingChild = document.querySelector('#upcoming > div');
+    upcomingSection.removeChild(upcomingChild);
+
+    const heroSection = document.querySelector('#hero');
+    const heroChild = document.querySelector('#hero > div');
+    heroSection.removeChild(heroChild);
+
+    params.api_key = '';
+    const serverErrorContent = async () =>
+      await Promise.all([
+        homePageApiData(urls.trendMoviesDay),
+        homePageApiData(urls.trendMoviesWeek),
+        homePageApiData(urls.upcomingMovies),
+      ]);
+    serverErrorContent();
+  }
+});
