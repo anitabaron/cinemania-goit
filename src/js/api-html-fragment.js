@@ -114,10 +114,12 @@ export const upcomingMovieFragment = (
   title,
   description,
   release_date,
-  vote_average,
+  roundedVoteAverage,
   vote_count,
+  roundedVPopularity,
   movieGenres
-) => `<div>
+) => {
+  return `<div>
 <h2 class="upcoming-header-one">UPCOMING THIS MONTH</h2>
         <div class="upcoming__film-box">
         <img class="upcoming-image"
@@ -136,15 +138,16 @@ export const upcomingMovieFragment = (
 					</div>
                     <div>
 						<p class="upcoming-p-two upcoming-p-style">${release_date}</p>
-						<p class="upcoming__film-rating upcoming-p-style"><span class="upcoming-box">${vote_average}</span>  /  <span class="upcoming-box">${vote_count}</span></p>
-						<p class="upcoming-p-style">99.9</p>
+						<p class="upcoming__film-rating upcoming-p-style"><span class="upcoming-box">${roundedVoteAverage}</span>  /  <span class="upcoming-box">${vote_count}</span></p>
+						<p class="upcoming-p-style">${roundedVPopularity}</p>
 						<p class="upcoming-p-style">${movieGenres}</p>
 					</div>
 				</div>
 				<h4 class="upcoming-header-three">ABOUT</h4>
 				<p class="upcoming-p-three">${description}</p>
-			  <button class="btn btn__big btn__orange-gradient btn-space" id="${id}">Add to my library</button>
+			  <button class="btn btn__big btn__orange-gradient btn-space btn-modal" id="${id}">Add to my library</button>
         </div>`;
+};
 
 export const pagesBtn = (pageBtn1, pageBtn2, pageBtn3, pageBtn4, pageBtn5) => `
             <div class="catalog__form" id="navForm">
