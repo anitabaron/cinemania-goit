@@ -4,14 +4,28 @@
 
 @media (width < 768px) {
   .hero__background {
-    width: 320px;
+    width: 100%;
     height: 380px;
     // background: linear-gradient(82deg, #111 28.7%, rgba(17, 17, 17, 0) 100%),
-    //   url('../images/hero_mobile.png') no-repeat center center;
+    // url("/src/images/hero_mobile.png") no-repeat center center;  które z tych
+    // url('../images/hero_mobile.png') no-repeat center center;  które z tych
     background-size: cover, cover;
+    background-repeat: no-repeat;
+  }
+
+  .hero_background-def {
+   
+    width: 100%;
+      height: 380px;
+
+    background: linear-gradient(82deg, #111 28.7%, rgba(17, 17, 17, 0) 100%), url("/src/images/hero_mobile.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
   }
 
   .hero__text-1 {
+
     padding-left: 20px;
     padding-top: 40px;
     font-family: var(--font-family);
@@ -19,13 +33,38 @@
     font-size: 32px;
     color: var(--white);
   }
+
+  .hero__text-def {
+    padding-left: 20px;
+    padding-top: 40px;
+    font-family: var(--font-family);
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--white);
+    width: 100%;
+    height: 114px;
+  }
+
+  .hero__text-default {
+    padding-left: 20px;
+    padding-top: 8px;
+    width: 100%px;
+    height: 80px;
+    font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--secondary-text);
+  }
+
   .movielist__rating-hero {
     padding-left: 20px;
     display: flex;
     padding-top: 12px;
     list-style-type: none;
   }
+
   .hero__text-2 {
+    width: 166px;
     padding-left: 20px;
     padding-top: 20px;
     font-family: var(--font-family);
@@ -33,6 +72,7 @@
     font-size: 14px;
     color: var(--secondary-text);
   }
+
   .buttons {
     padding-left: 20px;
     padding-top: 20px;
@@ -41,17 +81,36 @@
 
     gap: 8px;
   }
+
+  .buttons__def-hero {
+    padding-left: 20px;
+    padding-top: 20px;
+  }
 }
 
 /* ----------------------------------------------------------------------------------------------------TABLET */
 @media (width >=768px) and (width < 1280px) {
   .hero__background {
-    width: 768px;
-    height: 432px;
+   
+    width: 100%;
+      height: 432px;
     // background: linear-gradient(75deg, #111 9.77%, rgba(17, 17, 17, 0) 100%),
-    //   url('../images/hero_tablet.png') no-repeat left center;
+    //  url('../images/hero_tablet.png') no-repeat left center;
     background-size: cover, cover;
+    background-repeat: no-repeat;
   }
+
+  .hero_background-def {
+    
+    width: 100%;
+      height: 432px;
+
+    background: linear-gradient(76deg, #111 6.82%, rgba(17, 17, 17, 0) 100%), url("/src/images/hero_tablet.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
   .hero__text-1 {
     padding-left: 32px;
     padding-top: 36px;
@@ -60,12 +119,14 @@
     font-size: 44px;
     color: var(--white);
   }
+
   .movielist__rating-hero {
     padding-left: 32px;
     display: flex;
     padding-top: 24px;
     list-style-type: none;
   }
+
   .hero__text-2 {
     padding-left: 32px;
     padding-top: 20px;
@@ -75,33 +136,76 @@
     color: var(--secondary-text);
     width: 295px;
   }
+
   .buttons {
     padding-left: 32px;
     padding-top: 28px;
     display: flex;
     gap: 8px;
   }
+
+  .buttons__def-hero {
+    padding-left: 32px;
+    padding-top: 28px;
+  }
+}
+
+.hero__text-def {
+  padding-left: 32px;
+  padding-top: 62px;
+  width: 332px;
+  height: 104px;
+  font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 44px;
+    color: var(--white);
+}
+
+.hero__text-default {
+  padding-left: 32px;
+  padding-top: 8px;
+  width: 357px;
+  height: 64px;
+  font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--secondary-text);
 }
 
 /* ----------------------------------------------------------------------------------------------------DESKTOP */
 
 @media (width >=1280px) {
   .hero__background {
-    width: 1280px;
-    height: 720px;
+  
+    width: 100%;
+      height: 720px;
 
     // background: linear-gradient(82deg, #111 28.55%, rgba(17, 17, 17, 0) 100%),
-    //   url('../images/hero_desktop.png') no-repeat left center;
+    //   url('../images/hero_desktop.png') no-repeat left center;
     background-size: cover, cover;
+    background-repeat: no-repeat;
   }
+
+  .hero_background-def {
+    
+    width: 100%;
+      height: 720px;
+
+    background: linear-gradient(69deg, #111 19.23%, rgba(17, 17, 17, 0) 100%), url("/src/images/hero_desktop.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
   .hero__text-1 {
     padding-left: 32px;
-    padding-top: 118px;
+    margin-top: 118px;
     font-family: var(--font-family);
     font-weight: 700;
     font-size: 64px;
     color: var(--white);
   }
+
   .movielist__rating-hero {
     padding-left: 32px;
     display: flex;
@@ -109,6 +213,7 @@
     list-style-type: none;
     gap: 4px;
   }
+
   .hero__text-2 {
     padding-left: 32px;
     padding-top: 28px;
@@ -118,11 +223,41 @@
     color: var(--secondary-text);
     width: 364px;
   }
+
   .buttons {
     padding-left: 32px;
     padding-top: 36px;
     justify-content: flex-start;
     display: flex;
     gap: 8px;
+  }
+
+  .buttons__def-hero {
+    padding-left: 32px;
+    padding-top: 36px;
+  }
+
+  .hero__text-def {
+    padding-left: 32px;
+    padding-top: 169px;
+   
+    width: 464px;
+    height: 150px;
+    font-family: var(--font-family);
+      font-weight: 700;
+      font-size: 64px;
+      color: var(--white);
+  }
+
+  .hero__text-default {
+    padding-left: 32px;
+    padding-top: 8px;
+    
+    width: 464px;
+    height: 76px;
+    font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--secondary-text);
   }
 }

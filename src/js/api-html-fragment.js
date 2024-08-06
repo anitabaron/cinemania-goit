@@ -186,13 +186,17 @@ export const pagesBtn4 = `
                 <button class="btn btn__nav-page" id="lastPageBtn"> >> </button>
             </div>`;
 
-export const emptyApiResponeHero = `<div class="hero_background container">
-        <h2 class="hero__text-1">Let’s Make Your Own Cinema</h2>
-        <h3 class="hero__text-2" id="hero_text">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.</h3>
-        <button class="hero__button" onclick="window.location.href='catalog.html';">
-          <span class="hero__span-button">Get Started</span>
-        </button>
-      </div>`;
+export const emptyApiResponeHero = `<div class="hero_background-def container">
+    <h2 class="hero__text-def">Let’s Make Your Own Cinema</h2>
+    <h3 class="hero__text-default" id="hero_text"></h3>
+    <div class ="buttons__def-hero">
+   <button class="btn__hero-1" onclick="window.location.href='catalog.html';">
+     <span class="hero__span-button">Get Started</span>
+   </button>
+    </div>
+    
+   </div>`;
+
 
 export const emptyApiResponeCatalog = `<div class="hero_background container">
                                     <h3 class="catalog__text-sorry">OOPS...</h3>

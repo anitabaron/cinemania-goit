@@ -121,10 +121,33 @@ const createUpcomingMovie = movies => {
     // movieGenres
   );
 };
-function createDefaultHeroSection() {
-  const heroSection = document.querySelector('#hero');
-  heroSection.innerHTML = emptyApiResponeHero;
+function updateTextHero(description) {
+ const heroText = document.getElementById('hero_text');
+
+
+ if (window.innerWidth >= 768) {
+  heroText.textContent =
+   description ||
+   "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.";
+ } else {
+  heroText.textContent =
+   description ||
+   "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.";
+  heroText.classList.add('hero_text_2');
+ }
 }
+
+function createDefaultHeroSection() {
+ const heroSection = document.querySelector('#hero');
+ heroSection.innerHTML = emptyApiResponeHero;
+ updateTextHero(); 
+ window.addEventListener('resize', () => updateTextHero()); 
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+ createDefaultHeroSection();
+});
+
 
 const homePageApiData = url =>
   axios
@@ -132,7 +155,7 @@ const homePageApiData = url =>
     .then(resResponse => {
       if (url.includes('day')) {
         const length = resResponse.data.results.length;
-        //const length =0
+        // const length = 0;
         if (length === 0) {
           createDefaultHeroSection();
           return;
