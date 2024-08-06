@@ -67,8 +67,6 @@ const createHeroMovie = resResponse => {
   );
 };
 
-
-
 const movieGenresCompare = (arr1, arr2) => {
   const finalArr = [];
   for (let i = 0; i < arr1.length; i += 1) {
@@ -122,40 +120,38 @@ const createUpcomingMovie = movies => {
   );
 };
 function updateTextHero(description) {
- const heroText = document.getElementById('hero_text');
+  const heroText = document.getElementById('hero_text');
 
-
- if (window.innerWidth >= 768) {
-  heroText.textContent =
-   description ||
-   "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.";
- } else {
-  heroText.textContent =
-   description ||
-   "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.";
-  heroText.classList.add('hero_text_2');
- }
+  if (window.innerWidth >= 768) {
+    heroText.textContent =
+      description ||
+      "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.";
+  } else {
+    heroText.textContent =
+      description ||
+      "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.";
+    heroText.classList.add('hero_text_2');
+  }
 }
 
 function createDefaultHeroSection() {
- const heroSection = document.querySelector('#hero');
- heroSection.innerHTML = emptyApiResponeHero;
- updateTextHero(); 
- window.addEventListener('resize', () => updateTextHero()); 
+  const heroSection = document.querySelector('#hero');
+  heroSection.innerHTML = emptyApiResponeHero;
+  updateTextHero();
+  window.addEventListener('resize', () => updateTextHero());
 }
 
 document.addEventListener('DOMContentLoaded', () => {
- createDefaultHeroSection();
+  createDefaultHeroSection();
 });
-
 
 const homePageApiData = url =>
   axios
     .get(url, { params, ...options })
     .then(resResponse => {
       if (url.includes('day')) {
-        const length = resResponse.data.results.length;
-        // const length = 0;
+        // const length = resResponse.data.results.length;
+        const length = 0;
         if (length === 0) {
           createDefaultHeroSection();
           return;
@@ -194,27 +190,26 @@ const homePageContent = async () =>
 
 homePageContent();
 
-window.addEventListener("click" , event=>{
-  if (event.target.parentElement.id==="logo"){
+window.addEventListener('click', event => {
+  if (event.target.parentElement.id === 'logo') {
     const moviesCatalog = document.querySelector('#trends');
-    moviesCatalog.remove()
+    moviesCatalog.remove();
 
     const upcomingSection = document.querySelector('#upcoming');
-    const upcomingChild = document.querySelector('#upcoming > div')
-    upcomingSection.removeChild(upcomingChild)
+    const upcomingChild = document.querySelector('#upcoming > div');
+    upcomingSection.removeChild(upcomingChild);
 
     const heroSection = document.querySelector('#hero');
-    const heroChild = document.querySelector('#hero > div')
-    heroSection.removeChild(heroChild)
-    
-    params.api_key=""
+    const heroChild = document.querySelector('#hero > div');
+    heroSection.removeChild(heroChild);
+
+    params.api_key = '';
     const serverErrorContent = async () =>
       await Promise.all([
         homePageApiData(urls.trendMoviesDay),
         homePageApiData(urls.trendMoviesWeek),
         homePageApiData(urls.upcomingMovies),
       ]);
-      serverErrorContent();
-
+    serverErrorContent();
   }
-})
+});

@@ -58,17 +58,19 @@ export const emptyStar = `
 </svg>`;
 
 export const heroFragment = (id, backdrop_path, title, stars, description) => {
-  return `<div class="hero__background container " data-id="${id}"
+  return `<div class="hero__background" data-id="${id}"
           style="background-image: linear-gradient(86.77deg, rgb(17, 17, 17) 30.38%, rgba(17, 17, 17, 0) 65.61%), 
           url(https://image.tmdb.org/t/p/original${backdrop_path})">
-          <h2 class="hero__text-1">${title}</h2>
-          <ul class="movielist__rating-hero">
-            ${stars}
-          </ul>
-          <p class="hero__text-2" id="hero_text">${description}</p>
-          <div class="buttons" >
-            <button class="btn__hero-1" data-id="${id}">Watch trailer</button>
-            <button class="btn__hero-2 movie-details" data-id="${id}">More details</button>
+          <div class="hero__text-box">
+            <h2 class="hero__text-1">${title}</h2>
+            <ul class="movielist__rating-hero">
+              ${stars}
+            </ul>
+            <p class="hero__text-2" id="hero_text">${description}</p>
+            <div class="buttons" >
+              <button class="btn__hero-1" data-id="${id}">Watch trailer</button>
+              <button class="btn__hero-2 movie-details" data-id="${id}">More details</button>
+          </div>
           </div>
          </div>`;
 };
@@ -186,7 +188,8 @@ export const pagesBtn4 = `
                 <button class="btn btn__nav-page" id="lastPageBtn"> >> </button>
             </div>`;
 
-export const emptyApiResponeHero = `<div class="hero_background-def container">
+export const emptyApiResponeHero = `<div class="hero_background-def">
+<div class="hero__text-box-default">
     <h2 class="hero__text-def">Let’s Make Your Own Cinema</h2>
     <h3 class="hero__text-default" id="hero_text"></h3>
     <div class ="buttons__def-hero">
@@ -194,11 +197,10 @@ export const emptyApiResponeHero = `<div class="hero_background-def container">
      <span class="hero__span-button">Get Started</span>
    </button>
     </div>
-    
+    </div>
    </div>`;
 
-
-export const emptyApiResponeCatalog = `<div class="hero_background container">
+export const emptyApiResponeCatalog = `<div class="hero_background">
                                     <h3 class="catalog__text-sorry">OOPS...</h3>
                                     <p class="catalog__text-sorry"> We are very sorry! We dont have any results matching your search.</p>
                                 </div>`;
