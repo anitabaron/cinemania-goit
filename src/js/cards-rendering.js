@@ -55,7 +55,7 @@ export default async function renderMoviesCards(movies, selector) {
               
           </li>`;
   }
-  markupFixAfter = `<button
+  markupFix = `<button
         class="btn btn__big btn__orange-gradient library__btn-load"
         id="mylibraryLoadMore"
       >
