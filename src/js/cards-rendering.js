@@ -20,6 +20,7 @@ async function getGenresList() {
 export default async function renderMoviesCards(movies, selector) {
   const movieList = document.querySelector(`${selector}`);
   let markup = '';
+  let markupFix = '';
   for (const movie of movies) {
     const {
       id,
@@ -51,9 +52,16 @@ export default async function renderMoviesCards(movies, selector) {
 					            </ul>
 					          </div>
               </div>
+              
           </li>`;
   }
-  movieList.innerHTML = markup;
+  markupFixAfter = `<button
+        class="btn btn__big btn__orange-gradient library__btn-load"
+        id="mylibraryLoadMore"
+      >
+        Load more
+      </button>`;
+  movieList.innerHTML = markup + markupFix;
 }
 
 async function getYear(data) {

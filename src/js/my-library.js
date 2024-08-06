@@ -11,9 +11,7 @@ export function checkStorage() {
     if (!document.querySelector('.my-lib__no-movies')) {
       return;
     }
-    document
-      .querySelector('.my-lib__no-movies')
-      .classList.remove('visually-hidden');
+    document.querySelector('.my-lib__no-movies').classList.remove('hidden');
     document.querySelector('.my-lib__gallery-list').innerHTML = '';
   } else {
     renderMoviesCards(library.movies, '.my-lib__gallery-list');
