@@ -146,27 +146,22 @@
 
 .btn__search_black {
   background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
-  color: var(--background);
-  color: var(--black);
+  color: white;
 }
-
 .search.btn__search_black:hover,
-  .search.btn__search_black:active {
-    background-color: white;
-    background: none;
-    color: #f84119;
-    border: 1px solid #f84119;
-  }
-
-.search.btn__search_black:hover .icon path {
-  stroke: url(#myGradient);
+.search.btn__search_black:active {
+  background-color: white;
+  background: none;
+  color: #f84119;
+  border: 1px solid #f84119;
 }
-
 .icon {
   fill: none;
   stroke: var(--white);
 }
-
+.search.btn__search_black:hover .icon path {
+  stroke: url(#myGradient);
+}
 .hero-star{
   width: 16px;
   height: 16px;
@@ -176,6 +171,7 @@
   width: 14px;
   height: 14px;
 }
+
 /* ----------------------------- responsive -------------------------- */
 
 /* ----------------------------------------------------------------------------------------------------TABLET */
