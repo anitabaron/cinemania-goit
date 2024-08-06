@@ -42,6 +42,75 @@ async function onMovieCardClick(e) {
     console.log(error);
   }
 }
+async function onMovieTrailerClick(e) {
+  // if (!e.target.closest('.movie-details')) {
+  //   return;
+  // }
+
+  try {
+    const movieID = e.getAttribute('data-id');// const movieID = e.target.closest('.movie-details').getAttribute('data-id');
+  
+    const movieData = await apiService.getMovieTrailer(movieID);
+
+    const videoUrl = `https://www.youtube.com/embed/${movieData.key}`;
+ 
+    const markup = successModalTemplate(videoUrl)
+    updateModal(markup);
+    openModal();
+  } catch (error) {
+    errorModalTemplate()
+    console.log(error);
+  }
+}
+
+function successModalTemplate(videoUrl) {
+  return `<iframe
+    id='trailer-video'
+    class='watch-modal__iframe'
+    src='${videoUrl}'
+    frameborder='0'
+    allowfullscreen
+  ></iframe>`;
+}
+
+function errorModalTemplate() {
+  return `<div class='watch-modal modal-error'>
+<div class='watch-modal__content'>
+  <div class='watch-modal__error-image'></div>
+    <button type='button' class='watch-modal__close'>
+    <svg
+      class='watch-modal__close-icon'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        d='M18 6L6 18'
+        stroke='#F3F3F3'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+      />
+      <path
+        d='M6 6L18 18'
+        stroke='#F3F3F3'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+      />
+    </svg>
+  </button>
+  <p class='watch-modal__error-message'>
+    OOPS... We are very sorry! But we couldn’t find the trailer.
+  </p>
+</div>
+</div>`;
+}
+
+
+
 
 function openModal() {
   /* const lockPaddingValue = window.innerWidth - document.body.offsetWidth + 'px'; */
@@ -133,7 +202,6 @@ window.addEventListener('keydown', function (e) {
 
 
 window.addEventListener("click" , event=>{
-  console.log(event.target)
 if(event.target.classList.value.includes("btn__hero-2")){
   onMovieCardClick(event.target)
 }
@@ -143,5 +211,12 @@ if(event.target.classList.value.includes("movielist-item movie-details")){
 if(event.target.classList.value.includes("cards__list-img")){
   onMovieCardClick(event.target.parentElement)
 }
+if(event.target.classList.value.includes("btn__hero-1")){
+  onMovieTrailerClick(event.target)
+}
 
 })
+
+
+
+

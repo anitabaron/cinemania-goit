@@ -41,11 +41,6 @@ const generateStars = (rating, starClass) => {
   const halfStars = rating % 1 >= 0.5 ? 1 : 0;
   const emptyStars = 5 - fullStars - halfStars;
 
-  // console.log('Rating:', rating);
-  // console.log('Full Stars:', fullStars);
-  // console.log('Half Stars:', halfStars);
-  // console.log('Empty Stars:', emptyStars);
-
   return `
     ${fullStar.replace('star', starClass).repeat(fullStars)}
     ${halfStar.replace('star', starClass).repeat(halfStars)}
@@ -114,7 +109,6 @@ const crateCatalog = movies => {
 };
 
 const numberingBtn = (pagesNumber, maxPagesNumber) => {
-  console.log(maxPagesNumber);
   if (maxPagesNumber === 1) return;
   const pagesBtnSection = document.querySelector('#pagesBtnSection');
   const prageNumbers = {

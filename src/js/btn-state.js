@@ -16,11 +16,11 @@ export default class BtnState {
     if (isInLibrary) {
       this.btn.setAttribute('data-action', 'remove');
       this.btn.textContent = 'Remove from library';
-      // console.log(isInLibrary);
+
     } else {
       this.btn.setAttribute('data-action', 'add');
       this.btn.textContent = 'Add to library';
-      // console.log(isInLibrary, 'else');
+
     }
 
     this.btn.addEventListener('click', () => {
@@ -28,7 +28,7 @@ export default class BtnState {
         this.toAdd();
       } else {
         this.toRemove();
-        //   console.log('Callback:', this.fetchFunction);
+
       }
     });
   }
@@ -39,7 +39,7 @@ export default class BtnState {
     this.btn.setAttribute('data-action', 'remove');
     localStorage.setItem(this.btnStateStorageKey, 'remove');
     this.btn.textContent = 'Remove from library';
-    //   console.log(this.btn.getAttribute('data-action'));
+
   }
 
   toRemove() {
@@ -48,6 +48,6 @@ export default class BtnState {
     this.btn.setAttribute('data-action', 'add');
     localStorage.setItem(this.btnStateStorageKey, 'add');
     this.btn.textContent = 'Add to library';
-    //   console.log(this.btn.getAttribute('data-action'));
+
   }
 }
