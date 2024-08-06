@@ -1,6 +1,21 @@
 import renderMoviesCards from './cards-rendering';
 import LibraryAPI from './library-functions';
 
+// const btnLoad = document.querySelector("#mylibraryLoadMore");
+// const cardPerPage = 9;
+// let allCards = [];
+// let step = 0;
+
+// const loadMoreCards = (arr, num) => {
+//   let end = num + 9; 
+//   if (end < allCards.length) {
+//     end = allCards.length;
+//    };
+//   const arrOfCards = arr.slice(0, end);
+//   renderMoviesCards(arrOfCards, '.my-lib__gallery-list');
+//   step += 9;
+// }
+
 const library = new LibraryAPI();
 library.setLibrary();
 checkStorage();
@@ -16,6 +31,25 @@ export function checkStorage() {
       .classList.remove('visually-hidden');
     document.querySelector('.my-lib__gallery-list').innerHTML = '';
   } else {
-    renderMoviesCards(library.movies, '.my-lib__gallery-list');
+    allCards = library.movies;
+    // if (allCards.length <= cardPerPage) {
+      renderMoviesCards(allCards, '.my-lib__gallery-list');
+    // } else if (allCards.length > cardPerPage) {
+    //   const partOfCards = allCards.slice(0, step + 9);
+    //   renderMoviesCards(partOfCards, '.my-lib__gallery-list');
+    //   btnLoad.classList.remove("invisible");
+    //   step += 9;
+    // }
+    
   }
-}
+} 
+
+// console.log(allCards);
+// console.log(step)
+
+// const loadHandleClick = () => {
+ 
+//   loadMoreCards(allCards, step);
+// }
+
+// btnLoad.addEventListener("click", loadHandleClick);
