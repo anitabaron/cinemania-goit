@@ -100,6 +100,10 @@
   display: block;
   text-align: center;
 
+  &:hover,
+    &:focus {
+      color: #f87719;
+    }
   @include tablet {
     padding: 22px 0;
   }
@@ -339,81 +343,4 @@
   }
 }
 
-// Light
-body.light {
-  background-color: #ffffff;
-  color: #282828;
-  transition: background-color 0.25s ease-out;
-}
 
-//
-body.light {
-  .header__container {
-    background-color: #ffffff;
-  }
-
-  .hero__background h2,
-  .hero__background p {
-    color: #ffffff;
-  }
-
-  .herolib h2,
-  .herolib p {
-    color: #ffffff;
-  }
-
-  a {
-    color: #f87719;
-  }
-
-  p {
-    color: #282828;
-  }
-
-  h2 {
-    color: #282828;
-  }
-
-  .logo-text {
-    color: #000000;
-  }
-
-  .header__nav-link {
-    color: #595959;
-
-    &:hover,
-    &:focus {
-      color: #f87719;
-    }
-  }
-
-  .current__nav-link {
-    color: #f87719;
-  }
-
-  .catalog__form-input {
-    background-color: var(--white);
-    color: var(--black);
-    border: 1px solid var(--black);
-    border-radius: 8px;
-    padding: 12px 26px 12px 24px;
-    height: 48px;
-  }
-  .my-library__form-select {
-    background-color: var(--white);
-    color: var(--secondary-black-grey);
-    border: 1px solid var(--secondary-black-grey);
-    border-radius: 8px;
-    padding: 12px 60px 12px 20px;
-    width: 173px;
-    height: 40px;
-    }
-    .movielist__movie-title {
-      text-transform: uppercase;
-      color: var(--white);
-    }
-    
-    .movielist__movie-genre {
-      color: var(--grey);
-    }
-}
