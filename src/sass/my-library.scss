@@ -346,7 +346,7 @@
   margin-bottom: 80px;
  
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-color: var(--main-background);
   background-image: linear-gradient(
       83.48deg,
@@ -382,7 +382,7 @@
   }
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
 
   @media screen and (min-width: 768px) {
     width: 768px;
