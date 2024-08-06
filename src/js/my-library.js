@@ -26,7 +26,7 @@ export function checkStorage() {
     if (!document.querySelector('.my-lib__no-movies')) {
       return;
     }
-    document.querySelector('.my-lib__no-movies').classList.remove('.hidden');
+    document.querySelector('.my-lib__no-movies').classList.remove('is-hidden');
     document.querySelector('.my-lib__gallery-list').innerHTML = '';
   } else {
     allCards = library.movies;

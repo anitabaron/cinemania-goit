@@ -108,15 +108,19 @@ const createUpcomingMovie = movies => {
   const upcomingSection = document.querySelector('#upcoming');
   const randomMovie = Math.floor(Math.random() * movies.length);
   const upcomingMovie = movies[randomMovie];
-  // const movieGenres = movieGenresCompare(genres, movies.genre_ids);
   const movieGenres = movieGenresCompare(genres, upcomingMovie.genre_ids);
+  const roundedVoteAverage = Math.round(upcomingMovie.vote_average * 10) / 10;
+  const roundedVPopularity = parseInt(upcomingMovie.popularity);
   upcomingSection.innerHTML = upcomingMovieFragment(
     upcomingMovie.id,
     upcomingMovie.backdrop_path,
     upcomingMovie.title,
     upcomingMovie.overview,
-    upcomingMovie.release_date
-    // movieGenres
+    upcomingMovie.release_date,
+    roundedVoteAverage,
+    upcomingMovie.vote_count,
+    roundedVPopularity,
+    movieGenres
   );
 };
 function updateTextHero(description) {

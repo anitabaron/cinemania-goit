@@ -1,0 +1,125 @@
+// Light
+body.light {
+  background-color: #ffffff;
+  color: #282828;
+  transition: background-color 0.25s ease-out;
+}
+
+//
+body.light {
+  .header__container {
+    background-color: #ffffff;
+  }
+
+  .hero__background h2,
+  .hero__background p {
+    color: #ffffff;
+  }
+
+  .herolib h2,
+  .herolib p {
+    color: #ffffff;
+  }
+
+  a {
+    color: #f87719;
+  }
+
+  p {
+    color: #282828;
+  }
+
+  h2 {
+    color: #282828;
+  }
+
+  .logo-text {
+    color: #000000;
+  }
+
+  .header__nav-link {
+    color: #595959;
+
+    &:hover,
+    &:focus {
+      color: #f87719;
+    }
+  }
+
+  .current__nav-link {
+    color: #f87719;
+  }
+
+  .catalog__form-input {
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--black);
+    border-radius: 8px;
+    padding: 12px 26px 12px 24px;
+    height: 48px;
+  }
+  .my-library__form-select {
+    background-color: var(--white);
+    color: var(--secondary-black-grey);
+    border: 1px solid var(--secondary-black-grey);
+    border-radius: 8px;
+    padding: 12px 60px 12px 20px;
+    width: 173px;
+    height: 40px;
+  }
+  .movielist__movie-title {
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .movielist__movie-genre {
+    color: var(--grey);
+  }
+  .btn__search_black {
+    background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
+    color: var(--background);
+    color: white;
+  }
+  .search.btn__search_black:hover,
+  .search.btn__search_black:active {
+    background-color: white;
+    background: none;
+    color: #f84119;
+    border: 1px solid #f84119;
+  }
+  .icon {
+    fill: none;
+    stroke: var(--white);
+  }
+  .search.btn__search_black:hover .icon path {
+    stroke: url(#myGradient);
+  }
+  .btn-modal {
+    color: var(--background);
+    border-color: var(--orange);
+  }
+  .btn-modal:hover {
+    color: var(--orange);
+    background-color: var(--background);
+    border: 1px solid;
+    border-color: var(--background);
+    cursor: pointer;
+  }
+
+  .modal-film {
+    background-color: var(--white);
+    box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  }
+
+  .modal-film__title {
+    color: var(--background);
+  }
+
+  .modal-film__blok {
+    color: var(--background);
+  }
+
+  .modal-film__about {
+    color: var(--background);
+  }
+}
