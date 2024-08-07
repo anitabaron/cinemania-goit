@@ -19,7 +19,6 @@ export function checkStorage() {
     document.querySelector('.my-lib__no-movies').classList.remove('is-hidden');
     document.querySelector('.my-lib__gallery-list').innerHTML = '';
   } else {
-    // document.querySelector('.my-library__form').classList.remove('is-hidden');  //dlaczego tak to nie zadziała?
     allCards = library.movies;
     const cardPerPage = 9;
     if (allCards.length <= cardPerPage) {
