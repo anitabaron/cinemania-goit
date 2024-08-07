@@ -9,52 +9,42 @@
 </div>
 
 <section class="library-section container">
-  <div class="library-content__section">
-    <div class="my-library__form" id="mylibraryForm">
-      <select
-        class="my-library__form-select"
-        name="catalogGenre"
-        id="catalogGenre"
-      >
-        <option value="">Genre</option>
-        <option value="romance">Romance</option>
-        <option value="detective">Detective</option>
-        <option value="thriller">Thriller</option>
-        <option value="action">Action</option>
-        <option value="documentary">Documentary</option>
-        <option value="horror">Horror</option>
-        <option value="comedy">Comedy</option>
-        <option value="drama">Drama</option>
-      </select>
-    </div>
-    <div class="mylib-gallery library-content gallery-hidden">
-      <ul
-        class="mylib-gallery__list catalog my-lib__gallery-list movielist__movie-card-list"
-        id="my-lib-gallery-list"
-      ></ul>
-      <button
-        class="btn btn__big btn__orange-gradient library__btn-load invisible"
-        id="mylibraryLoadMore"
-      >
-        Load more
-      </button>
-    </div>
+  <div class="my-library__form" id="mylibraryForm">
+    <select
+      class="my-library__form-select"
+      name="catalogGenre"
+      id="catalogGenre"
+    >
+      <option value="">Genre</option>
+      <option value="romance">Romance</option>
+      <option value="detective">Detective</option>
+      <option value="thriller">Thriller</option>
+      <option value="action">Action</option>
+      <option value="documentary">Documentary</option>
+      <option value="horror">Horror</option>
+      <option value="comedy">Comedy</option>
+      <option value="drama">Drama</option>
+    </select>
   </div>
+
+  <ul class="my-lib__gallery-list" id="my-lib-gallery-list"></ul>
+  <button
+    class="btn btn__big btn__orange-gradient library__btn-load is-hidden"
+    id="mylibraryLoadMore"
+  >
+    Load more
+  </button>
+
   <div class="my-lib__no-movies is-hidden">
-    <div div class="library-content error-lib" id="is-hidden">
-      <div class="library-content__wrap">
-        <p class="library-content__text">
-          OOPS... <br />
-          We are very sorry! <br />
-          You don't have any movies at your library.
-        </p>
-        <button
-          type="button"
-          class="catalog__search-link btn btn__big btn__orange-gradient"
-        >
-          <a class="catalog__search-link" href="./catalog.html">Search movie</a>
-        </button>
-      </div>
+    <div div class="error-lib" id="is-hidden">
+      <p class="library-content__text">
+        OOPS... <br />
+        We are very sorry! <br />
+        You don't have any movies at your library.
+      </p>
+      <button type="button" class="btn btn__big btn__orange-gradient">
+        <a class="catalog__search-link" href="./catalog.html">Search movie</a>
+      </button>
     </div>
   </div>
 </section>

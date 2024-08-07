@@ -64,7 +64,7 @@
   border-color: var(--background);
 }
 .btn__nav-page {
-  width:auto;
+  width: auto;
   height: auto;
   padding: 0 10px;
   font-size: 50px;
@@ -72,7 +72,6 @@
   background: transparent;
   color: var(--grey);
   border: none;
-  
 }
 
 .btn.btn__nav-page:hover,
@@ -162,12 +161,13 @@
 .search.btn__search_black:hover .icon path {
   stroke: url(#myGradient);
 }
-.hero-star{
+.hero-star {
   width: 16px;
   height: 16px;
   gap: 8px;
 }
-.card-star {
+.card-star,
+.star {
   width: 14px;
   height: 14px;
 }
@@ -185,12 +185,12 @@
     height: 40px;
     font-size: 14px;
   }
-  .hero-star{
+  .hero-star {
     width: 20px;
     height: 20px;
-    
   }
-  .card-star {
+  .card-star,
+  .star {
     width: 10px;
     height: 10px;
   }
@@ -216,20 +216,12 @@
     height: 48px;
     font-size: 16px;
   }
-  .btn__hero-1:hover,
-  .btn__hero-1:active,
-  .btn__hero-2:hover,
-  .btn__hero-2:active {
-    width: 139px;
-    height: 48px;
-    font-size: 16px;
-  }
-  .hero-star{
+  .hero-star {
     width: 24px;
     height: 24px;
-    
   }
-  .card-star {
+  .card-star,
+  .star {
     width: 18px;
     height: 18px;
   }

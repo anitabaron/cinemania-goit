@@ -1,21 +1,6 @@
-import { emptyStar, fullStar, halfStar } from './stars';
+import { emptyStar, fullStar, halfStar } from './api-html-fragment';
 
 const axios = require('axios').default;
-
-import APIService from './api-service';
-const apiService = new APIService();
-let genreList;
-
-getGenresList();
-
-async function getGenresList() {
-  try {
-    const response = await apiService.getGenresList();
-    return (genreList = response);
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 export default async function renderMoviesCards(movies, selector) {
   const movieList = document.querySelector(`${selector}`);
@@ -35,7 +20,7 @@ export default async function renderMoviesCards(movies, selector) {
     const starRating = await createStarRating(rating);
 
     markup += `<li id="${id}">
-              <div class="movielist-item movie-details" data-id="${id}"
+              <div class="movielist-item" data-id="${id}"
                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), 
                    url(${movieSrc});
                     background-repeat: no-repeat;
@@ -149,5 +134,3 @@ function getImg(poster, title) {
   } */
   return `https://image.tmdb.org/t/p/w780/${poster}`;
 }
-
-export { createStarRating };

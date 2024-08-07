@@ -69,7 +69,7 @@ export const heroFragment = (id, backdrop_path, title, stars, description) => {
             <p class="hero__text-2" id="hero_text">${description}</p>
             <div class="buttons" >
               <button class="btn__hero-1" data-id="${id}">Watch trailer</button>
-              <button class="btn__hero-2 movie-details" data-id="${id}">More details</button>
+              <button class="btn__hero-2" data-id="${id}">More details</button>
           </div>
           </div>
          </div>`;
@@ -89,7 +89,7 @@ export const topMoviesFragment = (
   }
 
   return `<li id="${id}">
-              <div class="movielist-item movie-details" data-id="${id}"
+              <div class="movielist-item" data-id="${id}"
                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), 
                    url(${path});
                     background-repeat: no-repeat;
