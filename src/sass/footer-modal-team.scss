@@ -1,20 +1,3 @@
-@mixin tel {
-  @media screen and (min-width: 320px) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media screen and (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media screen and (min-width: 1280px) {
-    @content;
-  }
-}
 .team__backdrop {
   position: fixed;
   top: 0;
