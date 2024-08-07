@@ -23,11 +23,16 @@ export function checkStorage() {
     const cardPerPage = 9;
     if (allCards.length <= cardPerPage) {
       renderMoviesCards(allCards, '.my-lib__gallery-list');
+      if (!document.querySelector('.my-library__form')) {
+        return;
+      }
+      document.querySelector('.my-library__form').classList.remove('is-hidden');
     } else if (!document.querySelector('#mylibraryLoadMore')) {
       return;
     } else if (allCards.length > cardPerPage) {
       const partOfCards = allCards.slice(0, step + 9);
       renderMoviesCards(partOfCards, '.my-lib__gallery-list');
+      document.querySelector('.my-library__form').classList.remove('is-hidden');
       btnLoad.classList.remove('is-hidden');
       step += 9;
     }
