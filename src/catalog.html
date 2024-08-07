@@ -24,7 +24,7 @@
               type="search"
               placeholder="Search"
             />
-           <button class="search btn__search_black" id="searchBtn">
+            <button class="search btn__search_black" id="searchBtn">
               <svg width="20" height="20">
                 <use href="./images/icons_desktop.svg#search_icon"></use>
               </svg>
@@ -44,5 +44,22 @@
     <include src="./partials/modal.html"></include>
     <include src="./partials/loader.html"></include>
     <include src="./partials/scroll-up.html"></include>
+
+    <script>
+      function onLoad() {
+        document.onreadystatechange = function () {
+          if (document.readyState === 'complete') {
+            document.querySelector('body').style.visibility = 'visible';
+            document.querySelector('#loader').classList.remove('show-loader');
+          } else {
+            setTimeout(function () {
+              document.querySelector('body').style.visibility = 'visible';
+              document.querySelector('#loader').classList.remove('show-loader');
+            }, 3000);
+          }
+        };
+      }
+      onLoad();
+    </script>
   </body>
 </html>

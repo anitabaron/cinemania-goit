@@ -20,5 +20,22 @@
     <include src="./partials/loader.html"></include>
     <include src="./partials/scroll-up.html"></include>
     <div class="modal-scroll"></div>
+
+    <script>
+      function onLoad() {
+        document.onreadystatechange = function () {
+          if (document.readyState === 'complete') {
+            document.querySelector('body').style.visibility = 'visible';
+            document.querySelector('#loader').classList.remove('show-loader');
+          } else {
+            setTimeout(function () {
+              document.querySelector('body').style.visibility = 'visible';
+              document.querySelector('#loader').classList.remove('show-loader');
+            }, 3000);
+          }
+        };
+      }
+      onLoad();
+    </script>
   </body>
 </html>
