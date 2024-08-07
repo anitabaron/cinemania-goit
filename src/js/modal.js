@@ -191,9 +191,6 @@ window.addEventListener('click', event => {
   if (event.target.classList.value.includes('movielist-item')) {
     onMovieCardClick(event.target);
   }
-  if (event.target.classList.value.includes('cards__list-img')) {
-    onMovieCardClick(event.target.parentElement);
-  }
   if (event.target.classList.value.includes('btn__hero-1')) {
     onMovieTrailerClick(event.target);
   }
