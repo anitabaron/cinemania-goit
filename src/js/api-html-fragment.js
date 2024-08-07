@@ -146,7 +146,7 @@ export const upcomingMovieFragment = (
 				</div>
 				<h4 class="upcoming-header-three">ABOUT</h4>
 				<p class="upcoming-p-three">${description}</p>
-			  <button class="btn btn__big btn__orange-gradient btn-space btn-modal" id="${id}">Add to my library</button>
+			  <button class="btn btn__big btn__orange-gradient btn-space btn-upcomming" id="${id}">Add to my library</button>
         </div>`;
 };
 
