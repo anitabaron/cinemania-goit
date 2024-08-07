@@ -96,6 +96,17 @@ body.light {
     fill: none;
     stroke: var(--white);
   }
+  .btn-upcomming {
+    color: var(--background);
+    border-color: var(--orange);
+  }
+  .btn-upcomming:hover {
+    color: var(--orange);
+    background-color: var(--background);
+    border: 1px solid;
+    border-color: var(--background);
+    cursor: pointer;
+  }
   .btn-modal {
     color: var(--background);
     border-color: var(--orange);
