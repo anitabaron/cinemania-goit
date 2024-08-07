@@ -5,14 +5,10 @@ import { checkStorage } from './my-library';
 
 const apiService = new APIService();
 
-const catalog = document.getElementById('catalg');
 const myLibGallery = document.getElementById('my-lib-gallery-list');
-const weeklyTrends = document.getElementById('catalogMovielist');
 const modalWindow = document.querySelector('.modal-film');
 const overlay = document.querySelector('.overlay');
 
-//addModalListener(catalog);
-//addModalListener(weeklyTrends);
 addModalListener(myLibGallery);
 
 function addModalListener(listRef) {
@@ -28,7 +24,7 @@ async function onMovieCardClick(e) {
   // }
 
   try {
-    const movieID = e.getAttribute('data-id');// const movieID = e.target.closest('.movie-details').getAttribute('data-id');
+    const movieID = e.getAttribute('data-id');
     const movieData = await apiService.getMovieInfo(movieID);
     const markup = createMarkup(movieData);
     updateModal(markup);
@@ -46,19 +42,15 @@ async function onMovieTrailerClick(e) {
   // if (!e.target.closest('.movie-details')) {
   //   return;
   // }
-
   try {
-    const movieID = e.getAttribute('data-id');// const movieID = e.target.closest('.movie-details').getAttribute('data-id');
-  
+    const movieID = e.getAttribute('data-id');
     const movieData = await apiService.getMovieTrailer(movieID);
-
     const videoUrl = `https://www.youtube.com/embed/${movieData.key}`;
- 
-    const markup = successModalTemplate(videoUrl)
+    const markup = successModalTemplate(videoUrl);
     updateModal(markup);
     openModal();
   } catch (error) {
-    errorModalTemplate()
+    errorModalTemplate();
     console.log(error);
   }
 }
@@ -109,15 +101,9 @@ function errorModalTemplate() {
 </div>`;
 }
 
-
-
-
 function openModal() {
-  /* const lockPaddingValue = window.innerWidth - document.body.offsetWidth + 'px'; */
-
   modalWindow.classList.remove('hidden');
   overlay.classList.remove('hidden');
-  /* document.body.style.paddingRight = lockPaddingValue; */
   document.body.style.overflow = 'hidden';
 }
 
@@ -187,7 +173,6 @@ function createMarkup({
 function closeModalWindows() {
   modalWindow.classList.add('hidden');
   overlay.classList.add('hidden');
-  /* document.body.style.paddingRight = '0px'; */
   document.body.style.overflow = 'auto';
   checkStorage();
 }
@@ -199,24 +184,14 @@ window.addEventListener('keydown', function (e) {
   }
 });
 
-
-
-window.addEventListener("click" , event=>{
-if(event.target.classList.value.includes("btn__hero-2")){
-  onMovieCardClick(event.target)
-}
-if(event.target.classList.value.includes("movielist-item movie-details")){
-  onMovieCardClick(event.target)
-}
-if(event.target.classList.value.includes("cards__list-img")){
-  onMovieCardClick(event.target.parentElement)
-}
-if(event.target.classList.value.includes("btn__hero-1")){
-  onMovieTrailerClick(event.target)
-}
-
-})
-
-
-
-
+window.addEventListener('click', event => {
+  if (event.target.classList.value.includes('btn__hero-2')) {
+    onMovieCardClick(event.target);
+  }
+  if (event.target.classList.value.includes('movielist-item')) {
+    onMovieCardClick(event.target);
+  }
+  if (event.target.classList.value.includes('btn__hero-1')) {
+    onMovieTrailerClick(event.target);
+  }
+});
