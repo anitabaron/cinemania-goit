@@ -280,16 +280,28 @@
   }
 }
 
+.library-content__text {
+  margin-bottom: 28px;
+}
+
 .error-lib {
   font-weight: 400;
-  font-size: 32px;
+  font-size: 20px;
   line-height: 1.125;
   text-align: center;
   color: var(--white);
+  display: flex;
+  justify-content: center;
 }
-
-.library-content__text {
-  margin-bottom: 28px;
+@media (min-width: 768px) {
+  .error-lib {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1280px) {
+  .error-lib {
+    font-size: 32px;
+  }
 }
 
 .library__btn-load {
