@@ -109,14 +109,24 @@
 
 .error-lib {
   font-weight: 400;
-  font-size: 32px;
+  font-size: 20px;
   line-height: 1.125;
   text-align: center;
   color: var(--white);
 }
-
+@media (min-width: 768px) {
+  .error-lib {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1280px) {
+  .error-lib {
+    font-size: 32px;
+  }
+}
 .library-content__text {
   margin-bottom: 28px;
+  line-height: 1.4;
 }
 
 .library__btn-load {

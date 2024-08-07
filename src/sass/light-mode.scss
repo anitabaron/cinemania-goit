@@ -21,9 +21,9 @@ body.light {
     color: #ffffff;
   }
 
-  a {
-    color: #f87719;
-  }
+  // a {
+  //   color: #f87719;
+  // }
 
   p {
     color: #282828;
@@ -75,12 +75,12 @@ body.light {
   .movielist__movie-genre {
     color: var(--grey);
   }
-.btn__search_black {
-  background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
-  color: var(--black);
-}
+  .btn__search_black {
+    background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
+    color: var(--black);
+  }
 
-.search.btn__search_black:hover,
+  .search.btn__search_black:hover,
   .search.btn__search_black:active {
     background-color: white;
     background: none;
@@ -88,14 +88,14 @@ body.light {
     border: 1px solid #f84119;
   }
 
-.search.btn__search_black:hover .icon path {
-  stroke: url(#myGradient);
-}
+  .search.btn__search_black:hover .icon path {
+    stroke: url(#myGradient);
+  }
 
-.icon {
-  fill: none;
-  stroke: var(--white);
-}
+  .icon {
+    fill: none;
+    stroke: var(--white);
+  }
   .btn-modal {
     color: var(--background);
     border-color: var(--orange);
@@ -140,25 +140,25 @@ body.light {
   }
   .modal-film__close-icon {
     fill: var(--secondary-black-grey);
-   }
-  
+  }
+
   .modal-film__close-icon:hover,
   .modal-film__close-icon:focus {
     fill: var(--orange);
   }
   .upcoming-header-two {
-   color: var(--background);
-   }
-  
+    color: var(--background);
+  }
+
   .upcoming-p-two {
     color: var(--orange);
   }
-  
+
   .upcoming-header-three {
     color: var(--background);
-    }
-    .upcoming-box {
-        background: var(--secondary-text-grey);
-        color: var(--background);
-      }
+  }
+  .upcoming-box {
+    background: var(--secondary-text-grey);
+    color: var(--background);
+  }
 }
