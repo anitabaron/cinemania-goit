@@ -122,6 +122,8 @@ function createMarkup({
   genres,
 }) {
   const getMoivePoster = getPoster(poster_path);
+  const roundedVoteAverage = Math.round(vote_average * 10) / 10;
+  const roundedVPopularity = parseInt(popularity);
   function getPoster(poster_path) {
     /* if (poster_path === null || !poster_path) {
       return `src='${comingSoonImg}'`;
@@ -154,11 +156,11 @@ function createMarkup({
 
       <ul class="modal-film__list">
         <li class="modal-film__link-item item-votes">
-          <div class="vote">${vote_average}</div>
+          <div class="vote">${roundedVoteAverage}</div>
           &nbsp;/&nbsp;
           <div class="votes">${vote_count}</div>
         </li>
-        <li class="modal-film__link-item popularity">${popularity}</li>
+        <li class="modal-film__link-item popularity">${roundedVPopularity}</li>
         <li class="modal-film__link-item genres">${genres
           .map(g => g.name)
           .join(', ')}</li>
