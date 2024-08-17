@@ -1,11 +1,14 @@
 import { emptyStar, fullStar, halfStar } from './api-html-fragment';
 
 const axios = require('axios').default;
-
+// Funkcja do renderowania kart filmów. Przyjmuje tablicę obiektów z filmami (movies) i element HTMLowy do którego chcemy zrenderować nasze karty (selector).
 export default async function renderMoviesCards(movies, selector) {
+  // W zmiennej zapisujemy element HTMLowy do którego chcemy renderować karty.
   const movieList = document.querySelector(`${selector}`);
   let markup = '';
+  // Pętla przechodzi przez każdy film (obiekt z tablicy).
   for (const movie of movies) {
+    // Każdy film (obiekt) destrukturyzujemy.
     const {
       id,
       backdrop_path: poster,
@@ -13,12 +16,15 @@ export default async function renderMoviesCards(movies, selector) {
       release_date: date,
       vote_average: rating,
     } = movie;
-
+    // Funkcja zwraca ścieżkę do postera od API.
     const movieSrc = await getImg(poster, title);
+    // Funkcja zwraca maksymalnie 2 generes filmu.
     const movieGenre = await getGenre(id);
+    // Funkcja zwraca rok produkcji
     const movieYear = await getYear(date);
+    // Funkcja generuję gwiazdki.
     const starRating = await createStarRating(rating);
-
+    // To co wyżej wygenerowaliśmy teraz możemy wklepać w nasze karty za pomocą HTML.
     markup += `<li id="${id}">
               <div class="movielist-item" data-id="${id}"
                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), 
@@ -45,11 +51,10 @@ async function getYear(data) {
   if (!data) {
     return 'There is no release date';
   }
-
   const year = await data.slice(0, 4);
   return year;
 }
-
+// Funkcja zwraca maksymalnie 2 generes danego filmu. Nie jest tu zintegrowany api-service.js ale zdecydowanie by zwiększył czytelność. Do poprawki!
 async function getGenre(movieId) {
   const API_KEY = '682127ed972e56f6bb70ae743d23c1d7';
   const URL = 'https://api.themoviedb.org/3/movie/';
@@ -76,7 +81,7 @@ async function getGenre(movieId) {
     return 'There are no genres';
   }
 }
-
+// Funkcja tworzy gwiazdki
 function createStarRating(data) {
   let ratingStars = '';
 
