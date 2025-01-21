@@ -16,16 +16,21 @@ Cinemania is a group project developed during the Fullstack Developer course at 
 
 - **Responsive Design:**
   - Optimized for various devices for an excellent user experience.
+ 
+- **Dynamic Movie Data:**
+  - Integration with TheMovieDB API enables the app to fetch real-time data on trending movies, cast, reviews, and plot details.
+  - Provides up-to-date movie information seamlessly displayed within the app.
 
 ---
 
 ## 🛠️ Technologies Used
 
-| Frontend                    | Backend        | Tools         |
-|-----------------------------|----------------|---------------|
-| HTML5, CSS3                 | Node.js        | Git, GitHub   |
-| JavaScript (ES6+)           | Express.js     | Figma         |
-| Axios for API request       | TheMovieDB API | Trello        
+| Frontend                     | Tools         |
+|------------------------------|---------------|
+| HTML5, CSS3                  | Git, GitHub   |
+| JavaScript (ES6+)            | Vite          |
+| Axios for API request        | Figma         |  
+| Responsive design principles | Trello        |  
 
 ---
 
